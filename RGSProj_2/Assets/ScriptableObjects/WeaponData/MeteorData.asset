@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a6e643b6fcd8d47805c49b290ac727, type: 3}
+  m_Name: MeteorData
+  m_EditorClassIdentifier: 
+  itemName: "\uBA54\uD14C\uC624"
+  itemDescription:
+  - "\uD558\uB298\uC5D0\uC11C \uB5A8\uC5B4\uC9C0\uB294 \uC6B4\uC11D\uC744 \uC0DD\uC131\uD569\uB2C8\uB2E4"
+  - "\uC6B4\uC11D\uC758 \uAC1C\uC218\uB97C 1 \uC99D\uAC00\uD569\uB2C8\uB2E4"
+  - "\uC6B4\uC11D\uC758 \uCFE8\uD0C0\uC784\uC774 \uAC10\uC18C\uD569\uB2C8\uB2E4"
+  - "\uC6B4\uC11D\uC758 \uACF5\uACA9\uB825\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4"
+  - __Meteor
+  itemIcon: {fileID: 0}
+  levelDatas:
+  - itemName: "\uCDA9\uACA9\uD30C"
+    itemDescription: "\uD654\uBA74\uC0C1\uC758 \uBAA8\uB4E0 \uC801\uC5D0\uAC8C \uCD94\uAC00
+      \uB370\uBBF8\uC9C0\uB97C \uBD80\uC5EC\uD569\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  - itemName: "\uB4DC\uB86D\uD0A5"
+    itemDescription: "\uC6B4\uC11D\uC774 \uB9DE\uC740 \uC801\uC5D0\uAC8C \uAE30\uC808
+      \uD6A8\uACFC\uB97C \uBD80\uC5EC\uD569\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  - itemName: "\uB300\uBA78\uC885"
+    itemDescription: "\uBC94\uC704 \uC548\uC758 \uC801\uC5D0\uAC8C \uCCB4\uB825 \uBE44\uB840
+      \uB370\uBBF8\uC9C0\uB97C \uBD80\uC5EC\uD569\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  coolTimeByLevel:
+  - 5
+  - 5
+  - 3
+  - 3
+  - 3
+  meteorNumByLevel: 0100000002000000020000000200000002000000
+  explosionRadiusByLevel:
+  - 2.25
+  - 2.25
+  - 2.25
+  - 2.25
+  - 2.25
+  attackInfoByLevel:
+  - damage: 20
+    knockbackPower: 5
+  - damage: 20
+    knockbackPower: 5
+  - damage: 20
+    knockbackPower: 5
+  - damage: 40
+    knockbackPower: 5
+  - damage: 40
+    knockbackPower: 5

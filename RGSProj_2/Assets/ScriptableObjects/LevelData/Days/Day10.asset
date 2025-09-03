@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1acc5ec986cac034f9690783588b6128, type: 3}
+  m_Name: Day10
+  m_EditorClassIdentifier: 
+  spawnDatas:
+  - enemyToSpawn:
+    - enemySpawnData: {fileID: 11400000, guid: 8d4572691b1b5b74091d65c4edc8d9c2, type: 2}
+      percent: 0.75
+    - enemySpawnData: {fileID: 11400000, guid: e87c993a24f13644e971b9407d00d7f9, type: 2}
+      percent: 0.25
+    waveLength: 50
+    timeBetweenSpawn: 0.5
+  - enemyToSpawn:
+    - enemySpawnData: {fileID: 11400000, guid: e87c993a24f13644e971b9407d00d7f9, type: 2}
+      percent: 0.2
+    - enemySpawnData: {fileID: 11400000, guid: 65e69d9f11635d843be87a01564a7bcd, type: 2}
+      percent: 0.2
+    - enemySpawnData: {fileID: 11400000, guid: ca60166f08b34ea469c81c109a0eac8f, type: 2}
+      percent: 0.25
+    - enemySpawnData: {fileID: 11400000, guid: 66de3bb7ae63ed24091b21c4739ec5c7, type: 2}
+      percent: 0.05
+    - enemySpawnData: {fileID: 11400000, guid: b9654999ea4dc5946ad814027370ddee, type: 2}
+      percent: 0.05
+    - enemySpawnData: {fileID: 11400000, guid: 054ad2fca069fdd4db42753441aa0811, type: 2}
+      percent: 0.05
+    - enemySpawnData: {fileID: 11400000, guid: 16ac0ae461abf1a478800911c3746dab, type: 2}
+      percent: 0.1
+    - enemySpawnData: {fileID: 11400000, guid: 09d9c929acbe0a745b943b549d0770fc, type: 2}
+      percent: 0.1
+    waveLength: 100
+    timeBetweenSpawn: 0.4
+  - enemyToSpawn:
+    - enemySpawnData: {fileID: 11400000, guid: 39ee8d0ed411d734c859e5d7d8adb005, type: 2}
+      percent: 0.75
+    - enemySpawnData: {fileID: 11400000, guid: 48b6c35ac5db2cb4f9d3334257e97a5a, type: 2}
+      percent: 0.2
+    - enemySpawnData: {fileID: 11400000, guid: 8d35ac7e6b051ac4c8fb7ec07a9a60f9, type: 2}
+      percent: 0.05
+    waveLength: 60
+    timeBetweenSpawn: 1

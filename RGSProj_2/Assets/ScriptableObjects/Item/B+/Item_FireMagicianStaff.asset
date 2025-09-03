@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3731de81f7589641902a9235741596c, type: 3}
+  m_Name: Item_FireMagicianStaff
+  m_EditorClassIdentifier: 
+  itemName: "\uD654\uC5FC\uB9C8\uBC95\uC0AC\uC758 \uC9C0\uD321\uC774"
+  itemDescription: "\uD654\uC5FC\uB9C8\uBC95\uC5D0 \uAC15\uD558\uAC8C \uBC18\uC751\uD558\uB294
+    \uC2EC\uC9C0\uB85C \uB9CC\uB4E4\uC5B4\uC9C4 \uC9C0\uD321\uC774\uC785\uB2C8\uB2E4."
+  itemAbility: "\uB9C8\uBC95\uACF5\uACA9\uB825\uC774 20% \uC99D\uD3ED\uB429\uB2C8\uB2E4\n\uD654\uC5FC
+    \uD0C0\uC785 \uC2A4\uD0AC\uC758 \uACF5\uACA9\uB825\uC774 15% \uC99D\uD3ED\uB429\uB2C8\uB2E4"
+  synergeString: 

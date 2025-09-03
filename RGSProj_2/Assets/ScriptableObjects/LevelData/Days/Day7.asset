@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1acc5ec986cac034f9690783588b6128, type: 3}
+  m_Name: Day7
+  m_EditorClassIdentifier: 
+  spawnDatas:
+  - enemyToSpawn:
+    - enemySpawnData: {fileID: 11400000, guid: 16ac0ae461abf1a478800911c3746dab, type: 2}
+      percent: 0.65
+    - enemySpawnData: {fileID: 11400000, guid: 79e192db8bb2afb498f6c317d4add080, type: 2}
+      percent: 0.35
+    waveLength: 30
+    timeBetweenSpawn: 0.4
+  - enemyToSpawn:
+    - enemySpawnData: {fileID: 11400000, guid: f641a73b8b81a7648a47a9d2bc30022f, type: 2}
+      percent: 0.55
+    - enemySpawnData: {fileID: 11400000, guid: 09d9c929acbe0a745b943b549d0770fc, type: 2}
+      percent: 0.3
+    - enemySpawnData: {fileID: 11400000, guid: 65e69d9f11635d843be87a01564a7bcd, type: 2}
+      percent: 0.15
+    waveLength: 60
+    timeBetweenSpawn: 0.4
+  - enemyToSpawn:
+    - enemySpawnData: {fileID: 11400000, guid: f641a73b8b81a7648a47a9d2bc30022f, type: 2}
+      percent: 0.25
+    - enemySpawnData: {fileID: 11400000, guid: 09d9c929acbe0a745b943b549d0770fc, type: 2}
+      percent: 0.08
+    - enemySpawnData: {fileID: 11400000, guid: 65e69d9f11635d843be87a01564a7bcd, type: 2}
+      percent: 0.25
+    - enemySpawnData: {fileID: 11400000, guid: 16ac0ae461abf1a478800911c3746dab, type: 2}
+      percent: 0.2
+    - enemySpawnData: {fileID: 11400000, guid: 719127188cb472746aba2a4966c9d21f, type: 2}
+      percent: 0.02
+    - enemySpawnData: {fileID: 11400000, guid: 79e192db8bb2afb498f6c317d4add080, type: 2}
+      percent: 0.2
+    waveLength: 70
+    timeBetweenSpawn: 0.6

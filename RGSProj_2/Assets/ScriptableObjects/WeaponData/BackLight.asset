@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2977acec2cedef74dbdbbf5ffcbf4f3d, type: 3}
+  m_Name: BackLight
+  m_EditorClassIdentifier: 
+  itemName: "\uD6C4\uAD11"
+  itemDescription:
+  - "\uC77C\uC815 \uC2DC\uAC04 \uB3D9\uC548 \uC790\uC2E0\uC758 \uACF5\uACA9\uB825\uC744
+    \uAC15\uD654\uD558\uB294 \uBE5B\uC758 \uB9C8\uBC95\uC9C4\uC744 \uC0DD\uC131\uD569\uB2C8\uB2E4."
+  - "\uB9C8\uBC95\uC9C4\uC758 \uCFE8\uD0C0\uC784\uC774 \uAC10\uC18C\uD569\uB2C8\uB2E4."
+  - "\uB9C8\uBC95\uC9C4\uC758 \uC9C0\uC18D \uC2DC\uAC04\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+  - "\uB9C8\uBC95\uC9C4\uC758 \uACF5\uACA9\uB825 \uAC15\uD654 \uD6A8\uACFC\uAC00
+    \uC99D\uAC00\uD569\uB2C8\uB2E4."
+  - "\uB9C8\uBC95\uC9C4\uC758 \uD2B9\uC131\uC744 \uAC1C\uBC29\uD558\uC138\uC694"
+  itemIcon: {fileID: 0}
+  levelDatas:
+  - itemName: "\uB454\uD654\uC9C0\uB300"
+    itemDescription: "\uD6C4\uAD11\uC5D0 \uB2FF\uC740 \uC801\uC774 \uD06C\uAC8C \uB454\uD654\uB429\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  - itemName: "\uD761\uC218"
+    itemDescription: "\uB9C8\uBC95\uC9C4\uC774 \uC791\uC6A9\uD560 \uB54C \uC801\uC744
+      \uCC98\uCE58\uD55C \uB9CC\uD07C \uCFE8\uD0C0\uC784\uC774 \uAC10\uC18C\uD569\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  - itemName: "\uC57D\uC810\uBD84\uC11D"
+    itemDescription: "\uB9C8\uBC95\uC9C4\uC774 \uC791\uC6A9\uD558\uB294 \uB3D9\uC548
+      \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 3\uBC30 \uC99D\uAC00\uD569\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  damageMultiplier:
+  - 1.1
+  - 1.1
+  - 1.1
+  - 1.35
+  - 1.35
+  coolTimeByLevel:
+  - 25
+  - 21
+  - 21
+  - 21
+  - 21
+  durationByLevel:
+  - 4
+  - 4
+  - 5.5
+  - 5.5
+  - 5.5

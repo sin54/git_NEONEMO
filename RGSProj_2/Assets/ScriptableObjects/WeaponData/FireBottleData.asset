@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ace1ed972952e945b6495619bc78dd3, type: 3}
+  m_Name: FireBottleData
+  m_EditorClassIdentifier: 
+  itemName: "\uD654\uC5FC\uBCD1"
+  itemDescription:
+  - "\uBC94\uC704 \uC548\uC758 \uC801\uC744 \uD0DC\uC6B0\uB294 \uD654\uC5FC\uBCD1\uC744
+    \uB358\uC9D1\uB2C8\uB2E4"
+  - "\uD654\uC5FC\uBCD1\uC774 \uC8FC\uB294 \uD53C\uD574\uB7C9\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4"
+  - "\uD654\uC5FC\uBCD1\uC758 \uBC94\uC704\uC640 \uC9C0\uC18D \uC2DC\uAC04\uC774
+    \uC99D\uAC00\uD569\uB2C8\uB2E4"
+  - "\uD654\uC5FC\uBCD1\uC758 \uD53C\uD574\uB7C9\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4.
+    \uD654\uC5FC\uBCD1\uC758 \uAC1C\uC218\uAC00 \uB298\uC5B4\uB0A9\uB2C8\uB2E4."
+  - "\uD654\uC5FC\uBCD1\uC758 \uD2B9\uC131\uC744 \uAC1C\uBC29\uD558\uC138\uC694"
+  itemIcon: {fileID: 0}
+  levelDatas:
+  - itemName: "\uB9CC\uC720\uC778\uB825"
+    itemDescription: "\uC801\uC744 \uD654\uC5FC \uC9C0\uB300 \uC911\uC2EC\uBD80\uB85C
+      \uB04C\uC5B4\uB4E4\uC785\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  - itemName: "\uD654\uC5FC\uD3ED\uD48D"
+    itemDescription: "\uD654\uC5FC \uC9C0\uB300\uAC00 \uC810\uC810 \uCEE4\uC9D1\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  - itemName: "\uC774\uD004\uB77C\uC774\uC800"
+    itemDescription: "\uD654\uC5FC \uC9C0\uB300\uB97C \uC77C\uC9C1\uC120\uC73C\uB85C
+      \uC124\uCE58\uD569\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  numOfIncen: 0100000001000000010000000200000002000000
+  attackDamage:
+  - 1
+  - 2
+  - 2
+  - 3
+  - 3
+  attackCool:
+  - 20
+  - 20
+  - 20
+  - 20
+  - 20
+  incenRadius:
+  - 0.4
+  - 0.4
+  - 0.55
+  - 0.55
+  - 0.55
+  incenDuration:
+  - 6
+  - 6
+  - 7
+  - 7
+  - 7

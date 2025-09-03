@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1acc5ec986cac034f9690783588b6128, type: 3}
+  m_Name: Day9
+  m_EditorClassIdentifier: 
+  spawnDatas:
+  - enemyToSpawn:
+    - enemySpawnData: {fileID: 11400000, guid: 16ac0ae461abf1a478800911c3746dab, type: 2}
+      percent: 0.5
+    - enemySpawnData: {fileID: 11400000, guid: 79e192db8bb2afb498f6c317d4add080, type: 2}
+      percent: 0.5
+    waveLength: 30
+    timeBetweenSpawn: 0.15
+  - enemyToSpawn:
+    - enemySpawnData: {fileID: 11400000, guid: 16ac0ae461abf1a478800911c3746dab, type: 2}
+      percent: 0.5
+    - enemySpawnData: {fileID: 11400000, guid: 79e192db8bb2afb498f6c317d4add080, type: 2}
+      percent: 0.5
+    waveLength: 30
+    timeBetweenSpawn: 0.15
+  - enemyToSpawn:
+    - enemySpawnData: {fileID: 11400000, guid: 054ad2fca069fdd4db42753441aa0811, type: 2}
+      percent: 0.75
+    - enemySpawnData: {fileID: 11400000, guid: b9654999ea4dc5946ad814027370ddee, type: 2}
+      percent: 0.25
+    waveLength: 50
+    timeBetweenSpawn: 0.7
