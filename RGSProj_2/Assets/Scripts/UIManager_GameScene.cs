@@ -77,11 +77,7 @@ public class UIManager_GameScene : MonoBehaviour
                 invenPanel.SetActive(true);
                 
                 //test
-                InventoryController.instance.AddItem("Saved", "흰 연기", 1);
-                InventoryController.instance.AddItem("Saved", "안개 병", 1);
-                InventoryController.instance.AddItem("Saved", "연막탄", 1);
-                InventoryController.instance.AddItem("Saved", "스모크 머신", 1);
-                InventoryController.instance.AddItem("Saved", "카타나", 1);
+                InventoryController.instance.AddItem("Saved", "온기를 머금은 단검", 9);
             }
         }
         if (GameManager.instance.player.isPlayerDeath)
