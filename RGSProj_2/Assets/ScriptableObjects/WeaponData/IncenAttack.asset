@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16506f07d3df7b944986cc096c2c58dd, type: 3}
+  m_Name: IncenAttack
+  m_EditorClassIdentifier: 
+  itemName: "\uBB3C\uB9AC\uC9C0\uB300"
+  itemDescription:
+  - "\uBC94\uC704 \uACF5\uACA9\uC744 \uD558\uB294 \uBB3C\uB9AC \uC9C0\uB300\uB97C
+    \uC0DD\uC131\uD569\uB2C8\uB2E4"
+  - "\uBB3C\uB9AC \uC9C0\uB300\uC758 \uAC1C\uC218\uAC00 2 \uC99D\uAC00\uD569\uB2C8\uB2E4"
+  - "\uBB3C\uB9AC \uC9C0\uB300\uC758 \uBC94\uC704\uAC00 \uC99D\uAC00\uD569\uB2C8\uB2E4.
+    \uBB3C\uB9AC \uC9C0\uB300\uC758 \uC9C0\uC18D \uC2DC\uAC04\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4. "
+  - "\uBB3C\uB9AC \uC9C0\uB300\uC758 \uD53C\uD574\uB7C9\uC774 \uB298\uC5B4\uB0A9\uB2C8\uB2E4."
+  - Incen__
+  itemIcon: {fileID: 0}
+  levelDatas:
+  - itemName: "\uC218\uB958\uD0C4"
+    itemDescription: "\uB2E8\uC77C \uD0C0\uACA9\uC73C\uB85C \uBC14\uB00C\uC9C0\uB9CC,
+      \uD53C\uD574\uB7C9\uACFC \uBC94\uC704\uAC00 \uBE44\uC57D\uC801\uC73C\uB85C
+      \uC0C1\uC2B9\uD569\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  - itemName: "\uD53C\uB85C\uC81C"
+    itemDescription: "\uACF5\uACA9 \uBC94\uC704 \uB0B4\uC758 \uC801 \uC774\uB3D9
+      \uC18D\uB3C4\uAC00 \uAC10\uC18C\uD569\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  - itemName: "\uBB34\uC790\uBE44"
+    itemDescription: "\uD53C\uD574\uB7C9\uACFC \uBC94\uC704\uAC00 \uC904\uC5B4\uB4E4\uC9C0\uB9CC,
+      \uAC1C\uC218\uAC00 5\uAC1C \uC99D\uAC00\uD569\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  numOfIncen: 0100000004000000040000000400000004000000
+  attackDamage:
+  - 3
+  - 3
+  - 3
+  - 6
+  - 6
+  attackCool:
+  - 6
+  - 6
+  - 6
+  - 6
+  - 6
+  incenRadius:
+  - 1
+  - 1
+  - 1.3
+  - 1.3
+  - 1.3
+  incenDuration:
+  - 3
+  - 3
+  - 5
+  - 5
+  - 5
+  attackRadius: 2.7

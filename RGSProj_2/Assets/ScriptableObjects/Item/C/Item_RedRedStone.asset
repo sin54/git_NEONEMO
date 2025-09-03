@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a29880d29c25944581b49387df5eddc, type: 3}
+  m_Name: Item_RedRedStone
+  m_EditorClassIdentifier: 
+  itemName: "\uBD89\uC740 \uBE5B\uC774 \uB098\uB294 \uB3CC"
+  itemDescription: "\uC740\uC740\uD574\uC11C \uBB34\uB4DC\uB4F1\uC73C\uB85C \uC4F8
+    \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  itemAbility: "\uD654\uC5FC\uC18D\uC131 \uC2A4\uD0AC\uC758 \uCFE8\uD0C0\uC784\uC774
+    5% \uAC10\uD3ED\uB429\uB2C8\uB2E4\n\uCD5C\uB300\uCCB4\uB825\uC774 10 \uC99D\uAC00\uD569\uB2C8\uB2E4"
+  synergeString: 

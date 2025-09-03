@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac2bafcfda9a30489becd53348ab280, type: 3}
+  m_Name: BowAttack
+  m_EditorClassIdentifier: 
+  itemName: "\uB9C8\uBC95\uD654\uC0B4"
+  itemDescription:
+  - "\uC801\uC744 \uAD00\uD1B5\uD558\uB294 \uB9C8\uB825 \uD654\uC0B4\uC744 \uAC00\uC7A5
+    \uAC00\uAE4C\uC6B4 \uC801\uC5D0\uAC8C \uBC1C\uC0AC\uD569\uB2C8\uB2E4."
+  - "\uD654\uC0B4\uC758 \uC18D\uB3C4\uAC00 \uC99D\uAC00\uD569\uB2C8\uB2E4. \uAD00\uD1B5
+    \uAC1C\uC218\uAC00 1 \uB298\uC5B4\uB0A9\uB2C8\uB2E4."
+  - "\uD654\uC0B4\uC758 \uB370\uBBF8\uC9C0\uAC00 5 \uC99D\uAC00\uD569\uB2C8\uB2E4.
+    \uAD00\uD1B5 \uAC1C\uC218\uAC00 1 \uB298\uC5B4\uB0A9\uB2C8\uB2E4."
+  - "\uD654\uC0B4\uC758 \uCFE8\uD0C0\uC784\uC774 \uAC10\uC18C\uD569\uB2C8\uB2E4.
+    \uAD00\uD1B5 \uAC1C\uC218\uAC00 1 \uB298\uC5B4\uB0A9\uB2C8\uB2E4."
+  - "\uD654\uC0B4\uC758 \uD2B9\uC131\uC744 \uAC1C\uBC29\uD558\uC138\uC694"
+  itemIcon: {fileID: 0}
+  levelDatas:
+  - itemName: "\uB9F9\uC778"
+    itemDescription: "\uB9C8\uB825 \uD654\uC0B4\uC758 \uAC1C\uC218\uAC00 3\uAC1C
+      \uC99D\uAC00\uD558\uC9C0\uB9CC, \uBB34\uC791\uC704 \uBC29\uD5A5\uC73C\uB85C
+      \uBC1C\uC0AC\uB429\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  - itemName: "\uC808\uC815"
+    itemDescription: "\uB9C8\uB825 \uD654\uC0B4\uC774 \uC801\uC744 \uAD00\uD1B5\uD560
+      \uB54C\uB9C8\uB2E4 \uD53C\uD574\uB7C9\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  - itemName: "\uBB34\uC5B8\uC601\uCC3D"
+    itemDescription: "\uBC1C\uC0AC \uCFE8\uD0C0\uC784\uC774 \uBE44\uC57D\uC801\uC73C\uB85C
+      \uAC10\uC18C\uD569\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  arrowSpeedByLevel:
+  - 6
+  - 8
+  - 8
+  - 8
+  - 8
+  arrowLifeTime: 15
+  attackInfoByLevel:
+  - damage: 15
+    knockbackPower: 2
+  - damage: 15
+    knockbackPower: 2
+  - damage: 20
+    knockbackPower: 2.5
+  - damage: 20
+    knockbackPower: 2.5
+  - damage: 20
+    knockbackPower: 3
+  maxPenetrationLimit: 0200000003000000040000000500000005000000
+  coolTimeByLevel:
+  - 2
+  - 2
+  - 2
+  - 1.5
+  - 1.5

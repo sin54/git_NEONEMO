@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c876ebb57a1c78342bbb34960bdf70eb, type: 3}
+  m_Name: Radar
+  m_EditorClassIdentifier: 
+  itemName: "\uB808\uC774\uB354"
+  itemDescription:
+  - "\uC8FC\uBCC0\uC758 \uB454\uD654\uC5D0 \uAC78\uB9B0 \uC801\uC744 \uACF5\uACA9\uD558\uB294
+    \uCC3D\uC744 \uBC1C\uC0AC\uD569\uB2C8\uB2E4"
+  - "\uCC3D\uC758 \uCFE8\uD0C0\uC784\uC774 \uAC10\uC18C\uD569\uB2C8\uB2E4. \uCD5C\uB300
+    \uCC3D\uC758 \uAC1C\uC218\uAC00 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+  - "\uCC3D\uC758 \uACF5\uACA9\uB825\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4. \uCD5C\uB300
+    \uCC3D\uC758 \uAC1C\uC218\uAC00 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+  - "\uD55C \uC801\uC5D0\uAC8C \uAF43\uD788\uB294 \uCC3D\uC758 \uAC1C\uC218\uAC00
+    \uC99D\uAC00\uD569\uB2C8\uB2E4. \uCD5C\uB300 \uCC3D\uC758 \uAC1C\uC218\uAC00
+    \uC99D\uAC00\uD569\uB2C8\uB2E4."
+  - "\uB808\uC774\uB354\uC758 \uD2B9\uC131\uC744 \uAC1C\uBC29\uD558\uC138\uC694"
+  itemIcon: {fileID: 0}
+  levelDatas:
+  - itemName: "\uB3C4\uD50C\uB7EC \uD6A8\uACFC"
+    itemDescription: "\uD0C0\uC218\uC5D0 \uBE44\uB840\uD55C \uCD94\uAC00 \uB370\uBBF8\uC9C0\uB97C
+      \uC785\uD78C\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  - itemName: "\uC804\uC1A1 \uC190\uC2E4"
+    itemDescription: "\uC774 \uACF5\uACA9\uC73C\uB85C \uC778\uD574 \uC801\uC774 \uC8FD\uB294\uB2E4\uBA74,
+      hp\uB97C \uC18C\uB7C9 \uD68C\uBCF5\uD569\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  - itemName: "\uD68C\uD53C\uAE30\uB3D9"
+    itemDescription: "\uB808\uC774\uB354\uB97C \uC3D8\uB294 \uB3D9\uC548 \uBB34\uC801\uC774
+      \uB429\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  maxTargetByLevel: 0a0000000f000000140000001900000019000000
+  coolTimeByLevel:
+  - 5
+  - 3
+  - 3
+  - 3
+  - 3
+  damageByLevel:
+  - damage: 5
+    knockbackPower: 2
+  - damage: 5
+    knockbackPower: 0
+  - damage: 8
+    knockbackPower: 0
+  - damage: 8
+    knockbackPower: 0
+  - damage: 8
+    knockbackPower: 0
+  raderRadiusByLevel:
+  - 3.5
+  - 3.5
+  - 3.5
+  - 3.5
+  - 3.5
+  divideValueByLevel:
+  - 0.25
+  - 0.25
+  - 0.25
+  - 0.15
+  - 0.15

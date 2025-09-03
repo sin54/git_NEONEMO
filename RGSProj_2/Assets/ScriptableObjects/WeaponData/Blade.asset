@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bac0cd783790994d8ff02e79fe0843e, type: 3}
+  m_Name: Blade
+  m_EditorClassIdentifier: 
+  itemName: "\uBE14\uB808\uC774\uB4DC"
+  itemDescription:
+  - "\uD50C\uB808\uC774\uC5B4 \uC8FC\uC704\uB97C \uD68C\uC804\uD558\uB294 \uB808\uC774\uB4DC\uB97C
+    \uC0DD\uC131\uD569\uB2C8\uB2E4"
+  - "\uBE14\uB808\uC774\uB4DC\uC758 \uAC1C\uC218\uAC00 1 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+  - "\uBE14\uB808\uC774\uB4DC\uC758 \uAC1C\uC218\uAC00 2 \uC99D\uAC00\uD569\uB2C8\uB2E4.
+    \uBE14\uB808\uC774\uB4DC\uC758 \uD68C\uC804\uC18D\uB3C4\uAC00 \uC0C1\uC2B9\uD569\uB2C8\uB2E4."
+  - "\uBE14\uB808\uC774\uB4DC\uC758 \uAC1C\uC218\uAC00 1 \uC99D\uAC00\uD569\uB2C8\uB2E4.
+    \uBE14\uB808\uC774\uB4DC\uC758 \uB370\uBBF8\uC9C0\uAC00 3 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+  - "\uBE14\uB808\uC774\uB4DC\uC758 \uD2B9\uC131\uC744 \uAC1C\uBC29\uD558\uC138\uC694"
+  itemIcon: {fileID: 0}
+  levelDatas:
+  - itemName: "\uAC00\uC18D"
+    itemDescription: "\uD68C\uC804 \uC18D\uB3C4\uAC00 \uBE44\uC57D\uC801\uC73C\uB85C
+      \uC99D\uAC00\uD569\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  - itemName: "\uC2E4\uCCB4\uD654"
+    itemDescription: "\uAD6C\uCCB4\uAC00 \uC801\uC744 \uB109\uBC31\uC2DC\uD0B5\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  - itemName: "\uC8FC\uD53C\uD130"
+    itemDescription: "\uD68C\uC804 \uBC94\uC704\uAC00 \uC99D\uAC00\uD558\uACE0 \uAD6C\uCCB4
+      \uAC1C\uC218\uAC00 3\uAC1C \uC99D\uAC00\uD569\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  attackInfoByLevel:
+  - damage: 8
+    knockbackPower: 0
+  - damage: 8
+    knockbackPower: 0
+  - damage: 8
+    knockbackPower: 0
+  - damage: 12
+    knockbackPower: 0
+  - damage: 12
+    knockbackPower: 0
+  countByLevel: 0100000002000000040000000500000005000000
+  rotateSpeedByLevel:
+  - 100
+  - 100
+  - 135
+  - 135
+  - 135

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 658cec259648d1c4a9dce0cc9ac0efb8, type: 3}
+  m_Name: Item_SmokeMachine
+  m_EditorClassIdentifier: 
+  itemName: "\uC2A4\uBAA8\uD06C \uBA38\uC2E0"
+  itemDescription: "\uC5F0\uAE30\uAC00 \uD391\uD391!"
+  itemAbility: "\uD68C\uD53C\uC728\uC774 30% \uC99D\uD3ED\uB429\uB2C8\uB2E4\n\uCE58\uBA85\uD0C0\uC728\uC774
+    15% \uC99D\uAC00\uD569\uB2C8\uB2E4\n\uCE58\uBA85\uD0C0 \uD53C\uD574\uAC00 30%
+    \uC99D\uD3ED\uB429\uB2C8\uB2E4\n"
+  synergeString: "\uADFC\uC811 \uD0DC\uADF8\uB97C \uAC00\uC9C4 \uC140\uC774 \uC788\uB2E4\uBA74,
+    \uCE58\uBA85\uD0C0\uC728\uC774 15% \uC99D\uAC00\uD558\uACE0, \uCE58\uBA85\uD0C0
+    \uD53C\uD574\uAC00 15% \uC99D\uD3ED\uB429\uB2C8\uB2E4\n\n\uC774 \uC140\uC774
+    8\uBC88 \uC2AC\uB86F\uC5D0 \uC788\uC744 \uB54C, \uC774\uB3D9\uC18D\uB3C4\uAC00
+    0.1 \uC99D\uAC00\uD569\uB2C8\uB2E4"

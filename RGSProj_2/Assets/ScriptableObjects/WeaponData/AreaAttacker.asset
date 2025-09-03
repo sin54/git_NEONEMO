@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b99dc3c00edddee46bc2053f72206e26, type: 3}
+  m_Name: AreaAttacker
+  m_EditorClassIdentifier: 
+  itemName: "\uB9C8\uB825\uC7A5"
+  itemDescription:
+  - "\uD50C\uB808\uC774\uC5B4\uC758 \uC8FC\uBCC0\uC5D0 \uB9C8\uB825\uC7A5\uC744 \uC0DD\uC131\uD569\uB2C8\uB2E4.
+    \uB9C8\uB825\uC7A5\uC5D0 \uB2FF\uC740 \uC801\uC740 \uD53C\uD574\uB97C \uBC1B\uC2B5\uB2C8\uB2E4."
+  - "\uB9C8\uB825\uC7A5\uC758 \uD06C\uAE30\uAC00 \uC99D\uAC00\uD569\uB2C8\uB2E4"
+  - "\uB9C8\uB825\uC7A5\uC758 \uD53C\uD574\uB7C9\uC774 1 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+  - "\uB9C8\uB825\uC7A5\uC758 \uD06C\uAE30\uAC00 \uC99D\uAC00\uD569\uB2C8\uB2E4"
+  - "\uB9C8\uB825\uC7A5\uC758 \uD2B9\uC131\uC744 \uAC1C\uBC29\uD558\uC138\uC694"
+  itemIcon: {fileID: 0}
+  levelDatas:
+  - itemName: "\uAE30\uD53C\uC99D"
+    itemDescription: "\uC801\uC774 \uD50C\uB808\uC774\uC5B4\uC5D0 \uBA40\uC5B4\uC9C8\uC218\uB85D
+      \uBC1B\uB294 \uD53C\uD574\uAC00 \uC99D\uAC00\uD569\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  - itemName: "\uBC29\uC5B4\uAE30\uC81C"
+    itemDescription: "\uB9C8\uB825\uC7A5 \uB0B4 \uC801\uC5D0\uAC8C \uBC1B\uB294 \uD53C\uD574\uAC00
+      \uAC10\uC18C\uD569\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  - itemName: "\uB1CC\uC9C4\uD0D5"
+    itemDescription: "\uB9C8\uB825\uC7A5 \uB0B4 \uC801\uC774 \uC77C\uC815 \uD655\uB960\uB85C
+      \uAE30\uC808\uD569\uB2C8\uB2E4"
+    itemIcon: {fileID: 0}
+    synerge: 
+  damageInterval: 0.25
+  attackDmgByLevel:
+  - 2
+  - 2
+  - 3
+  - 3
+  - 3
+  sizeByLevel:
+  - 0.7
+  - 0.8
+  - 0.8
+  - 0.9
+  - 0.9
