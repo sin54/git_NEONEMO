@@ -77,7 +77,7 @@ public class UIManager_GameScene : MonoBehaviour
                 invenPanel.SetActive(true);
                 
                 //test
-                InventoryController.instance.AddItem("Saved", "온기를 머금은 단검", 9);
+                InventoryController.instance.AddItem("Saved", "화염을 머금은 쇠붙이", 9);
             }
         }
         if (GameManager.instance.player.isPlayerDeath)
