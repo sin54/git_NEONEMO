@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyParticle: {fileID: 3872620845004994788, guid: 883290500564a0941af79f28502586fe, type: 3}
+  itemObject: {fileID: 2946199178874003370, guid: 8de43f84b5720d6428dbd0c029706cd3, type: 3}
 --- !u!61 &8029633488861779862
 BoxCollider2D:
   m_ObjectHideFlags: 0

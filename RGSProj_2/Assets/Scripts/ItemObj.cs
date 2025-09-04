@@ -1,12 +1,69 @@
+using InventorySystem;
 using UnityEngine;
 
 public class ItemObj : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer backSR;
     [SerializeField] private SpriteRenderer itemSR;
+    [SerializeField] private GameObject selectedGO;
+    [SerializeField] private SetToolTip STT;
+    private InventoryItem II;
     private bool isSelected;
-    private void Init()
+    private void Awake()
     {
+        STT=GameObject.Find("Canvas").transform.GetChild(0).GetComponent<SetToolTip>();
+    }
+    public void Init(InventoryItem IItem)
+    {
+        selectedGO.SetActive(false);
+        isSelected = false;
+        ItemRarity IR=IItem.GetRarity();
+        II = IItem;
+        if (IR == ItemRarity.E || IR == ItemRarity.D || IR == ItemRarity.C)
+        {
+            backSR.color=new Color(1,1,1,0.1f);
+        }
+        else if (IR == ItemRarity.B || IR == ItemRarity.Bp)
+        {
+            backSR.color = new Color(0, 0.9f, 1, 0.1f);
+        }
+        else if (IR == ItemRarity.A || IR == ItemRarity.Ap)
+        {
+            backSR.color = new Color(0, 1, 0, 0.1f);
+        }
+        else if (IR == ItemRarity.S || IR == ItemRarity.Sp || IR == ItemRarity.X)
+        {
+            backSR.color = new Color(1, 1, 0, 0.1f);
+        }
+        else
+        {
+            backSR.color = new Color(1, 0, 0, 0.1f);
+        }
+        itemSR.sprite=IItem.GetItemImage();
+    }
+    private void OnMouseDown()
+    {
+        isSelected = !isSelected;
+        selectedGO.SetActive(isSelected);
+        Color newColor = backSR.color;
+        if (isSelected)
+        {
+            newColor.a = 0.4f;
+        }
+        else
+        {
+            newColor.a = 0.1f;
+        }
+        backSR.color = newColor;
 
     }
+    private void OnMouseEnter()
+    {
+        STT.ShowToolTip(transform,II);
+    }
+    private void OnMouseExit()
+    {
+        STT.HideToolTip();
+    }
+
 }

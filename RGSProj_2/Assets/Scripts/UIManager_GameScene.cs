@@ -158,7 +158,7 @@ public class UIManager_GameScene : MonoBehaviour
 {GameManager.instance.SM.GetFinalValue("NaturalHeal")}/s
 
 {Mathf.RoundToInt(GameManager.instance.SM.GetFinalValue("defenceRate") * 100)}%
-{Mathf.RoundToInt(GameManager.instance.SM.GetFinalValue("dodgeMul")*100)}%
+{(1f-Mathf.RoundToInt(GameManager.instance.SM.GetFinalValue("dodgeMul"))*100)}%
 {Mathf.RoundToInt(GameManager.instance.SM.GetFinalValue("PlayerSpeed")*100)}
 
 {Mathf.RoundToInt(GameManager.instance.SM.GetFinalValue("CriticalPercent") * 100)}%
