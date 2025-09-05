@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using NUnit.Framework.Internal.Commands;
+using Scene;
 
 public class CollectCrate : MonoBehaviour
 {

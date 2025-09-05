@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Core;
+using Type;
 
 public class Skill_Rage : MonoBehaviour
 {

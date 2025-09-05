@@ -7,6 +7,8 @@ using TMPro;
 using InventorySystem;
 using Random=UnityEngine.Random;
 using Core;
+using Type;
+
 public class Spawner : MonoBehaviour
 {
     public static event Action OnMassEnemyDeath;

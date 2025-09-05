@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
 using Core;
+using Type;
 
 public class Skill_Dash : BaseSkill
 {

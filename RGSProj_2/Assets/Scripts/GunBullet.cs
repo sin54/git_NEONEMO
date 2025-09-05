@@ -1,5 +1,6 @@
 using UnityEngine;
 using Core;
+using Type;
 
 public class GunBullet : BaseGuided
 {

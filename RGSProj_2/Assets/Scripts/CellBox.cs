@@ -1,4 +1,5 @@
 using UnityEngine;
+using Scene;
 
 public class CellBox : MonoBehaviour
 {

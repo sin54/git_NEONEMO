@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UI;
 public class TrashCan : MonoBehaviour
 {
     private Image panelImage;

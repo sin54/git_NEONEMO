@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using Core;
 
 public class LineARInitalizer : MonoBehaviour
 {

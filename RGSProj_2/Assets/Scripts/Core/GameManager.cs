@@ -7,6 +7,11 @@ using System;
 using System.Collections.Generic;
 using InventorySystem;
 using Core;
+using Scene;
+using Item;
+using UI;
+using Type;
+using UI.LevelUp;
 
 namespace Core
 {
