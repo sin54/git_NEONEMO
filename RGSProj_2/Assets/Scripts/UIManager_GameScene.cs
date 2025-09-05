@@ -124,10 +124,10 @@ public class UIManager_GameScene : MonoBehaviour
                 invenPanel.SetActive(true);
                 SetInventoryVisibility(true);
                 //test
-                InventoryController.instance.AddPassiveItem("Èò ¿¬±â", 1);
-                InventoryController.instance.AddPassiveItem("Ä«Å¸³ª", 1);
-                InventoryController.instance.AddPassiveItem("ºÓÀº µ¹¸æÀÌ", 1);
-
+                //InventoryController.instance.AddPassiveItem("ÃˆÃ² Â¿Â¬Â±Ã¢", 1);
+                //InventoryController.instance.AddPassiveItem("Ã„Â«Ã…Â¸Â³Âª", 1);
+                //InventoryController.instance.AddPassiveItem("ÂºÃ“Ã€Âº ÂµÂ¹Â¸Ã¦Ã€ÃŒ", 1);
+                InventoryController.instance.AddItem("Saved", "ÃˆÂ­Â¿Â°Ã€Â» Â¸Ã“Â±ÃÃ€Âº Â¼Ã¨ÂºÃ™Ã€ÃŒ", 9);
             }
         }
         if (GameManager.instance.player.isPlayerDeath)
@@ -303,7 +303,7 @@ x{GameManager.instance.SM.GetFinalValue("xpMul"):F2}
         isStatOpen = false;
         Change_StatPanel.SetActive(isStatOpen);
         Change_InfoPanel.SetActive(!isStatOpen);
-        buttonTxt.text = "½ºÅÈ ÄÑ±â";
+        buttonTxt.text = "Â½ÂºÃ…Ãˆ Ã„Ã‘Â±Ã¢";
 
         InventoryController.instance.AddItem("Change", ChangeItem.GetItemType());
 
@@ -318,10 +318,10 @@ x{GameManager.instance.SM.GetFinalValue("xpMul"):F2}
         Change_InfoPanel.SetActive(!isStatOpen);
         if (isStatOpen)
         {
-            buttonTxt.text = "½ºÅÈ ²ô±â";
+            buttonTxt.text = "Â½ÂºÃ…Ãˆ Â²Ã´Â±Ã¢";
         }
         else{
-            buttonTxt.text = "½ºÅÈ ÄÑ±â";
+            buttonTxt.text = "Â½ÂºÃ…Ãˆ Ã„Ã‘Â±Ã¢";
         }
     }
     public void EndChange()
