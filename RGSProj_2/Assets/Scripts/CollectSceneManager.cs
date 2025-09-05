@@ -1,17 +1,23 @@
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using InventorySystem;
+using System;
 
+using Random = UnityEngine.Random;
 public class CollectSceneManager : MonoBehaviour
 {
     [SerializeField] private Transform[] itemSpawnPos;
     [SerializeField] private CollectCrate CC;
 
     [SerializeField] private GameObject[] boxes;
+    [SerializeField] private Transform[] savePos;
 
     private List<List<InventoryItem>> EItems;
+    private List<CellBox> itemList=new List<CellBox>();
+    private List<GameObject> itemObjs=new List<GameObject>();
 
     public int maxClickNum;
     public float increasePercent;
@@ -19,7 +25,7 @@ public class CollectSceneManager : MonoBehaviour
 
     public float[] percentages=new float[11];
     private int[] selected;
-
+    private bool isExploding;
     private void Awake()
     {
         EItems = new List<List<InventoryItem>>(11);
@@ -48,6 +54,44 @@ public class CollectSceneManager : MonoBehaviour
             }
             Debug.Log(contents);
         }
+
+        isExploding = false;
+    }
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (!isExploding)
+            {
+                isExploding = true;
+                StartCoroutine(DelayExplode());
+            }
+        }
+    }
+
+    private IEnumerator DelayExplode()
+    {
+        // Create a single copy of the list
+        if (itemList == null)
+        {
+            Debug.LogError("itemList is null!");
+            isExploding = false;
+            yield break;
+        }
+
+        var itemListCopy = itemList.ToList();
+
+        // Iterate over the copied list
+        foreach (var item in itemListCopy)
+        {
+            if (item != null) // Safety check for null items
+            {
+                item.SpawnItem();
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+
+        isExploding = false;
     }
     public void SpawnItem()
     {
@@ -146,25 +190,38 @@ public class CollectSceneManager : MonoBehaviour
         {
             GameObject GO=Instantiate(boxes[0], transform.position, Quaternion.Euler(0,0,Random.Range(0,360f)));
             GO.GetComponent<CellBox>().Init(SetRandomPos(), IR);
+            itemList.Add(GO.GetComponent<CellBox>());
         }
         else if (IR == ItemRarity.B || IR == ItemRarity.Bp) {
             GameObject GO=Instantiate(boxes[1], transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360f)));
             GO.GetComponent<CellBox>().Init(SetRandomPos(),IR);
+            itemList.Add(GO.GetComponent<CellBox>());
         }
         else if (IR == ItemRarity.A || IR == ItemRarity.Ap)
         {
             GameObject GO = Instantiate(boxes[2], transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360f)));
             GO.GetComponent<CellBox>().Init(SetRandomPos(),IR);
+            itemList.Add(GO.GetComponent<CellBox>());
         }
         else if (IR == ItemRarity.S || IR == ItemRarity.Sp || IR == ItemRarity.X) {
             GameObject GO = Instantiate(boxes[3], transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360f)));
             GO.GetComponent<CellBox>().Init(SetRandomPos(),IR);
+            itemList.Add(GO.GetComponent<CellBox>());
         }
         else
         {
             GameObject GO = Instantiate(boxes[4], transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360f)));
             GO.GetComponent<CellBox>().Init(SetRandomPos(),IR);
+            itemList.Add(GO.GetComponent<CellBox>());
         }
 
+    }
+    public InventoryItem GetRandomItem(ItemRarity IR)
+    {
+        return EItems[(int)IR][Random.Range(0, EItems[(int)IR].Count)];
+    }
+    public void RemoveFromList(CellBox CB)
+    {
+        itemList.Remove(CB);
     }
 }

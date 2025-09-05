@@ -119,31 +119,32 @@ namespace InventorySystem
         /// </summary>
         public void Clear()
         {
-            int count = 0;
-            Dictionary<string, List<int>> copy = new Dictionary<string, List<int>>();
 
-            foreach (var kvp in itemPositions)
+            for (int i = 0; i < inventoryList.Count; i++)
             {
-                copy[kvp.Key] = new List<int>(kvp.Value);
-            }
-            foreach (KeyValuePair<string,List<int>> pair in copy)
-            {
-                count++;
-                if(pair.Key == "Empty")
+                if (!inventoryList[i].GetIsNull()) // 비어있지 않은 슬롯만 삭제
                 {
-                    continue;
-                }
-                List<int> items = pair.Value;
-                foreach(int pos in items)
-                {
-                    EraseItemInPosition(pos);
-                }
-                if(count == size)
-                {
-                    return;
+                    EraseItemInPosition(i);
                 }
             }
-            
+
+            if (!itemPositions.ContainsKey("Empty"))
+            {
+                itemPositions["Empty"] = new List<int>();
+            }
+            else
+            {
+                itemPositions["Empty"].Clear();
+            }
+
+
+            for (int i = 0; i < inventoryList.Count; i++)
+            {
+                if (inventoryList[i].GetIsNull())
+                {
+                    itemPositions["Empty"].Add(i);
+                }
+            }
         }
         /// <summary>
         /// Adds an item to a specified position, updating the <see cref="itemPositions"/> for efficient tracking of the inventory items
@@ -501,31 +502,17 @@ namespace InventorySystem
         /// </summary>
         public bool Full(string item)
         {
-            string empty = "Empty";
-            if (item == null)
-            {
-                return true;
-            }
-            if (itemPositions[empty].Count > 0)
-            {
-                return false;
-            }
-            //If inventory has no empty slots and does not yet contain the item
-            if (!itemPositions.ContainsKey(item))
-            {
-                return true;
-            }
-            List<int> itemPos = itemPositions[item];
+            // item == null이면 꽉 찬 것으로 간주
+            if (item == null) return true;
 
-            foreach (int pos in itemPos)
+            // inventoryList 중에 비어있는 슬롯이 하나라도 있으면 Full 아님
+            foreach (var slot in inventoryList)
             {
-                InventoryItem curItem = inventoryList[pos];
-                if (curItem.GetAmount() < curItem.GetItemStackAmount())
-                {
+                if (slot.GetIsNull())
                     return false;
-                }
-
             }
+
+            // 빈 슬롯이 없으면 Full
             return true;
         }
 

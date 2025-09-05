@@ -123,6 +123,7 @@ namespace InventorySystem
             if (CurrentSlot != null && dropped)
             {
                 dropped = false;
+                GameManager.instance.UIM.isItemDragging = true;
                 CurrentSlot.ResetSlot();
                 transform.SetParent(CurrentSlot.GetInventoryUI().GetUI());
             }
@@ -140,6 +141,7 @@ namespace InventorySystem
             if (Draggable()) return;
 
             HandleEndDrag(eventData);
+            GameManager.instance.UIM.isItemDragging = false;
         }
 
         /// <summary>
@@ -147,6 +149,19 @@ namespace InventorySystem
         /// </summary>
         private void HandleEndDrag(PointerEventData eventData)
         {
+            // 휴지통 모드가 켜져 있으면, 무조건 아이템 삭제
+            if (GameManager.instance.UIM.isTrashOn)
+            {
+                // 필요하다면 이 시점에서 인벤토리에서도 제거
+                InventoryController.instance.GetInventory(CurrentSlot.GetInventoryUI().GetInventoryName())
+                    .RemoveItemHelper(item, CurrentSlot.GetPosition(), false);
+
+                Destroy(gameObject); // 드래그 프리팹 삭제
+                dropped = true;
+                return;
+            }
+
+            // 기존 로직
             List<RaycastResult> results = new List<RaycastResult>();
             EventSystem.current.RaycastAll(eventData, results);
             bool foundSlot = false;
@@ -166,6 +181,7 @@ namespace InventorySystem
                 HandleInvalidPlacement();
             }
         }
+
 
         /// <summary>
         /// Processes the slot result after dragging

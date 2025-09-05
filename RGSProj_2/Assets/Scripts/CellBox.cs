@@ -3,6 +3,8 @@ using UnityEngine;
 public class CellBox : MonoBehaviour
 {
     [SerializeField] private GameObject destroyParticle;
+    [SerializeField] private GameObject itemObject;
+    private CollectSceneManager CCM;
 
     private ItemRarity itemRarity;  
     private bool isArrived;
@@ -12,6 +14,11 @@ public class CellBox : MonoBehaviour
     private float moveTime = 0.15f;   // 이동에 걸리는 시간 (초)
     private float elapsedTime;     // 경과 시간
 
+    private void Awake()
+    {
+        isArrived = false;
+        CCM=GameObject.Find("CollectSceneManager").GetComponent<CollectSceneManager>();
+    }
     public void Init(Transform pos,ItemRarity itemR)
     {
         startPos = transform.position; // 시작 위치 기록
@@ -40,13 +47,16 @@ public class CellBox : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (!isArrived) return;
-        Instantiate(destroyParticle,transform.position,Quaternion.identity);
         SpawnItem();
-        Destroy(gameObject);
+        
     }
-    private void SpawnItem()
+    public void SpawnItem()
     {
-
+        if (!isArrived) return;
+        GameObject GO = Instantiate(itemObject, transform.position, Quaternion.identity);
+        Instantiate(destroyParticle, transform.position, Quaternion.identity);
+        GO.GetComponent<ItemObj>().Init(CCM.GetRandomItem(itemRarity));
+        CCM.RemoveFromList(this);
+        Destroy(gameObject);
     }
 }

@@ -48,16 +48,20 @@ MonoBehaviour:
   selectedItemIndex: 0
   SelectedInventoryIndex: 0
   item:
-    itemType: Defender
-    itemImage: {fileID: 21300000, guid: f140213409172fe4caef8ee8e6c59087, type: 3}
+    itemType: "\uBD89\uC740 \uB098\uBB34\uC9C0\uD321\uC774"
+    itemImage: {fileID: 21300000, guid: 7cebc9fa0c380f048a34eea1f02179da, type: 3}
     maxStackAmount: 1
     displayItemAmount: 0
     draggable: 1
-    pressable: 0
+    pressable: 1
     RelatedGameObject: {fileID: 0}
     itemAction:
       m_PersistentCalls:
         m_Calls: []
+    isWeapon: 0
+    tags: 1
+    rarity: 2
+    itemSkillEvent: {fileID: 11400000, guid: 1f7db052e777265409552e08c58c9389, type: 2}
     isNull: 0
   inventory:
     inventoryName: Active
