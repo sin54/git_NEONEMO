@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class SideSword : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class SideSword : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            GameManager.instance.AtkEnemy(collision.GetComponent<BaseEnemy>(),SG.damageOfSword,AttackType.PhysicAttack,AttackAttr.Wind);
+            GameManager.Instance.AtkEnemy(collision.GetComponent<BaseEnemy>(),SG.damageOfSword,AttackType.PhysicAttack,AttackAttr.Wind);
         }
     }
 }

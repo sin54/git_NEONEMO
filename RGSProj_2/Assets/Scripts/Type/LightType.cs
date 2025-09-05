@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class LightType : BaseType
 {
@@ -7,13 +8,13 @@ public class LightType : BaseType
     public override void Upgrade()
     {
         base.Upgrade();
-        GameManager.instance.SM.RemoveModifiersByTag("LightType");
-        GameManager.instance.SM.AddModifier("NaturalHeal", additive: healAmountPerLevel[typePassiveLevel],tag:"LightType");
+        GameManager.Instance.SM.RemoveModifiersByTag("LightType");
+        GameManager.Instance.SM.AddModifier("NaturalHeal", additive: healAmountPerLevel[typePassiveLevel],tag:"LightType");
     }
 
     protected override void OnEnable()
     {
         base.OnEnable();
-        GameManager.instance.levelManager.AddLightSkill();
+        GameManager.Instance.levelManager.AddLightSkill();
     }
 }

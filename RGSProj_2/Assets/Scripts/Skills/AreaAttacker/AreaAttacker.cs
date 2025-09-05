@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Core;
 
 public class AreaAttacker : MonoBehaviour
 {
@@ -25,11 +26,11 @@ public class AreaAttacker : MonoBehaviour
                     {
                         if (SA.reinforcedNum == 1)
                         {
-                            GameManager.instance.AtkEnemy(enemy, SA.baseAttackDmg + 3.5f * Vector2.Distance(transform.position, enemy.transform.position), AttackType.MagicAttack,AttackAttr.Normal);
+                            GameManager.Instance.AtkEnemy(enemy, SA.baseAttackDmg + 3.5f * Vector2.Distance(transform.position, enemy.transform.position), AttackType.MagicAttack,AttackAttr.Normal);
                         }
                         else if (SA.reinforcedNum == 3)
                         {
-                            GameManager.instance.AtkEnemy(enemy, SA.skillData.attackDmgByLevel[SA.itemLevel], AttackType.MagicAttack, AttackAttr.Normal);
+                            GameManager.Instance.AtkEnemy(enemy, SA.skillData.attackDmgByLevel[SA.itemLevel], AttackType.MagicAttack, AttackAttr.Normal);
                             if (UtilClass.GetPercent(SA.stunPercent))
                             {
                                 enemy.eSS.AddStunTime(SA.stunTime);
@@ -37,7 +38,7 @@ public class AreaAttacker : MonoBehaviour
                         }
                         else
                         {
-                            GameManager.instance.AtkEnemy(enemy, SA.skillData.attackDmgByLevel[SA.itemLevel], AttackType.MagicAttack, AttackAttr.Normal);
+                            GameManager.Instance.AtkEnemy(enemy, SA.skillData.attackDmgByLevel[SA.itemLevel], AttackType.MagicAttack, AttackAttr.Normal);
                         }
                     }
                     else

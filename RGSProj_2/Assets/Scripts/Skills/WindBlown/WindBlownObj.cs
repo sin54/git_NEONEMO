@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Core;
 
 public class WindBlownObj : MonoBehaviour
 {
@@ -20,11 +21,11 @@ public class WindBlownObj : MonoBehaviour
                 {
                     if (SW.reinforcedNum == 2)
                     {
-                        GameManager.instance.AtkEnemy(enemy, new AttackInfo(SW.skillData.damageByLevel[SW.itemLevel].damage * (1.5f / GameManager.instance.player.playerFinalSpeed) * SW.damageMulAmount, SW.skillData.damageByLevel[SW.itemLevel].knockbackPower), AttackType.PhysicAttack, AttackAttr.Wind,enemy.gameObject.transform.position - GameManager.instance.player.transform.position);
+                        GameManager.Instance.AtkEnemy(enemy, new AttackInfo(SW.skillData.damageByLevel[SW.itemLevel].damage * (1.5f / GameManager.Instance.player.playerFinalSpeed) * SW.damageMulAmount, SW.skillData.damageByLevel[SW.itemLevel].knockbackPower), AttackType.PhysicAttack, AttackAttr.Wind,enemy.gameObject.transform.position - GameManager.Instance.player.transform.position);
                     }
                     else if (SW.reinforcedNum == 3)
                     {
-                        bool isDead = GameManager.instance.AtkEnemy(enemy, SW.skillData.damageByLevel[SW.itemLevel], AttackType.PhysicAttack, AttackAttr.Wind,enemy.gameObject.transform.position - GameManager.instance.player.transform.position);
+                        bool isDead = GameManager.Instance.AtkEnemy(enemy, SW.skillData.damageByLevel[SW.itemLevel], AttackType.PhysicAttack, AttackAttr.Wind,enemy.gameObject.transform.position - GameManager.Instance.player.transform.position);
                         if (isDead)
                         {
                             SW.reduceCool += SW.reduceAmount;
@@ -32,7 +33,7 @@ public class WindBlownObj : MonoBehaviour
                     }
                     else
                     {
-                        GameManager.instance.AtkEnemy(enemy, SW.skillData.damageByLevel[SW.itemLevel], AttackType.PhysicAttack, AttackAttr.Wind,enemy.gameObject.transform.position - GameManager.instance.player.transform.position);
+                        GameManager.Instance.AtkEnemy(enemy, SW.skillData.damageByLevel[SW.itemLevel], AttackType.PhysicAttack, AttackAttr.Wind,enemy.gameObject.transform.position - GameManager.Instance.player.transform.position);
                     }
 
                 }

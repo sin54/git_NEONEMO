@@ -1,4 +1,5 @@
 using System.Collections;
+using Core;
 using UnityEngine;
 
 public class Skill_BackLight : BaseSkill
@@ -39,12 +40,12 @@ public class Skill_BackLight : BaseSkill
         if (CanAttack()&&!isSkilling)
         {
             increasingAmount = 0;
-            nowKillEnemy=GameManager.instance.killedEnemy;
+            nowKillEnemy=GameManager.Instance.killedEnemy;
             lastAttackTime = Time.time;
             isSkilling = true;
             multiAmount= skillData.damageMultiplier[itemLevel] * (1 + (player.playerCurrentHealth * 0.5f) / player.playerMaxHealth);
-            GameManager.instance.SM.AddModifier("AtkMul", multiplier: multiAmount, tag: "BackLight");
-            thisTurnDuration = skillData.durationByLevel[itemLevel] * GameManager.instance.SM.GetFinalValue("SkillDurationMul");
+            GameManager.Instance.SM.AddModifier("AtkMul", multiplier: multiAmount, tag: "BackLight");
+            thisTurnDuration = skillData.durationByLevel[itemLevel] * GameManager.Instance.SM.GetFinalValue("SkillDurationMul");
             foreach (ParticleSystem p in PSs) {
                 var PSMain = p.main;
                 PSMain.duration = thisTurnDuration;
@@ -52,7 +53,7 @@ public class Skill_BackLight : BaseSkill
             }
             if (reinforcedNum == 3)
             {
-                GameManager.instance.SM.AddModifier("CriticalPercent", multiplier: critMul, tag: "BL_3");
+                GameManager.Instance.SM.AddModifier("CriticalPercent", multiplier: critMul, tag: "BL_3");
             }
             PSm.SetActive(true);
         }
@@ -60,15 +61,15 @@ public class Skill_BackLight : BaseSkill
         {
             PSm.SetActive(false);
             isSkilling = false;
-            GameManager.instance.SM.RemoveModifiersByTag("BackLight");
-            GameManager.instance.SM.RemoveModifiersByTag("BL_3");
+            GameManager.Instance.SM.RemoveModifiersByTag("BackLight");
+            GameManager.Instance.SM.RemoveModifiersByTag("BL_3");
         }
     }
     private void FixedUpdate()
     {
         if (isSkilling)
         {
-            increasingAmount = (GameManager.instance.killedEnemy - nowKillEnemy) * increaseNum;
+            increasingAmount = (GameManager.Instance.killedEnemy - nowKillEnemy) * increaseNum;
         }
 
     }
@@ -83,8 +84,8 @@ public class Skill_BackLight : BaseSkill
         {
             coolTime = skillData.coolTimeByLevel[itemLevel];
         }
-        coolTime *= GameManager.instance.SM.GetFinalValue("CoolReduce");
-        coolTime *= GameManager.instance.SM.GetFinalValue("L_Cool");
+        coolTime *= GameManager.Instance.SM.GetFinalValue("CoolReduce");
+        coolTime *= GameManager.Instance.SM.GetFinalValue("L_Cool");
         return Time.time > coolTime + lastAttackTime;
     }
     private void OnTriggerEnter2D(Collider2D collision)

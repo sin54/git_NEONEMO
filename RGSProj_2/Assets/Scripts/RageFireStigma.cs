@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class RageFireStigma : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class RageFireStigma : MonoBehaviour
         {
             BaseEnemy BE = enemy.GetComponent<BaseEnemy>();
             BE.eSS.AddFireStack(RF.fireAmounts[RF.type.typeActiveLevel-1]*RF.chargeAmount);
-            GameManager.instance.AtkEnemy(BE, RF.damages[RF.type.typeActiveLevel-1]*RF.chargeAmount, AttackType.PhysicAttack,AttackAttr.Fire);
+            GameManager.Instance.AtkEnemy(BE, RF.damages[RF.type.typeActiveLevel-1]*RF.chargeAmount, AttackType.PhysicAttack,AttackAttr.Fire);
         }
     }
 }

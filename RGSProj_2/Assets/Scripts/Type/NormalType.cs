@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class NormalType : BaseType
 {
@@ -7,8 +8,8 @@ public class NormalType : BaseType
     public override void Upgrade()
     {
         base.Upgrade();
-        GameManager.instance.SM.RemoveModifiersByTag("NormalType");
-        GameManager.instance.SM.AddModifier("xpMul", additive: increaseXPmul[typePassiveLevel],tag:"NormalType");
+        GameManager.Instance.SM.RemoveModifiersByTag("NormalType");
+        GameManager.Instance.SM.AddModifier("xpMul", additive: increaseXPmul[typePassiveLevel],tag:"NormalType");
     }
 
     protected override void OnEnable()

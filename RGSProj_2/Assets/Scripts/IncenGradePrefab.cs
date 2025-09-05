@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Core;
 
 public class IncenGradePrefab : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class IncenGradePrefab : MonoBehaviour
             {
                 if (enemy != null)
                 {
-                    GameManager.instance.AtkEnemy(enemy, SI.gradeDamage, AttackType.PhysicAttack, AttackAttr.Normal);
+                    GameManager.Instance.AtkEnemy(enemy, SI.gradeDamage, AttackType.PhysicAttack, AttackAttr.Normal);
                 }
             }
         }

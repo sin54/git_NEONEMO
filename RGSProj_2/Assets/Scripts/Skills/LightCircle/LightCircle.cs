@@ -1,5 +1,6 @@
 using Unity.Mathematics;
 using UnityEngine;
+using Core;
 
 public class LightCircle : BaseAngled
 {
@@ -17,19 +18,19 @@ public class LightCircle : BaseAngled
         speedMulAmount = spd;
         sizeIncSpeed = sizeInc;
         SL = sl;
-        bulletParent.position = GameManager.instance.player.transform.position;
+        bulletParent.position = GameManager.Instance.player.transform.position;
     }
 
     protected override void AttackEnemy(BaseEnemy target, AttackInfo aInfo)
     {
-        GameManager.instance.AtkEnemy(target, attackInfo.damage, AttackType.MagicAttack, AttackAttr.Light);
+        GameManager.Instance.AtkEnemy(target, attackInfo.damage, AttackType.MagicAttack, AttackAttr.Light);
         target.eSS.MulSpeedScale(speedMulAmount);
     }
 
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        float sizeIncSpd = sizeIncSpeed * GameManager.instance.SM.GetFinalValue("AoESize");
+        float sizeIncSpd = sizeIncSpeed * GameManager.Instance.SM.GetFinalValue("AoESize");
         transform.localScale += new Vector3(sizeIncSpd,sizeIncSpd,sizeIncSpd);
     }
 
@@ -42,7 +43,7 @@ public class LightCircle : BaseAngled
     {
         if (SL!=null&&SL.reinforcedNum == 1)
         {
-            GameObject GO = GameManager.instance.poolManager.Get(38);
+            GameObject GO = GameManager.Instance.poolManager.Get(38);
             GO.transform.position = transform.position;
             GO.GetComponent<LightCircle_Explosion>().SetExplosion(SL.finalAtk, SL);
         }
@@ -55,7 +56,7 @@ public class LightCircle : BaseAngled
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            GameManager.instance.AtkEnemy(collision.gameObject.GetComponent<BaseEnemy>(), new AttackInfo(0, attackInfo.knockbackPower), AttackType.StaticAttack, AttackAttr.None,transform.position - collision.gameObject.transform.position);
+            GameManager.Instance.AtkEnemy(collision.gameObject.GetComponent<BaseEnemy>(), new AttackInfo(0, attackInfo.knockbackPower), AttackType.StaticAttack, AttackAttr.None,transform.position - collision.gameObject.transform.position);
         }
     }
 
@@ -66,7 +67,7 @@ public class LightCircle : BaseAngled
         {
             if(SL.reinforcedNum == 2)
             {
-                float incNum = SL.increaseNum * GameManager.instance.SM.GetFinalValue("AoESize");
+                float incNum = SL.increaseNum * GameManager.Instance.SM.GetFinalValue("AoESize");
                 transform.localScale += new Vector3(incNum,incNum,incNum);
             }
             if (SL.reinforcedNum == 3)

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Core;
 
 public class WindCharge_NoTargetBullet : BaseAngled
 {
@@ -10,7 +11,7 @@ public class WindCharge_NoTargetBullet : BaseAngled
     protected override void AttackEnemy(BaseEnemy target, AttackInfo aInfo)
     {
 
-        GameManager.instance.AtkEnemy(target, aInfo.damage, AttackType.PhysicAttack, AttackAttr.Wind);
+        GameManager.Instance.AtkEnemy(target, aInfo.damage, AttackType.PhysicAttack, AttackAttr.Wind);
     }
     protected override void Awake()
     {
@@ -43,7 +44,7 @@ public class WindCharge_NoTargetBullet : BaseAngled
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             BaseEnemy newEnemy = collision.GetComponent<BaseEnemy>();
-            GameManager.instance.AtkEnemy(newEnemy, new AttackInfo(0, attackInfo.knockbackPower), AttackType.StaticAttack, AttackAttr.None, newEnemy.transform.position - transform.position);
+            GameManager.Instance.AtkEnemy(newEnemy, new AttackInfo(0, attackInfo.knockbackPower), AttackType.StaticAttack, AttackAttr.None, newEnemy.transform.position - transform.position);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

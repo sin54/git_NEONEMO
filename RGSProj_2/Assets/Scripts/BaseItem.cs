@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class BaseItem : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class BaseItem : MonoBehaviour
         }
         if (isCollected&& Time.time > spawnTime + 0.02f)
         {
-            angle = new Vector2(GameManager.instance.player.transform.position.x - transform.position.x, GameManager.instance.player.transform.position.y - transform.position.y).normalized;
+            angle = new Vector2(GameManager.Instance.player.transform.position.x - transform.position.x, GameManager.Instance.player.transform.position.y - transform.position.y).normalized;
         }
     }
     protected virtual void FixedUpdate()

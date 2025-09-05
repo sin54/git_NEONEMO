@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using System.Collections;
 using TMPro;
+using Core;
 
 public class Player : MonoBehaviour
 {
@@ -62,7 +63,7 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        playerFinalSpeed = GameManager.instance.SM.GetFinalValue("PlayerSpeed");
+        playerFinalSpeed = GameManager.Instance.SM.GetFinalValue("PlayerSpeed");
         PlayerMove();
         GetXPOrb();
 
@@ -101,7 +102,7 @@ public class Player : MonoBehaviour
 
     private void GetXPOrb()
     {
-        Collider2D[] RH=Physics2D.OverlapCircleAll(transform.position,GameManager.instance.SM.GetFinalValue("ItemRange"), itemLayer);
+        Collider2D[] RH=Physics2D.OverlapCircleAll(transform.position,GameManager.Instance.SM.GetFinalValue("ItemRange"), itemLayer);
         foreach (Collider2D r in RH) {
             BaseItem BI=r.GetComponent<BaseItem>();
             if (!BI.isCollected)
@@ -113,7 +114,7 @@ public class Player : MonoBehaviour
 
     public void AddXP(int amount)
     {
-        xp +=amount*GameManager.instance.SM.GetFinalValue("xpMul");
+        xp +=amount*GameManager.Instance.SM.GetFinalValue("xpMul");
         if (xp >= needXP)
         {
             LevelUp();
@@ -128,21 +129,21 @@ public class Player : MonoBehaviour
         xp -= needXP;
         needXP = Mathf.FloorToInt(baseXP * Mathf.Pow(growthRate, nowLevel));
         Debug.Log("LVUP!");
-        GameManager.instance.LevelUp();
+        GameManager.Instance.LevelUp();
     }
 
 
     public void DecreaseHealth(float amount)
     {
         if (noDamage) return;
-        if (UtilClass.GetPercent(1-GameManager.instance.SM.GetFinalValue("dodgeMul")))
+        if (UtilClass.GetPercent(1-GameManager.Instance.SM.GetFinalValue("dodgeMul")))
         {
-            GameObject missObj = GameManager.instance.poolManager.Get(41);
+            GameObject missObj = GameManager.Instance.poolManager.Get(41);
             missObj.transform.position = new Vector3(missObjPos.position.x+Random.Range(-0.1f,0.1f),missObjPos.position.y,missObjPos.position.z);
             missObj.transform.rotation = Quaternion.Euler(0, 0, Random.Range(-13, 13));
             return;
         }
-        float finalDmg = amount * GameManager.instance.SM.GetFinalValue("defenceRate");
+        float finalDmg = amount * GameManager.Instance.SM.GetFinalValue("defenceRate");
         playerCurrentHealth -= finalDmg;
         hpBar.fillAmount = playerCurrentHealth / playerMaxHealth;
         SpawnFloatingTxt(finalDmg);
@@ -161,7 +162,7 @@ public class Player : MonoBehaviour
     private void SpawnFloatingTxt(float damage)
     {
         if (damage <= 0) return;
-        GameObject floatingTxt = GameManager.instance.poolManager.Get(3);
+        GameObject floatingTxt = GameManager.Instance.poolManager.Get(3);
         floatingTxt.transform.position = new Vector3(missObjPos.position.x + Random.Range(-0.1f, 0.1f), missObjPos.position.y, missObjPos.position.z);
         floatingTxt.transform.rotation = Quaternion.Euler(0, 0, Random.Range(-13, 13));
         TMP_Text floatingTxt_TMP = floatingTxt.GetComponentInChildren<TextMeshPro>();
@@ -172,7 +173,7 @@ public class Player : MonoBehaviour
     public void Death()
     {
         isPlayerDeath = true;
-        StartCoroutine(GameManager.instance.OnGameOver());
+        StartCoroutine(GameManager.Instance.OnGameOver());
     }
     public void IncreaseHealth(float amount)
     {
@@ -227,7 +228,7 @@ public class Player : MonoBehaviour
 
     private IEnumerator Heal()
     {
-        IncreaseHealth(GameManager.instance.SM.GetFinalValue("NaturalHeal"));
+        IncreaseHealth(GameManager.Instance.SM.GetFinalValue("NaturalHeal"));
         yield return new WaitForSeconds(1f);
     }
 }

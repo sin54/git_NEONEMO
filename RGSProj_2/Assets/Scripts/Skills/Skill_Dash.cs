@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
+using Core;
 
 public class Skill_Dash : BaseSkill
 {
@@ -26,7 +27,7 @@ public class Skill_Dash : BaseSkill
         player=GetComponent<Player>();
         playerTrail = GetComponent<PlayerTrail>();
         SR = GetComponent<SpriteRenderer>();
-        PT = GameManager.instance.playerTypeManager;
+        PT = GameManager.Instance.playerTypeManager;
         if (baseSkillData.GetType() == typeof(SO_DashData))
         {
             skillData = (SO_DashData)baseSkillData;
@@ -40,7 +41,7 @@ public class Skill_Dash : BaseSkill
     private void Update()
     {
         // 쿨타임 UI 업데이트
-        float cooldown = skillData.dashCool[itemLevel] * GameManager.instance.SM.GetFinalValue("CoolReduce");
+        float cooldown = skillData.dashCool[itemLevel] * GameManager.Instance.SM.GetFinalValue("CoolReduce");
         float remaining = Mathf.Max(0, (lastPlayerDashStartTime + cooldown) - Time.time);
         dashLvlTxt.text="LV"+(1+itemLevel).ToString();
         dashCoolImg.fillAmount = 1.0f-(remaining / cooldown);
@@ -61,7 +62,7 @@ public class Skill_Dash : BaseSkill
                 gameObject.layer = 7;
                 if (PT.BT.typeCode == 3)
                 {
-                    GameManager.instance.SM.AddModifier("PlayerSpeed", additive: 0.5f, duration: 0.5f);
+                    GameManager.Instance.SM.AddModifier("PlayerSpeed", additive: 0.5f, duration: 0.5f);
                 }
             }
         }
@@ -86,7 +87,7 @@ public class Skill_Dash : BaseSkill
 
     private bool CanDash()
     {
-        return Time.time > lastPlayerDashStartTime + skillData.dashCool[itemLevel]*GameManager.instance.SM.GetFinalValue("CoolReduce")&& player.direction != Vector2.zero && player.canDash;
+        return Time.time > lastPlayerDashStartTime + skillData.dashCool[itemLevel]*GameManager.Instance.SM.GetFinalValue("CoolReduce")&& player.direction != Vector2.zero && player.canDash;
     }
     private void SetColor(Color color)
     {

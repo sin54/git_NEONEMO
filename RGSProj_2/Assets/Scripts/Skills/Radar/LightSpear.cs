@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class LightSpear : BaseBullet
 {
@@ -49,7 +50,7 @@ public class LightSpear : BaseBullet
     protected override void OnEnable()
     {
         base.OnEnable();
-        transform.parent.position = GameManager.instance.player.transform.position;
+        transform.parent.position = GameManager.Instance.player.transform.position;
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
@@ -58,10 +59,10 @@ public class LightSpear : BaseBullet
         {
             if (collision.gameObject.GetComponent<BaseEnemy>() == targetEnemy)
             {
-                bool isDead=GameManager.instance.AtkEnemy(collision.GetComponent<BaseEnemy>(),attackInfo,AttackType.MagicAttack, AttackAttr.Light,transform.position - GameManager.instance.player.transform.position);
+                bool isDead=GameManager.Instance.AtkEnemy(collision.GetComponent<BaseEnemy>(),attackInfo,AttackType.MagicAttack, AttackAttr.Light,transform.position - GameManager.Instance.player.transform.position);
                 if (skillRadar.reinforcedNum == 2 && isDead)
                 {
-                    GameManager.instance.player.IncreaseHealth(skillRadar.healAmount);
+                    GameManager.Instance.player.IncreaseHealth(skillRadar.healAmount);
                 }
                 transform.parent.gameObject.SetActive(false);
             }

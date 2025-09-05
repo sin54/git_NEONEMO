@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Core;
 
 public class LightCircle_Explosion : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class LightCircle_Explosion : MonoBehaviour
         {
             if (enemy != null)
             {
-                GameManager.instance.AtkEnemy(enemy, damageInfo, AttackType.MagicAttack, AttackAttr.Light,enemy.gameObject.transform.position - transform.position);
+                GameManager.Instance.AtkEnemy(enemy, damageInfo, AttackType.MagicAttack, AttackAttr.Light,enemy.gameObject.transform.position - transform.position);
             }
         }
     }

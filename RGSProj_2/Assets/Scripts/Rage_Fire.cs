@@ -1,4 +1,4 @@
-
+using Core;
 using UnityEngine;
 
 public class Rage_Fire : BaseRage
@@ -24,7 +24,7 @@ public class Rage_Fire : BaseRage
         attackRange.transform.localScale = Vector3.one * chargeTime;
         attackRange.SetActive(true);
         canAddGauge = false;
-        GameManager.instance.SM.AddModifier("PlayerSpeed", multiplier: 0.5f, tag: "Rage_Fire");
+        GameManager.Instance.SM.AddModifier("PlayerSpeed", multiplier: 0.5f, tag: "Rage_Fire");
     }
 
     private void Update()
@@ -51,7 +51,7 @@ public class Rage_Fire : BaseRage
         {
             chargeAmount = Mathf.RoundToInt(chargeTime / 0.2f);
             isCharging = false;
-            GameManager.instance.SM.RemoveModifiersByTag("Rage_Fire");
+            GameManager.Instance.SM.RemoveModifiersByTag("Rage_Fire");
             attackRange.SetActive(false);
             attackObj.transform.localScale= Vector3.one * chargeTime;
             attackObj.SetActive(true);

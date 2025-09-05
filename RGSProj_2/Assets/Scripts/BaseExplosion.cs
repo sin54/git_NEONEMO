@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Core;
+
 
 public class BaseExplosion : MonoBehaviour
 {
@@ -14,7 +16,7 @@ public class BaseExplosion : MonoBehaviour
 
     public virtual void SetExplode(float rad, AttackInfo dmg, float time, BaseSkill BS)
     {
-        radius = rad*GameManager.instance.SM.GetFinalValue("explosionRad");
+        radius = rad*GameManager.Instance.SM.GetFinalValue("explosionRad");
         damageInfo = dmg;
         timeToExplode = time;
         baseSkill = BS;

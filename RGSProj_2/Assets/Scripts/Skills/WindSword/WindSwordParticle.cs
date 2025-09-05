@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Core;
 
 public class WindSwordParticle : MonoBehaviour
 {
@@ -23,30 +24,30 @@ public class WindSwordParticle : MonoBehaviour
             {
                 if (BE.eSS.GetSpeedScale() < 1)
                 {
-                    GameManager.instance.AtkEnemy(BE,damage*SW.atkMul_rf1,AttackType.PhysicAttack,AttackAttr.Wind);
+                    GameManager.Instance.AtkEnemy(BE,damage*SW.atkMul_rf1,AttackType.PhysicAttack,AttackAttr.Wind);
                 }
                 else
                 {
-                    GameManager.instance.AtkEnemy(BE, damage, AttackType.PhysicAttack,AttackAttr.Wind);
+                    GameManager.Instance.AtkEnemy(BE, damage, AttackType.PhysicAttack,AttackAttr.Wind);
                 }
             }
             else if (SW.reinforcedNum == 2)
             {
-                GameManager.instance.AtkEnemy(BE, SW.damage_rf2, AttackType.PhysicAttack, AttackAttr.Wind);
+                GameManager.Instance.AtkEnemy(BE, SW.damage_rf2, AttackType.PhysicAttack, AttackAttr.Wind);
             }
             else if (SW.reinforcedNum == 3)
             {
                 bool isFire = BE.eSS.GetFireStack() > 0;
-                bool isDead = GameManager.instance.AtkEnemy(BE, damage, AttackType.PhysicAttack,AttackAttr.Wind);
+                bool isDead = GameManager.Instance.AtkEnemy(BE, damage, AttackType.PhysicAttack,AttackAttr.Wind);
                 if (isFire&&isDead)
                 {
-                    GameObject GO = GameManager.instance.poolManager.Get(40);
+                    GameObject GO = GameManager.Instance.poolManager.Get(40);
                     GO.transform.position = transform.position;
                 }
             }
             else
             {
-                GameManager.instance.AtkEnemy(BE, damage, AttackType.PhysicAttack, AttackAttr.Wind);
+                GameManager.Instance.AtkEnemy(BE, damage, AttackType.PhysicAttack, AttackAttr.Wind);
             }
 
         }

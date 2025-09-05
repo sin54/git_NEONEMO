@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using Core;
 
 namespace InventorySystem
 {
@@ -310,7 +311,7 @@ namespace InventorySystem
                 return;
             }
 
-            GameManager.instance.UIM.ShowChangePanel(item);
+            GameManager.Instance.UIM.ShowChangePanel(item);
         }
         /// <summary>
         /// Removes items from a specific index of <see cref="Inventory.inventoryList"/>

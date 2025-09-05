@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class Skill_LightCircle : BaseSkill
 {
@@ -27,12 +28,12 @@ public class Skill_LightCircle : BaseSkill
         if (CanAttack())
         {
             lastAttackTime= Time.time;
-            GameObject GO = GameManager.instance.poolManager.Get(32);
+            GameObject GO = GameManager.Instance.poolManager.Get(32);
             GO.transform.GetChild(0).GetComponent<LightCircle>().SetBullet(reinforcedNum==3?1.2f:1.8f, 10, skillData.damageByLevel[itemLevel], new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized, 10000, skillData.speedMulAmount[itemLevel], skillData.increasingSpeed[itemLevel],this);
         }
     }
     private bool CanAttack()
     {
-        return Time.time > skillData.coolTimeByLevel[itemLevel]* GameManager.instance.SM.GetFinalValue("CoolReduce") * GameManager.instance.SM.GetFinalValue("L_Cool") + lastAttackTime;
+        return Time.time > skillData.coolTimeByLevel[itemLevel]* GameManager.Instance.SM.GetFinalValue("CoolReduce") * GameManager.Instance.SM.GetFinalValue("L_Cool") + lastAttackTime;
     }
 }

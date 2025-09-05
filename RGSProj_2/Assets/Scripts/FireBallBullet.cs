@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class FireBallBullet : BaseAngled
 {
@@ -18,7 +19,7 @@ public class FireBallBullet : BaseAngled
         radius = explosionRadius;
         damage=explosionDamage;
         fireStack = fireAmount;
-        bulletParent.position = GameManager.instance.player.transform.position;
+        bulletParent.position = GameManager.Instance.player.transform.position;
     }
 
     protected override void Awake()
@@ -42,7 +43,7 @@ public class FireBallBullet : BaseAngled
         base.OnTriggerEnter2D(collision);
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            GameObject GO = GameManager.instance.poolManager.Get(20);
+            GameObject GO = GameManager.Instance.poolManager.Get(20);
             GO.GetComponent<FireExplosion>().SetExplosion(radius, damage,fireStack,0.1f);
             GO.transform.position = collision.gameObject.transform.position;
         }

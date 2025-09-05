@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Core;
 
 public class ScreenScan : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class ScreenScan : MonoBehaviour
     {
         foreach (BaseEnemy enemy in enemiesInRange.ToList())
         {
-            GameManager.instance.AtkEnemy(enemy, damage, AT,AA);
+            GameManager.Instance.AtkEnemy(enemy, damage, AT,AA);
         }
     }
     public void DebuffAllEnemy(float amount)

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core;
 using UnityEngine;
 
 public class Skill_Incendiary : BaseSkill
@@ -47,7 +48,7 @@ public class Skill_Incendiary : BaseSkill
             List<Vector2> attackPoints = GetCirclePoints(skillData.numOfIncen[itemLevel]);
             for (int i = 0; i < attackPoints.Count; i++)
             {
-                GameObject incenBullet = GameManager.instance.poolManager.Get(8);
+                GameObject incenBullet = GameManager.Instance.poolManager.Get(8);
                 incenBullet.transform.position = transform.position;
                 incenBullet.GetComponent<IncenBullet>().Attack(attackPoints[i], skillData, itemLevel, this);
                 yield return new WaitForSeconds(0.4f / skillData.numOfIncen[itemLevel]);
@@ -58,7 +59,7 @@ public class Skill_Incendiary : BaseSkill
             List<Vector2> attackPoints = GetCirclePoints(incenAmount);
             for (int i = 0; i < attackPoints.Count; i++)
             {
-                GameObject incenBullet = GameManager.instance.poolManager.Get(8);
+                GameObject incenBullet = GameManager.Instance.poolManager.Get(8);
                 incenBullet.transform.position = transform.position;
                 incenBullet.GetComponent<IncenBullet>().Attack(attackPoints[i], skillData, itemLevel, this);
                 yield return new WaitForSeconds(0.4f / incenAmount);
@@ -83,6 +84,6 @@ public class Skill_Incendiary : BaseSkill
     }
     private bool CanAttack()
     {
-        return Time.time > skillData.attackCool[itemLevel]* GameManager.instance.SM.GetFinalValue("CoolReduce")*GameManager.instance.SM.GetFinalValue("N_Cool") + lastAttackTime;
+        return Time.time > skillData.attackCool[itemLevel]* GameManager.Instance.SM.GetFinalValue("CoolReduce")*GameManager.Instance.SM.GetFinalValue("N_Cool") + lastAttackTime;
     }
 }

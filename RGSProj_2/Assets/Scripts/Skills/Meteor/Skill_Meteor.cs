@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Core;
 
 public class Skill_Meteor : BaseSkill
 {
@@ -37,8 +38,8 @@ public class Skill_Meteor : BaseSkill
     {
         float coolTime = 0f;
         coolTime = skillData.coolTimeByLevel[itemLevel];
-        coolTime *= GameManager.instance.SM.GetFinalValue("CoolReduce");
-        coolTime *= GameManager.instance.SM.GetFinalValue("F_Cool");
+        coolTime *= GameManager.Instance.SM.GetFinalValue("CoolReduce");
+        coolTime *= GameManager.Instance.SM.GetFinalValue("F_Cool");
         return Time.time > coolTime + lastAttackTime;
     }
     private void Attack()
@@ -46,7 +47,7 @@ public class Skill_Meteor : BaseSkill
         Vector3[] positions = SetMeteorPosition();
         for (int i = 0; i < skillData.meteorNumByLevel[itemLevel]; i++)
         {
-            GameObject GO = GameManager.instance.poolManager.Get(23);
+            GameObject GO = GameManager.Instance.poolManager.Get(23);
             GO.GetComponent<Meteorite>().SetMeteor(positions[i], 0.12f, skillData.explosionRadiusByLevel[itemLevel], skillData.attackInfoByLevel[itemLevel],this);
             GO.transform.position=positions[i]+new Vector3(3,10);
         }
@@ -73,9 +74,9 @@ public class Skill_Meteor : BaseSkill
             GO.transform.parent = warningSaver;
             GO.SetActive(true);
             StartCoroutine(ActiveFalse(GO));
-            Vector3 randTransform = new Vector3(Random.Range(-4f, 4f), Random.Range(-3.5f, 3.5f))+GameManager.instance.player.transform.position;
+            Vector3 randTransform = new Vector3(Random.Range(-4f, 4f), Random.Range(-3.5f, 3.5f))+GameManager.Instance.player.transform.position;
             GO.transform.position = randTransform;
-            float scale = skillData.explosionRadiusByLevel[itemLevel] * GameManager.instance.SM.GetFinalValue("explosionRad");
+            float scale = skillData.explosionRadiusByLevel[itemLevel] * GameManager.Instance.SM.GetFinalValue("explosionRad");
             GO.transform.localScale = new Vector3(scale,scale,scale);
             targetPos[i]=randTransform;
         }
@@ -83,8 +84,8 @@ public class Skill_Meteor : BaseSkill
     }
     void ShakeAttack()
     {
-        GameManager.instance.CM.Shake(0.3f, 0.3f, 0.05f);
-        GameManager.instance.screenScan.AttackAllEnemy(allDamageAmount,AttackType.PhysicAttack,AttackAttr.Fire);
+        GameManager.Instance.CM.Shake(0.3f, 0.3f, 0.05f);
+        GameManager.Instance.screenScan.AttackAllEnemy(allDamageAmount,AttackType.PhysicAttack,AttackAttr.Fire);
     }
     private IEnumerator ActiveFalse(GameObject GO)
     {

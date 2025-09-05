@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 public class Skill_Laser : BaseSkill
@@ -39,8 +40,8 @@ public class Skill_Laser : BaseSkill
             for (int i = 0; i < 4; i++)
             {
                 float ang = Mathf.Atan2(spawnPos.y - transform.position.y, spawnPos.x - transform.position.x);
-                GameObject GO = GameManager.instance.poolManager.Get(29);
-                GO.transform.position = GameManager.instance.player.transform.position;
+                GameObject GO = GameManager.Instance.poolManager.Get(29);
+                GO.transform.position = GameManager.Instance.player.transform.position;
                 GO.transform.rotation = Quaternion.Euler(0, 0, ang * Mathf.Rad2Deg+90f*i);
                 if (reinforcedNum == 2)
                 {
@@ -67,7 +68,7 @@ public class Skill_Laser : BaseSkill
             {
                 Vector2 spawnPos = GetRandomPosition(transform);
                 float ang = Mathf.Atan2(spawnPos.y - transform.position.y, spawnPos.x - transform.position.x);
-                GameObject GO = GameManager.instance.poolManager.Get(29);
+                GameObject GO = GameManager.Instance.poolManager.Get(29);
                 GO.transform.position = spawnPos;
                 GO.transform.rotation = Quaternion.Euler(0, 0, ang * Mathf.Rad2Deg);
                 if (reinforcedNum == 2)
@@ -94,7 +95,7 @@ public class Skill_Laser : BaseSkill
     }
     private bool CanAttack()
     {
-        return Time.time > skillData.coolTimeByLevel[itemLevel]* GameManager.instance.SM.GetFinalValue("CoolReduce") * GameManager.instance.SM.GetFinalValue("L_Cool") + lastAttackTime;
+        return Time.time > skillData.coolTimeByLevel[itemLevel]* GameManager.Instance.SM.GetFinalValue("CoolReduce") * GameManager.Instance.SM.GetFinalValue("L_Cool") + lastAttackTime;
     }
 
 

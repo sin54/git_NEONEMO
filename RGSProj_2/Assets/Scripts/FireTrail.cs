@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Core;
 
 public class FireTrail : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class FireTrail : MonoBehaviour
             {
                 if (enemy != null)
                 {
-                    if (GameManager.instance.playerTypeManager.BT.typeCode == 1)
+                    if (GameManager.Instance.playerTypeManager.BT.typeCode == 1)
                     {
                         enemy.eSS.AddFireStack(1);
                     }

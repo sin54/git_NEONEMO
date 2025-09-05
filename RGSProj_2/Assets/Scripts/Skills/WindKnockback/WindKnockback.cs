@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Core;
 
 public class WindKnockback : MonoBehaviour
 {
@@ -27,8 +28,8 @@ public class WindKnockback : MonoBehaviour
         }
         else if (SK.reinforcedNum == 3)
         {
-            GameManager.instance.SM.AddModifier("defenceRate", multiplier: SK.def_rf3,duration:SK.buffTime_rf3);
-            GameManager.instance.SM.AddModifier("AtkMul", multiplier: SK.atk_rf3, duration: SK.buffTime_rf3);
+            GameManager.Instance.SM.AddModifier("defenceRate", multiplier: SK.def_rf3,duration:SK.buffTime_rf3);
+            GameManager.Instance.SM.AddModifier("AtkMul", multiplier: SK.atk_rf3, duration: SK.buffTime_rf3);
             Invoke("InitEffect", SK.buffTime_rf3);
         }
         gameObject.SetActive(false);
@@ -41,7 +42,7 @@ public class WindKnockback : MonoBehaviour
             if (!enemiesInRange.Contains(collision))
             {
                 enemiesInRange.Add(collision);
-                GameManager.instance.AtkEnemy(collision.GetComponent<BaseEnemy>(), SK.skillData.attackInfoByLevel[SK.itemLevel].damage,AttackType.PhysicAttack,AttackAttr.Wind);
+                GameManager.Instance.AtkEnemy(collision.GetComponent<BaseEnemy>(), SK.skillData.attackInfoByLevel[SK.itemLevel].damage,AttackType.PhysicAttack,AttackAttr.Wind);
                 if (SK.reinforcedNum == 1)
                 {
                     int fs = collision.GetComponent<BaseEnemy>().eSS.GetFireStack();
@@ -58,7 +59,7 @@ public class WindKnockback : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            GameManager.instance.AtkEnemy(collision.GetComponent<BaseEnemy>(), new AttackInfo(0, SK.skillData.attackInfoByLevel[SK.itemLevel].knockbackPower),AttackType.StaticAttack, AttackAttr.None,collision.transform.position - transform.position);
+            GameManager.Instance.AtkEnemy(collision.GetComponent<BaseEnemy>(), new AttackInfo(0, SK.skillData.attackInfoByLevel[SK.itemLevel].knockbackPower),AttackType.StaticAttack, AttackAttr.None,collision.transform.position - transform.position);
         }
     }
 }

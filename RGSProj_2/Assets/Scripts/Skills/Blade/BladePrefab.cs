@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class BladePrefab : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class BladePrefab : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            GameManager.instance.AtkEnemy(collision.GetComponent<BaseEnemy>(),attackInfo,AttackType.PhysicAttack, AttackAttr.Normal,transform.position - GameManager.instance.player.gameObject.transform.position);
+            GameManager.Instance.AtkEnemy(collision.GetComponent<BaseEnemy>(),attackInfo,AttackType.PhysicAttack, AttackAttr.Normal,transform.position - GameManager.Instance.player.gameObject.transform.position);
         }
     }
 }

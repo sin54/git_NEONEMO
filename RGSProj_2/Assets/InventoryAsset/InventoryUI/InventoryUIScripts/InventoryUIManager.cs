@@ -1,3 +1,4 @@
+using Core;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -475,7 +476,7 @@ namespace InventorySystem
 
                 Highlight(slot);
 
-                GameManager.instance.UIM.SetItemDescription(item);
+                GameManager.Instance.UIM.SetItemDescription(item);
 
                 slotInstance.GetItem().Selected();
                 previouslyHighlighted = slot;

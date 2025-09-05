@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class GunBullet : BaseGuided
 {
@@ -23,7 +24,7 @@ public class GunBullet : BaseGuided
         }
         if (BS.reinforcedNum == 2)
         {
-            GameObject GO = GameManager.instance.poolManager.Get(14);
+            GameObject GO = GameManager.Instance.poolManager.Get(14);
             GO.transform.GetChild(0).GetComponent<BoomEffect>().SetExplosion(target.gameObject.transform.localScale.x * boomRad, new AttackInfo(boomDmg,0), target.gameObject.transform.position);
             GO.transform.GetChild(0).GetComponent<BoomEffect>().IgnoreEnemy(target);
         }
@@ -37,7 +38,7 @@ public class GunBullet : BaseGuided
     protected override void Awake()
     {
         base.Awake();
-        PT = GameManager.instance.playerTypeManager;
+        PT = GameManager.Instance.playerTypeManager;
     }
 
     protected override void FixedUpdate()

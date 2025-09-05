@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class SpearEnemy_Spear : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class SpearEnemy_Spear : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && CanAttack())
         {
             float attackDmg = SE.spearDamage;
-            GameManager.instance.player.DecreaseHealth(attackDmg);
+            GameManager.Instance.player.DecreaseHealth(attackDmg);
             lastAttackTime = Time.time;
         }
     }

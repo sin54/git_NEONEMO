@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class EnemyExplodeEffect : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class EnemyExplodeEffect : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            GameManager.instance.player.DecreaseHealth(damage);
+            GameManager.Instance.player.DecreaseHealth(damage);
         }
     }
     public void DisableExplode()

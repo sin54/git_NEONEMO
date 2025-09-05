@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Core;
 
 public class Skill_ShootingStar : BaseSkill
 {
@@ -41,16 +42,16 @@ public class Skill_ShootingStar : BaseSkill
     private IEnumerator Attack()
     {
         for (int i = 0; i < (reinforcedNum==1?numofStar:skillData.numOfStar[itemLevel]); i++) {
-            Vector3 randTransform = new Vector3(Random.Range(-4f, 4f), Random.Range(-3.5f, 3.5f)) + GameManager.instance.player.transform.position;
-            GameObject GO = GameManager.instance.poolManager.Get(30);
+            Vector3 randTransform = new Vector3(Random.Range(-4f, 4f), Random.Range(-3.5f, 3.5f)) + GameManager.Instance.player.transform.position;
+            GameObject GO = GameManager.Instance.poolManager.Get(30);
             GO.GetComponent<StarObj>().SetStar(randTransform, 0.08f, skillData.explosionRadiusByLevel[itemLevel], skillData.explosionDamageByLevel[itemLevel],this,false);
             GO.transform.position = randTransform + new Vector3(-5, 10);
             yield return new WaitForSeconds(0.25f);
         }
         if (reinforcedNum == 3)
         {
-            Vector3 randTransform = new Vector3(Random.Range(-4f, 4f), Random.Range(-3.5f, 3.5f)) + GameManager.instance.player.transform.position;
-            GameObject GO = GameManager.instance.poolManager.Get(30);
+            Vector3 randTransform = new Vector3(Random.Range(-4f, 4f), Random.Range(-3.5f, 3.5f)) + GameManager.Instance.player.transform.position;
+            GameObject GO = GameManager.Instance.poolManager.Get(30);
             GO.GetComponent<StarObj>().SetStar(randTransform, 0.06f, lastRadius, lastDamage, this,true);
             GO.transform.localScale = new Vector3(lastStarSize, lastStarSize, lastStarSize);
             var PS = GO.GetComponent<ParticleSystem>().colorOverLifetime;
@@ -64,6 +65,6 @@ public class Skill_ShootingStar : BaseSkill
     }
     private bool CanAttack()
     {
-        return Time.time > skillData.coolTimeByLevel[itemLevel]* GameManager.instance.SM.GetFinalValue("CoolReduce") * GameManager.instance.SM.GetFinalValue("L_Cool") + lastAttackTime;
+        return Time.time > skillData.coolTimeByLevel[itemLevel]* GameManager.Instance.SM.GetFinalValue("CoolReduce") * GameManager.Instance.SM.GetFinalValue("L_Cool") + lastAttackTime;
     }
 }

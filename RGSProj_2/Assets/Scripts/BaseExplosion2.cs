@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Core;
+
 
 public class BaseExplosion2 : MonoBehaviour
 {
@@ -21,7 +23,7 @@ public class BaseExplosion2 : MonoBehaviour
     }
     public virtual void SetExplosion(float rad, AttackInfo dmg,Vector3 boomPos)
     {
-        radius = rad*GameManager.instance.SM.GetFinalValue("explosionRad");
+        radius = rad*GameManager.Instance.SM.GetFinalValue("explosionRad");
         damageInfo = dmg;
         gameObject.transform.parent.localScale = new Vector3(radius, radius, radius);
         transform.position = boomPos;

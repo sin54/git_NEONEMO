@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Core;
 
 public class Skill_Ghost : BaseSkill
 {
@@ -46,19 +47,19 @@ public class Skill_Ghost : BaseSkill
         if (CanAttack()&&!isSkilling)
         {
             Attack();
-            currentDuration = skillData.durationByLevel[itemLevel] * GameManager.instance.SM.GetFinalValue("SkillDurationMul");
-            GameManager.instance.SM.AddModifier("PlayerSpeed", additive: skillData.playerSpeedAddAmount, duration: currentDuration);
+            currentDuration = skillData.durationByLevel[itemLevel] * GameManager.Instance.SM.GetFinalValue("SkillDurationMul");
+            GameManager.Instance.SM.AddModifier("PlayerSpeed", additive: skillData.playerSpeedAddAmount, duration: currentDuration);
             runningParticle.Play();
             lastAttackTime = Time.time;
             isSkilling = true;
-            GameManager.instance.player.canDash = false;
+            GameManager.Instance.player.canDash = false;
             playerTrail.SetActive(false);
             HPimg.SetActive(false);
         }
         if (Time.time > lastAttackTime + currentDuration&&isSkilling)
         {
             isSkilling = false;
-            GameManager.instance.player.noDamage = false;
+            GameManager.Instance.player.noDamage = false;
             ghostObj.SetActive(false);
             playerTrail.SetActive(true);
             HPimg.SetActive(true);
@@ -67,19 +68,19 @@ public class Skill_Ghost : BaseSkill
                 firstSword.SetActive(false);
                 lastSword.SetActive(false);
             }
-            GameManager.instance.player.GetComponent<Collider2D>().enabled = true;
-            GameManager.instance.player.canDash =true;
-            GameManager.instance.player.GetComponent<SpriteRenderer>().enabled = true;
+            GameManager.Instance.player.GetComponent<Collider2D>().enabled = true;
+            GameManager.Instance.player.canDash =true;
+            GameManager.Instance.player.GetComponent<SpriteRenderer>().enabled = true;
             runningParticle.Stop();
         }
     }
     private void Attack()
     {
         fireStack_rf2 = 0;
-        GameManager.instance.player.noDamage = true;
+        GameManager.Instance.player.noDamage = true;
         ghostObj.SetActive(true);
-        GameManager.instance.player.GetComponent<Collider2D>().enabled = false;
-        GameManager.instance.player.GetComponent<SpriteRenderer>().enabled = false;
+        GameManager.Instance.player.GetComponent<Collider2D>().enabled = false;
+        GameManager.Instance.player.GetComponent<SpriteRenderer>().enabled = false;
         if (reinforcedNum == 1)
         {
             firstSword.SetActive(true);
@@ -91,7 +92,7 @@ public class Skill_Ghost : BaseSkill
         if (isSkilling&& collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             BaseEnemy BE = collision.GetComponent<BaseEnemy>();
-            GameManager.instance.AtkEnemy(BE, skillData.damageByLevel[itemLevel], AttackType.PhysicAttack, AttackAttr.Wind);
+            GameManager.Instance.AtkEnemy(BE, skillData.damageByLevel[itemLevel], AttackType.PhysicAttack, AttackAttr.Wind);
             if (reinforcedNum == 2)
             {
                 if (fireStack_rf2 == 0 && BE.eSS.GetFireStack() > 0)
@@ -109,7 +110,7 @@ public class Skill_Ghost : BaseSkill
                 float dur = skillData.durationByLevel[itemLevel] -(Time.time-lastAttackTime);
                 if (dur > 0)
                 {
-                    GameManager.instance.SM.AddModifier("PlayerSpeed", additive: incSpeedAmount_rf3, duration: dur);
+                    GameManager.Instance.SM.AddModifier("PlayerSpeed", additive: incSpeedAmount_rf3, duration: dur);
                 }
 
             }
@@ -117,6 +118,6 @@ public class Skill_Ghost : BaseSkill
     }
     private bool CanAttack()
     {
-        return Time.time > skillData.coolTimeByLevel[itemLevel]* GameManager.instance.SM.GetFinalValue("CoolReduce")* GameManager.instance.SM.GetFinalValue("W_Cool") + lastAttackTime;
+        return Time.time > skillData.coolTimeByLevel[itemLevel]* GameManager.Instance.SM.GetFinalValue("CoolReduce")* GameManager.Instance.SM.GetFinalValue("W_Cool") + lastAttackTime;
     }
 }

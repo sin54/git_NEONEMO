@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using Core;
 
 public class BaseEnemy : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class BaseEnemy : MonoBehaviour
     protected virtual void Start()
     {
         currentHealth = maxHealth;
-        target = GameManager.instance.player;
+        target = GameManager.Instance.player;
 
     }
     protected virtual void OnEnable()
@@ -140,14 +141,14 @@ public class BaseEnemy : MonoBehaviour
         {
             isKnockbacking = true;
             knockbackStartTime = Time.time;
-            SetVelocity(attackinfo.knockbackPower*GameManager.instance.SM.GetFinalValue("KnockBackMul")*knockbackResistance, knockbackDirection);
+            SetVelocity(attackinfo.knockbackPower*GameManager.Instance.SM.GetFinalValue("KnockBackMul")*knockbackResistance, knockbackDirection);
         }
     }
 
     private void SpawnFloatingTxt(float damage,bool isCrit,AttackType attacktype)
     {
         if (damage <= 0||isDeath) return;
-        GameObject floatingTxt=GameManager.instance.poolManager.Get(3);
+        GameObject floatingTxt=GameManager.Instance.poolManager.Get(3);
         floatingTxt.transform.position = floatingTxtPos.position;
         floatingTxt.transform.rotation = Quaternion.Euler(0, 0, Random.Range(-10, 10));
         TMP_Text floatingTxt_TMP = floatingTxt.GetComponentInChildren<TextMeshPro>();
@@ -155,39 +156,39 @@ public class BaseEnemy : MonoBehaviour
         floatingTxt_TMP.fontSize = Mathf.Clamp(damage / 10, 2.5f, 7);
         if (attacktype == AttackType.StaticAttack)
         {
-            floatingTxt_TMP.color = GameManager.instance.floatingTxtColors[0];
+            floatingTxt_TMP.color = GameManager.Instance.floatingTxtColors[0];
         }
         else if(attacktype== (AttackType.PhysicAttack | AttackType.MagicAttack))
         {
             if (isCrit)
             {
-                floatingTxt_TMP.color = GameManager.instance.floatingTxtColors[6];
+                floatingTxt_TMP.color = GameManager.Instance.floatingTxtColors[6];
             }
             else
             {
-                floatingTxt_TMP.color = GameManager.instance.floatingTxtColors[5];
+                floatingTxt_TMP.color = GameManager.Instance.floatingTxtColors[5];
             }
         }
         else if (attacktype == AttackType.PhysicAttack)
         {
             if (isCrit)
             {
-                floatingTxt_TMP.color = GameManager.instance.floatingTxtColors[2];
+                floatingTxt_TMP.color = GameManager.Instance.floatingTxtColors[2];
             }
             else
             {
-                floatingTxt_TMP.color = GameManager.instance.floatingTxtColors[1];
+                floatingTxt_TMP.color = GameManager.Instance.floatingTxtColors[1];
             }
         }
         else if (attacktype == AttackType.MagicAttack)
         {
             if (isCrit)
             {
-                floatingTxt_TMP.color = GameManager.instance.floatingTxtColors[4];
+                floatingTxt_TMP.color = GameManager.Instance.floatingTxtColors[4];
             }
             else
             {
-                floatingTxt_TMP.color = GameManager.instance.floatingTxtColors[3];
+                floatingTxt_TMP.color = GameManager.Instance.floatingTxtColors[3];
             }
         }
     }
@@ -201,9 +202,9 @@ public class BaseEnemy : MonoBehaviour
     protected virtual void OnDeath()
     {
         if (isDeath) return;
-        GameManager.instance.killedEnemy++;
+        GameManager.Instance.killedEnemy++;
         isDeath=true;
-        GameObject DeathParticle=GameManager.instance.poolManager.Get(4,new Vector3(transform.localScale.x/0.35f,transform.localScale.x/0.35f));
+        GameObject DeathParticle=GameManager.Instance.poolManager.Get(4,new Vector3(transform.localScale.x/0.35f,transform.localScale.x/0.35f));
         DeathParticle.transform.position = transform.position;
         var mainPS = DeathParticle.GetComponent<ParticleSystem>().main;
         mainPS.startColor=enemyColor;
@@ -213,7 +214,7 @@ public class BaseEnemy : MonoBehaviour
     }
     public void canExecute()
     {
-        if (GameManager.instance.CanExecute(this))
+        if (GameManager.Instance.CanExecute(this))
         {
             if (!isDeath)
             {
@@ -224,11 +225,11 @@ public class BaseEnemy : MonoBehaviour
     protected virtual void OnExecution()
     {
         if (isDeath) return;
-        GameManager.instance.killedEnemy++;
+        GameManager.Instance.killedEnemy++;
         isDeath = true;
-        GameObject DeathParticle = GameManager.instance.poolManager.Get(58, new Vector3(transform.localScale.x / 0.35f, transform.localScale.x / 0.35f));
+        GameObject DeathParticle = GameManager.Instance.poolManager.Get(58, new Vector3(transform.localScale.x / 0.35f, transform.localScale.x / 0.35f));
         DeathParticle.transform.position = transform.position;
-        GameObject DeathParticle2 = GameManager.instance.poolManager.Get(59, new Vector3(transform.localScale.x/2.6f, transform.localScale.x/2.6f));
+        GameObject DeathParticle2 = GameManager.Instance.poolManager.Get(59, new Vector3(transform.localScale.x/2.6f, transform.localScale.x/2.6f));
         DeathParticle2.transform.position = transform.position;
         DropXP();
         currentHealth = maxHealth;
@@ -242,7 +243,7 @@ public class BaseEnemy : MonoBehaviour
             if (rnd < XPDrop.percentXP1)
             {
                 float gap = (Random.value - 0.5f) / 2;
-                GameObject GO=GameManager.instance.poolManager.Get(5);
+                GameObject GO=GameManager.Instance.poolManager.Get(5);
                 GO.transform.position = new Vector3(transform.position.x + gap, transform.position.y + gap, transform.position.z);
                 GO.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
                 GO.GetComponent<BaseItem>().isCollected = false;
@@ -254,7 +255,7 @@ public class BaseEnemy : MonoBehaviour
             if (rnd<XPDrop.percentXP2)
             {
                 float gap = (Random.value - 0.5f) / 2;
-                GameObject GO = GameManager.instance.poolManager.Get(6);
+                GameObject GO = GameManager.Instance.poolManager.Get(6);
                 GO.transform.position = new Vector3(transform.position.x + gap, transform.position.y + gap, transform.position.z);
                 GO.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
                 GO.GetComponent<BaseItem>().isCollected = false;
@@ -266,7 +267,7 @@ public class BaseEnemy : MonoBehaviour
             if (rnd < XPDrop.percentXP3)
             {
                 float gap = (Random.value - 0.5f) / 2;
-                GameObject GO = GameManager.instance.poolManager.Get(7);
+                GameObject GO = GameManager.Instance.poolManager.Get(7);
                 GO.transform.position = new Vector3(transform.position.x +gap, transform.position.y + gap, transform.position.z);
                 GO.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
                 GO.GetComponent<BaseItem>().isCollected = false;
@@ -309,12 +310,12 @@ public class BaseEnemy : MonoBehaviour
         while (true)
         {
             HasAttacked(eSS.GetFireStack(),AttackType.StaticAttack,false);
-            yield return new WaitForSeconds(GameManager.instance.enemyFireTick);
+            yield return new WaitForSeconds(GameManager.Instance.enemyFireTick);
         }
     }
     public void EndWave()
     {
-        GameObject DeathParticle = GameManager.instance.poolManager.Get(36, new Vector3(transform.localScale.x / 0.35f, transform.localScale.x / 0.35f));
+        GameObject DeathParticle = GameManager.Instance.poolManager.Get(36, new Vector3(transform.localScale.x / 0.35f, transform.localScale.x / 0.35f));
         DeathParticle.transform.position = transform.position;
         var mainPS = DeathParticle.GetComponent<ParticleSystem>().main;
         mainPS.startColor = enemyColor;

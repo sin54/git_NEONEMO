@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using Core;
 
 public class BaseAngled : BaseBullet
 {
@@ -39,7 +40,7 @@ public class BaseAngled : BaseBullet
         }
         else
         {
-            bulletParent.position = GameManager.instance.player.transform.position;
+            bulletParent.position = GameManager.Instance.player.transform.position;
         }
     }
 }

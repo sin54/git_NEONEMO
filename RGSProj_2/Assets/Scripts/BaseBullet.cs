@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using Core;
+
 public class BaseBullet : MonoBehaviour
 {
     protected SpriteRenderer SR;
@@ -88,6 +90,6 @@ public class BaseBullet : MonoBehaviour
     }
     protected virtual void AttackEnemy(BaseEnemy target,AttackInfo aInfo)
     {
-        GameManager.instance.AtkEnemy(target, aInfo,AttackType,AttackAttr ,target.transform.position - transform.position);
+        GameManager.Instance.AtkEnemy(target, aInfo,AttackType,AttackAttr ,target.transform.position - transform.position);
     }
 }

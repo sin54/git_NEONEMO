@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Core;
 public class Skill_WindSword :BaseSkill
 {
     [HideInInspector] public SO_WindSwordData skillData;
@@ -34,10 +35,10 @@ public class Skill_WindSword :BaseSkill
     {
         if (reinforcedNum == 2)
         {
-            GameObject[] targets = GameManager.instance.scanner.FindNearestEnemies(targetNum_rf2);
+            GameObject[] targets = GameManager.Instance.scanner.FindNearestEnemies(targetNum_rf2);
             for (int i = 0; i < Mathf.Min(targetNum_rf2, targets.Length); i++)
             {
-                GameObject GO = GameManager.instance.poolManager.Get(28);
+                GameObject GO = GameManager.Instance.poolManager.Get(28);
                 GO.GetComponent<WindSwordParticle>().SetParticle(skillData.damageByLevel[itemLevel], this);
                 GO.transform.position = targets[i].transform.position;
                 GO.transform.localScale = new Vector3(size_rf2,size_rf2,size_rf2);
@@ -47,10 +48,10 @@ public class Skill_WindSword :BaseSkill
         }
         else
         {
-            GameObject[] targets = GameManager.instance.scanner.FindNearestEnemies(skillData.swordNumByLevel[itemLevel]);
+            GameObject[] targets = GameManager.Instance.scanner.FindNearestEnemies(skillData.swordNumByLevel[itemLevel]);
             for (int i = 0; i < Mathf.Min(skillData.swordNumByLevel[itemLevel], targets.Length); i++)
             {
-                GameObject GO = GameManager.instance.poolManager.Get(28);
+                GameObject GO = GameManager.Instance.poolManager.Get(28);
                 GO.GetComponent<WindSwordParticle>().SetParticle(skillData.damageByLevel[itemLevel], this);
                 GO.transform.position = targets[i].transform.position;
                 GO.transform.localScale = new Vector3(skillData.sizeByLevel[itemLevel], skillData.sizeByLevel[itemLevel], skillData.sizeByLevel[itemLevel]);
@@ -62,6 +63,6 @@ public class Skill_WindSword :BaseSkill
     }
     private bool CanAttack()
     {
-        return Time.time > skillData.atkCoolByLevel[itemLevel]* GameManager.instance.SM.GetFinalValue("CoolReduce") * GameManager.instance.SM.GetFinalValue("W_Cool") + lastAttackTime;
+        return Time.time > skillData.atkCoolByLevel[itemLevel]* GameManager.Instance.SM.GetFinalValue("CoolReduce") * GameManager.Instance.SM.GetFinalValue("W_Cool") + lastAttackTime;
     }
 }

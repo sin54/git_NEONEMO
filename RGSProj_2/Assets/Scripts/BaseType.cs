@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class BaseType : MonoBehaviour,IUpgradable
 {
@@ -9,19 +10,19 @@ public class BaseType : MonoBehaviour,IUpgradable
     public int typeCode;
     private void Start()
     {
-        player = GameManager.instance.player;
+        player = GameManager.Instance.player;
     }
     public virtual void Upgrade()
     {
         typePassiveLevel++;
         if (typePassiveLevel == 4)
         {
-            GameManager.instance.levelManager.RemoveAbility(this);
+            GameManager.Instance.levelManager.RemoveAbility(this);
         }
     }
     protected virtual void OnEnable()
     {
-        GameManager.instance.player.typeList.Add(typeCode);
-        GameManager.instance.playerTypeManager.AddType(typeCode);
+        GameManager.Instance.player.typeList.Add(typeCode);
+        GameManager.Instance.playerTypeManager.AddType(typeCode);
     }
 }

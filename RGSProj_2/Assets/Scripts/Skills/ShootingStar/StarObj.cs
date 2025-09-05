@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class StarObj : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class StarObj : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, targetPos) < 0.01f)
         {
-            GameObject GO = GameManager.instance.poolManager.Get(31);
+            GameObject GO = GameManager.Instance.poolManager.Get(31);
             GO.transform.GetChild(0).GetComponent<StarExplode>().SetExplosion(radius, damageInfo,transform.position);
             if (isrf)
             {
@@ -34,7 +35,7 @@ public class StarObj : MonoBehaviour
             }
             if (SS.reinforcedNum == 2&&UtilClass.GetPercent(SS.fracPercent))
             {
-                GameObject GO2 = GameManager.instance.poolManager.Get(37);
+                GameObject GO2 = GameManager.Instance.poolManager.Get(37);
                 GO2.GetComponent<StarFrac>().SetStarFrac(SS.starLifeTime, SS.healAmount);
                 GO2.transform.position = transform.position;
             }

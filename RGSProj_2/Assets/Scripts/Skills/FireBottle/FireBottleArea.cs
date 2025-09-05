@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Core;
 using System.Linq;
 
 public class FireBottleArea : MonoBehaviour
@@ -47,7 +48,7 @@ public class FireBottleArea : MonoBehaviour
                 {
                     if (enemy.gameObject.activeSelf)
                     {
-                        GameManager.instance.AtkEnemy(enemy, damage, AttackType.MagicAttack, AttackAttr.Fire);
+                        GameManager.Instance.AtkEnemy(enemy, damage, AttackType.MagicAttack, AttackAttr.Fire);
                         enemy.eSS.AddFireStack(1);
                     }
                     else
@@ -71,12 +72,12 @@ public class FireBottleArea : MonoBehaviour
     public void Init(float dur, float dmg, float size, Skill_FireBottle fb)
     {
         PS.Stop();
-        duration = dur*GameManager.instance.SM.GetFinalValue("SkillDurationMul");
+        duration = dur*GameManager.Instance.SM.GetFinalValue("SkillDurationMul");
         damage = dmg;
-        radius = size*GameManager.instance.SM.GetFinalValue("AoESize");
+        radius = size*GameManager.Instance.SM.GetFinalValue("AoESize");
         if (fb.reinforcedNum == 3)
         {
-            float eqRad = fb.equalRadius * GameManager.instance.SM.GetFinalValue("AoESize");
+            float eqRad = fb.equalRadius * GameManager.Instance.SM.GetFinalValue("AoESize");
             transform.localScale = new Vector3(eqRad,eqRad,eqRad);
         }
         else

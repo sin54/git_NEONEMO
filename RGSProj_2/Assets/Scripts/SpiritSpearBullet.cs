@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class SpiritSpearBullet : BaseBullet
 {
@@ -26,7 +27,7 @@ public class SpiritSpearBullet : BaseBullet
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             collision.GetComponent<BaseEnemy>().eSS.AddFireStack(SF.spearFireAmount);
-            GameManager.instance.AtkEnemy(collision.GetComponent<BaseEnemy>(),SF.spearDamage,AttackType.PhysicAttack, AttackAttr.Fire); 
+            GameManager.Instance.AtkEnemy(collision.GetComponent<BaseEnemy>(),SF.spearDamage,AttackType.PhysicAttack, AttackAttr.Fire); 
         }
     }
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class SplitEnemy : BaseEnemy
 {
@@ -53,9 +54,9 @@ public class SplitEnemy : BaseEnemy
 
     protected override void OnDeath()
     {
-        GameManager.instance.killedEnemy++;
+        GameManager.Instance.killedEnemy++;
         isDeath = true;
-        GameObject DeathParticle = GameManager.instance.poolManager.Get(4, new Vector3(transform.localScale.x / 0.35f, transform.localScale.x / 0.35f));
+        GameObject DeathParticle = GameManager.Instance.poolManager.Get(4, new Vector3(transform.localScale.x / 0.35f, transform.localScale.x / 0.35f));
         DeathParticle.transform.position = transform.position;
         var mainPS = DeathParticle.GetComponent<ParticleSystem>().main;
         mainPS.startColor = enemyColor;
@@ -63,7 +64,7 @@ public class SplitEnemy : BaseEnemy
         currentHealth = maxHealth;
         for (int i = 0; i < splitNumber; i++)
         {
-            GameObject enemy = GameManager.instance.poolManager.Get(splitPrefabNum);
+            GameObject enemy = GameManager.Instance.poolManager.Get(splitPrefabNum);
 
             float angle = (360f / splitNumber) * i;
             Vector2 offset = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * spawnRadius;

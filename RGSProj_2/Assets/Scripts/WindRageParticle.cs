@@ -2,6 +2,7 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using Core;
 
 public class WindRageParticle : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class WindRageParticle : MonoBehaviour
 
         transform.localScale = Vector3.one * size;
 
-        direction = GameManager.instance.player.transform.position- transform.position;
+        direction = GameManager.Instance.player.transform.position- transform.position;
         rb2D.linearVelocity = direction.normalized * speed;
         return direction;
     }
@@ -63,7 +64,7 @@ public class WindRageParticle : MonoBehaviour
             isBounced = true;
             Instantiate(WRexplode, transform.position, Quaternion.identity);
             transform.localScale = Vector3.one * size * 1.5f;
-            Vector2 playerDir = GameManager.instance.player.transform.up;
+            Vector2 playerDir = GameManager.Instance.player.transform.up;
             rb2D.linearVelocity=playerDir.normalized * bounceSpeed;
         }
         if (Time.time > spawnTime + 6.6f)
@@ -95,7 +96,7 @@ public class WindRageParticle : MonoBehaviour
                 BaseEnemy enemy = enemyList[i];
                 if (enemy != null&&RageWind.type.typeActiveLevel>1)
                 {
-                    GameManager.instance.AtkEnemy(enemy, dmgPerSec, AttackType.MagicAttack,AttackAttr.Wind);
+                    GameManager.Instance.AtkEnemy(enemy, dmgPerSec, AttackType.MagicAttack,AttackAttr.Wind);
                 }
             }
         }
@@ -106,7 +107,7 @@ public class WindRageParticle : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             BaseEnemy BE = collision.GetComponent<BaseEnemy>();
-            GameManager.instance.AtkEnemy(BE, attractForce, AttackType.StaticAttack, AttackAttr.None,transform.position - collision.transform.position);
+            GameManager.Instance.AtkEnemy(BE, attractForce, AttackType.StaticAttack, AttackAttr.None,transform.position - collision.transform.position);
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
@@ -141,7 +142,7 @@ public class WindRageParticle : MonoBehaviour
             if (isBounced&&RageWind.type.typeActiveLevel>=5)
             {
 
-                GameManager.instance.AtkEnemy(BE, bounceDmg, AttackType.MagicAttack, AttackAttr.Wind);
+                GameManager.Instance.AtkEnemy(BE, bounceDmg, AttackType.MagicAttack, AttackAttr.Wind);
             }
 
         }

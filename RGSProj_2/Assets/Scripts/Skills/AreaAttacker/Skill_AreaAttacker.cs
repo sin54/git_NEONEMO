@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 public class Skill_AreaAttacker : BaseSkill
@@ -24,7 +25,7 @@ public class Skill_AreaAttacker : BaseSkill
     }
     private void Update()
     {
-        float size = skillData.sizeByLevel[itemLevel] * GameManager.instance.SM.GetFinalValue("AoESize");
+        float size = skillData.sizeByLevel[itemLevel] * GameManager.Instance.SM.GetFinalValue("AoESize");
         transform.localScale = new Vector3(size, size, size);
         for (int i= 0;i < areaAttackers.Length;i++)
         {
@@ -35,7 +36,7 @@ public class Skill_AreaAttacker : BaseSkill
     public override void Upgrade()
     {
         base.Upgrade();
-        float size = skillData.sizeByLevel[itemLevel] * GameManager.instance.SM.GetFinalValue("AoESize");
+        float size = skillData.sizeByLevel[itemLevel] * GameManager.Instance.SM.GetFinalValue("AoESize");
         transform.localScale = new Vector3(size,size,size);
     }
 }

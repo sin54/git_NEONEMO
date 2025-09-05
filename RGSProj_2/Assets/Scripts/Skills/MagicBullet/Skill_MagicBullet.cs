@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Core;
 
 public class Skill_MagicBullet : BaseSkill
 {
@@ -28,7 +29,7 @@ public class Skill_MagicBullet : BaseSkill
     }
     private void Attack()
     {
-        GameObject GO = GameManager.instance.poolManager.Get(bulletPrefabNum);
+        GameObject GO = GameManager.Instance.poolManager.Get(bulletPrefabNum);
         GO.transform.position = transform.position;
         if (reinforcedNum == 3)
         {
@@ -55,14 +56,14 @@ public class Skill_MagicBullet : BaseSkill
 
         Vector2 leftVector = new Vector2(Mathf.Cos(angleLeft), Mathf.Sin(angleLeft)).normalized;
         Vector2 rightVector = new Vector2(Mathf.Cos(angleRight), Mathf.Sin(angleRight)).normalized;
-        GameObject GO1 = GameManager.instance.poolManager.Get(13);
+        GameObject GO1 = GameManager.Instance.poolManager.Get(13);
         GO1.GetComponentInChildren<RandomArrowBullet>().SetBullet(skillData.arrowSpeedByLevel[itemLevel], skillData.arrowLifeTime,skillData.attackInfoByLevel[itemLevel],leftVector,0,this);
-        GameObject GO2 = GameManager.instance.poolManager.Get(13);
+        GameObject GO2 = GameManager.Instance.poolManager.Get(13);
         GO2.GetComponentInChildren<RandomArrowBullet>().SetBullet(skillData.arrowSpeedByLevel[itemLevel], skillData.arrowLifeTime, skillData.attackInfoByLevel[itemLevel], rightVector, 0,this);
     }
     private void Update()
     {
-        targetPos = GameManager.instance.scanner.GetNearestEnemy();
+        targetPos = GameManager.Instance.scanner.GetNearestEnemy();
         if (CanAttack() && targetPos != null)
         {
             Attack();
@@ -76,11 +77,11 @@ public class Skill_MagicBullet : BaseSkill
     private bool CanAttack()
     {
         float coolTime= skillData.coolTimeByLevel[itemLevel];
-        if (GameManager.instance.playerTypeManager.BT.typeCode == 3)
+        if (GameManager.Instance.playerTypeManager.BT.typeCode == 3)
         {
-            coolTime *= 1.5f / GameManager.instance.player.playerFinalSpeed;
+            coolTime *= 1.5f / GameManager.Instance.player.playerFinalSpeed;
         }
-        coolTime *= GameManager.instance.SM.GetFinalValue("WeaponCoolReduce");
+        coolTime *= GameManager.Instance.SM.GetFinalValue("WeaponCoolReduce");
         return Time.time > coolTime + lastAttackTime;
     }
 }

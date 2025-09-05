@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using Core;
 public class FireType : BaseType
 {
     public float[] fireTick;
@@ -7,13 +7,13 @@ public class FireType : BaseType
     public override void Upgrade()
     {
         base.Upgrade();
-        GameManager.instance.enemyFireTick = fireTick[typePassiveLevel];
+        GameManager.Instance.enemyFireTick = fireTick[typePassiveLevel];
     }
 
     protected override void OnEnable()
     {
         base.OnEnable();
-        GameManager.instance.enemyFireTick = fireTick[0];
-        GameManager.instance.levelManager.AddFireSkill();
+        GameManager.Instance.enemyFireTick = fireTick[0];
+        GameManager.Instance.levelManager.AddFireSkill();
     }
 }

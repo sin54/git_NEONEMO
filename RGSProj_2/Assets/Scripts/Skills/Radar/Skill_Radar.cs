@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Core;
 
 public class Skill_Radar : BaseSkill
 {
@@ -33,7 +34,7 @@ public class Skill_Radar : BaseSkill
             ReturnSet();
             if (reinforcedNum == 3&&targetList.Count!=0)
             {
-                GameManager.instance.player.noDamage = true;
+                GameManager.Instance.player.noDamage = true;
                 Invoke("DefenceUp", targetList.Count * 0.02f);
             }
             StartCoroutine(Attack());
@@ -41,7 +42,7 @@ public class Skill_Radar : BaseSkill
     }
     private bool CanAttack()
     {
-        return Time.time > skillData.coolTimeByLevel[itemLevel]* GameManager.instance.SM.GetFinalValue("CoolReduce") * GameManager.instance.SM.GetFinalValue("L_Cool") + lastAttackTime;
+        return Time.time > skillData.coolTimeByLevel[itemLevel]* GameManager.Instance.SM.GetFinalValue("CoolReduce") * GameManager.Instance.SM.GetFinalValue("L_Cool") + lastAttackTime;
     }
     private void ReturnSet()
     {
@@ -68,8 +69,8 @@ public class Skill_Radar : BaseSkill
     private IEnumerator Attack()
     {
         for (int i = 0; i < Mathf.Min(targetList.Count, skillData.maxTargetByLevel[itemLevel]); i++) {
-            GameObject GO=GameManager.instance.poolManager.Get(33);
-            Vector2 director = GameManager.instance.player.transform.position- targetList[i].Item1.transform.position;
+            GameObject GO=GameManager.Instance.poolManager.Get(33);
+            Vector2 director = GameManager.Instance.player.transform.position- targetList[i].Item1.transform.position;
             Vector2 spreadDir = Quaternion.Euler(0, 0, Random.Range(-60f, 60f)) * director;
             GO.transform.GetChild(0).GetComponent<LightSpear>().SetBullet(7, 15, reinforcedNum==1?new AttackInfo(skillData.damageByLevel[itemLevel].damage + dmgIncAmount * i, skillData.damageByLevel[itemLevel].knockbackPower):skillData.damageByLevel[itemLevel], spreadDir.normalized, targetList[i].Item1,this);
             yield return new WaitForSeconds(0.02f);
@@ -79,6 +80,6 @@ public class Skill_Radar : BaseSkill
     }
     private void DefenceUp()
     {
-        GameManager.instance.player.noDamage = false;
+        GameManager.Instance.player.noDamage = false;
     }
 }

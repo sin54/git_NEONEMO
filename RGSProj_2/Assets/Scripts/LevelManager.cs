@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Core;
 
 public class LevelManager : MonoBehaviour
 {
@@ -46,7 +47,7 @@ public class LevelManager : MonoBehaviour
         maxSkillSelectedNum = -1;
         for(int i = 0; i < totalSkills.Length; i++)
         {
-            GameManager.instance.UIM.AddSkill(totalSkills[i]);
+            GameManager.Instance.UIM.AddSkill(totalSkills[i]);
         }
     }
     private void Update()
@@ -74,7 +75,7 @@ public class LevelManager : MonoBehaviour
                         if (selectedSkills[selectedNum].itemLevel < 0)
                         {
                             selectedSkills[selectedNum].gameObject.SetActive(true);
-                            GameManager.instance.UIM.AddSkill(selectedSkills[selectedNum]);
+                            GameManager.Instance.UIM.AddSkill(selectedSkills[selectedNum]);
                         }
                         selectedSkills[selectedNum].GetComponent<IUpgradable>().Upgrade();
                     }
@@ -281,7 +282,7 @@ public class LevelManager : MonoBehaviour
         {
             panel.SetActive(false);
         }
-        GameManager.instance.UIM.UpdateAll();
+        GameManager.Instance.UIM.UpdateAll();
         TimeScaleManager.Instance.TimeStopStackMinus();
     }
 }

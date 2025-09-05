@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class DashEnemy_DashAttack : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class DashEnemy_DashAttack : MonoBehaviour
     {
         if (isPlayerInside)
         {
-            GameManager.instance.player.DecreaseHealth(dmg);
+            GameManager.Instance.player.DecreaseHealth(dmg);
         }
     }
 }

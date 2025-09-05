@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Core;
 
 public class Meteorite_Explosion : BaseExplosion
 {
@@ -9,11 +10,11 @@ public class Meteorite_Explosion : BaseExplosion
     {
         if (SM.reinforcedNum == 3)
         {
-            GameManager.instance.AtkEnemy(BE, new AttackInfo(BE.maxHealth * SM.damagePercent, damageInfo.knockbackPower), AttackType.PhysicAttack,AttackAttr.Fire ,BE.gameObject.transform.position - transform.position);
+            GameManager.Instance.AtkEnemy(BE, new AttackInfo(BE.maxHealth * SM.damagePercent, damageInfo.knockbackPower), AttackType.PhysicAttack,AttackAttr.Fire ,BE.gameObject.transform.position - transform.position);
         }
         else
         {
-            GameManager.instance.AtkEnemy(BE, damageInfo, AttackType.PhysicAttack, AttackAttr.Fire,BE.gameObject.transform.position - transform.position);
+            GameManager.Instance.AtkEnemy(BE, damageInfo, AttackType.PhysicAttack, AttackAttr.Fire,BE.gameObject.transform.position - transform.position);
         }
 
         if (SM.reinforcedNum == 2)

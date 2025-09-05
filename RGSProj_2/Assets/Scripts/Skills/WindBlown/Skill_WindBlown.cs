@@ -1,5 +1,6 @@
 using System.Net.NetworkInformation;
 using UnityEngine;
+using Core;
 
 public class Skill_WindBlown :BaseSkill
 {
@@ -38,9 +39,9 @@ public class Skill_WindBlown :BaseSkill
     }
     private void Update()
     {
-        windBlownTF.rotation = Quaternion.Euler(270 - GameManager.instance.player.transform.rotation.eulerAngles.z, 90, -90);
-        windBlownTF2.rotation= Quaternion.Euler(90 - GameManager.instance.player.transform.rotation.eulerAngles.z, 90, -90);
-        float AoES = GameManager.instance.SM.GetFinalValue("AoESize");
+        windBlownTF.rotation = Quaternion.Euler(270 - GameManager.Instance.player.transform.rotation.eulerAngles.z, 90, -90);
+        windBlownTF2.rotation= Quaternion.Euler(90 - GameManager.Instance.player.transform.rotation.eulerAngles.z, 90, -90);
+        float AoES = GameManager.Instance.SM.GetFinalValue("AoESize");
         var PS = skillPS.main;
         PS.startLifetime = skillData.rangeByLevel[itemLevel] * AoES;
         float rangeSize = skillData.rangeByLevel[itemLevel] * 2 * AoES;
@@ -51,7 +52,7 @@ public class Skill_WindBlown :BaseSkill
         if (CanAttack())
         {
             Attack();
-            GameManager.instance.SM.AddModifier("PlayerSpeed", multiplier: skillData.speedMulAmount, duration: skillData.durationByLevel[itemLevel]);
+            GameManager.Instance.SM.AddModifier("PlayerSpeed", multiplier: skillData.speedMulAmount, duration: skillData.durationByLevel[itemLevel]);
             skillPS.Play();
             if (reinforcedNum == 1)
             {
@@ -60,7 +61,7 @@ public class Skill_WindBlown :BaseSkill
             lastAttackTime = Time.time;
             isSkilling = true;
         }
-        if (Time.time > lastAttackTime + skillData.durationByLevel[itemLevel]*GameManager.instance.SM.GetFinalValue("SkillDurationMul") && isSkilling)
+        if (Time.time > lastAttackTime + skillData.durationByLevel[itemLevel]*GameManager.Instance.SM.GetFinalValue("SkillDurationMul") && isSkilling)
         {
             skillRange.enabled = false;
             isSkilling = false;
@@ -87,15 +88,15 @@ public class Skill_WindBlown :BaseSkill
         {
             coolTime -= reduceAmount;
         }
-        coolTime *= GameManager.instance.SM.GetFinalValue("CoolReduce");
-        coolTime *= GameManager.instance.SM.GetFinalValue("W_Cool");
+        coolTime *= GameManager.Instance.SM.GetFinalValue("CoolReduce");
+        coolTime *= GameManager.Instance.SM.GetFinalValue("W_Cool");
         return Time.time > coolTime + lastAttackTime;
     }
 
     public override void Upgrade()
     {
         base.Upgrade();
-        float AoES = GameManager.instance.SM.GetFinalValue("AoESize");
+        float AoES = GameManager.Instance.SM.GetFinalValue("AoESize");
         var PS = skillPS.main;
         PS.startLifetime=skillData.rangeByLevel[itemLevel]*AoES;
         float rangeSize = skillData.rangeByLevel[itemLevel] * 2 * AoES;

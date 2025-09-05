@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class FireBottleBullet : MonoBehaviour
 {
@@ -47,7 +48,7 @@ public class FireBottleBullet : MonoBehaviour
         {
             isMoving = false;
             transform.position = new Vector3(endPos.x, endPos.y, 0f); // 정확히 도착 위치 보정
-            GameObject incenArea = GameManager.instance.poolManager.Get(26);
+            GameObject incenArea = GameManager.Instance.poolManager.Get(26);
             incenArea.transform.position = transform.position;
             incenArea.GetComponent<FireBottleArea>().Init(skilData.incenDuration[nowLevel], skilData.attackDamage[nowLevel], skilData.incenRadius[nowLevel], SF);
             gameObject.SetActive(false);

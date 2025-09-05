@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Core;
 
 namespace InventorySystem
 {
@@ -123,7 +124,7 @@ namespace InventorySystem
             if (CurrentSlot != null && dropped)
             {
                 dropped = false;
-                GameManager.instance.UIM.isItemDragging = true;
+                GameManager.Instance.UIM.isItemDragging = true;
                 CurrentSlot.ResetSlot();
                 transform.SetParent(CurrentSlot.GetInventoryUI().GetUI());
             }
@@ -141,7 +142,7 @@ namespace InventorySystem
             if (Draggable()) return;
 
             HandleEndDrag(eventData);
-            GameManager.instance.UIM.isItemDragging = false;
+            GameManager.Instance.UIM.isItemDragging = false;
         }
 
         /// <summary>
@@ -150,7 +151,7 @@ namespace InventorySystem
         private void HandleEndDrag(PointerEventData eventData)
         {
             // 휴지통 모드가 켜져 있으면, 무조건 아이템 삭제
-            if (GameManager.instance.UIM.isTrashOn)
+            if (GameManager.Instance.UIM.isTrashOn)
             {
                 // 필요하다면 이 시점에서 인벤토리에서도 제거
                 InventoryController.instance.GetInventory(CurrentSlot.GetInventoryUI().GetInventoryName())
@@ -215,7 +216,7 @@ namespace InventorySystem
                 // 정리
                 targetSlot.GetInventoryUI().UnHighlight(result.gameObject);
                 if (prevslot != null) prevslot.GetComponent<Slot>().GetInventoryUI().ResetHighlight();
-                GameManager.instance.UIM.SetItemDescription(item);
+                GameManager.Instance.UIM.SetItemDescription(item);
                 Destroy(gameObject);
             }
             else

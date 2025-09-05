@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Core;
 public class Rage_Normal : BaseRage
 {
     [SerializeField] private GameObject rageNormalEffect;
@@ -17,7 +18,7 @@ public class Rage_Normal : BaseRage
         rageMax = durations[type.typeActiveLevel - 1];
         rageNormalEffect.SetActive(true);
         canAddGauge = false;
-        GameManager.instance.SM.AddModifier("WeaponCoolReduce", multiplier: percents[type.typeActiveLevel-1], duration: durations[type.typeActiveLevel - 1]);
+        GameManager.Instance.SM.AddModifier("WeaponCoolReduce", multiplier: percents[type.typeActiveLevel-1], duration: durations[type.typeActiveLevel - 1]);
         for(int i = 0; i < transform.GetChild(0).childCount; i++)
         {
             transform.GetChild(0).GetChild(i).gameObject.SetActive(false);

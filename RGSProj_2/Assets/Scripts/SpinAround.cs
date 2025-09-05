@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class SpinAround : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class SpinAround : MonoBehaviour
 
     private void Awake()
     {
-        Target = GameManager.instance.player.transform;
+        Target = GameManager.Instance.player.transform;
     }
 
     public void SetInitialAngle(float angleDeg)

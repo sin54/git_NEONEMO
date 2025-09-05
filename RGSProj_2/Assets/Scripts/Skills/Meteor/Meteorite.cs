@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using Core;
 
 public class Meteorite : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class Meteorite : MonoBehaviour
 
         if (Vector3.Distance(transform.position, targetPos) < 0.01f)
         {
-            GameObject GO = GameManager.instance.poolManager.Get(24);
+            GameObject GO = GameManager.Instance.poolManager.Get(24);
             GO.GetComponent<Meteorite_Explosion>().SetExplode(radius, damageInfo,0.2f,SM);
             GO.transform.position=transform.position;
             gameObject.SetActive(false);

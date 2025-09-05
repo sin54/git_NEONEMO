@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 public class IncenBullet : MonoBehaviour
@@ -49,7 +50,7 @@ public class IncenBullet : MonoBehaviour
             transform.position = new Vector3(endPos.x, endPos.y, 0f); // 정확히 도착 위치 보정
             if (SI.reinforcedNum != 1)
             {
-                GameObject incenArea = GameManager.instance.poolManager.Get(9);
+                GameObject incenArea = GameManager.Instance.poolManager.Get(9);
                 incenArea.transform.position = transform.position;
                 if (SI.reinforcedNum != 3)
                 {
@@ -63,7 +64,7 @@ public class IncenBullet : MonoBehaviour
             }
             else
             {
-                GameObject incenArea = GameManager.instance.poolManager.Get(11);
+                GameObject incenArea = GameManager.Instance.poolManager.Get(11);
                 incenArea.transform.position = transform.position;
                 incenArea.GetComponent<IncenGradePrefab>().Init(skilData.incenDuration[nowLevel], skilData.attackDamage[nowLevel], skilData.incenRadius[nowLevel], SI);
 

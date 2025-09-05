@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Core;
 
 public class LightWave : MonoBehaviour
 {
@@ -38,10 +39,10 @@ public class LightWave : MonoBehaviour
             {
                 damagedEnemies.Add(BE); // ±â·Ï
 
-                GameManager.instance.AtkEnemy(BE, RL.knockBackInfo, AttackType.StaticAttack, AttackAttr.None, BE.transform.position - transform.position);
+                GameManager.Instance.AtkEnemy(BE, RL.knockBackInfo, AttackType.StaticAttack, AttackAttr.None, BE.transform.position - transform.position);
                 if (RL.type.typeActiveLevel >= 4)
                 {
-                    GameManager.instance.AtkEnemy(BE, RL.damage, AttackType.MagicAttack, AttackAttr.Light);
+                    GameManager.Instance.AtkEnemy(BE, RL.damage, AttackType.MagicAttack, AttackAttr.Light);
                 }
             }
         }

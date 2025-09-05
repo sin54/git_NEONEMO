@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using Core;
 
 public class IncenPrefabMain : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class IncenPrefabMain : MonoBehaviour
                 {
                     if (enemy.gameObject.activeSelf)
                     {
-                        GameManager.instance.AtkEnemy(enemy, damage, AttackType.PhysicAttack, AttackAttr.Normal);
+                        GameManager.Instance.AtkEnemy(enemy, damage, AttackType.PhysicAttack, AttackAttr.Normal);
                     }
                     else
                     {
@@ -49,9 +50,9 @@ public class IncenPrefabMain : MonoBehaviour
     }
     public void Init(float dur, float dmg, float size,Skill_Incendiary si)
     {
-        duration= dur*GameManager.instance.SM.GetFinalValue("SkillDurationMul");
+        duration= dur*GameManager.Instance.SM.GetFinalValue("SkillDurationMul");
         damage = dmg;
-        radius = size*GameManager.instance.SM.GetFinalValue("AoESize");
+        radius = size*GameManager.Instance.SM.GetFinalValue("AoESize");
         transform.localScale = new Vector3(radius, radius, radius);
         SI= si;
         

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class MagicBallPrefab : MonoBehaviour
 {
@@ -69,7 +70,7 @@ public class MagicBallPrefab : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            GameManager.instance.AtkEnemy(collision.GetComponent<BaseEnemy>(), SM.reinforcedNum == 2 ? damage + attackDamageAddAmount : damage,AttackType.PhysicAttack, AttackAttr.Normal);
+            GameManager.Instance.AtkEnemy(collision.GetComponent<BaseEnemy>(), SM.reinforcedNum == 2 ? damage + attackDamageAddAmount : damage,AttackType.PhysicAttack, AttackAttr.Normal);
             attackDamageAddAmount += SM.damageAddAmount;
         }
     }

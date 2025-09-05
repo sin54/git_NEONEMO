@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class Skill_Knockback : BaseSkill
 {
@@ -33,7 +34,7 @@ public class Skill_Knockback : BaseSkill
     private void Attack()
     {
         windKnockBackGO.SetActive(true);
-        GameManager.instance.SM.AddModifier("PlayerSpeed", multiplier: skillData.speedMul, duration: 1f);
+        GameManager.Instance.SM.AddModifier("PlayerSpeed", multiplier: skillData.speedMul, duration: 1f);
     }
 
     private bool CanAttack()
@@ -47,8 +48,8 @@ public class Skill_Knockback : BaseSkill
         {
             coolTime = skillCool_rf2;
         }
-        coolTime *= GameManager.instance.SM.GetFinalValue("CoolReduce");
-        coolTime *= GameManager.instance.SM.GetFinalValue("W_Cool");
+        coolTime *= GameManager.Instance.SM.GetFinalValue("CoolReduce");
+        coolTime *= GameManager.Instance.SM.GetFinalValue("W_Cool");
         return Time.time > coolTime + lastAttackTime;
     }
 

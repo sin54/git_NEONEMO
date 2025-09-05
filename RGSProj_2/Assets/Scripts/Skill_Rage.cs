@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Core;
 
 public class Skill_Rage : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class Skill_Rage : MonoBehaviour
         BaseRage currentRage = BR[currentType];
         if (currentRage == null) return;
 
-        if (Time.time >= lastGaugeUpdateTime + gaugeTickTime&&currentRage.canAddGauge&&!GameManager.instance.isDay)
+        if (Time.time >= lastGaugeUpdateTime + gaugeTickTime&&currentRage.canAddGauge&&!GameManager.Instance.isDay)
         {
             lastGaugeUpdateTime = Time.time;
             currentRage.currentGauge = Mathf.Min(currentRage.currentGauge + 1f, currentRage.needGauge);

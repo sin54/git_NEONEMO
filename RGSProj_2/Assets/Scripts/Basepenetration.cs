@@ -1,5 +1,6 @@
 using UnityEngine;
 using static Unity.VisualScripting.Member;
+using Core;
 
 public class Basepenetration : BaseBullet
 {
@@ -14,14 +15,14 @@ public class Basepenetration : BaseBullet
     {
         base.OnEnable();
         currentPenetration = 0;
-        target = GameManager.instance.scanner.GetNearestEnemy();
+        target = GameManager.Instance.scanner.GetNearestEnemy();
         if (target == null)
         {
             bulletDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
         }
         else
         {
-            bulletDirection = new Vector2(target.transform.position.x - GameManager.instance.player.transform.position.x, target.transform.position.y -GameManager.instance.player.transform.position.y).normalized;
+            bulletDirection = new Vector2(target.transform.position.x - GameManager.Instance.player.transform.position.x, target.transform.position.y -GameManager.Instance.player.transform.position.y).normalized;
         }
 
         float rotationZ = Mathf.Atan2(bulletDirection.y, bulletDirection.x) * Mathf.Rad2Deg;
@@ -71,7 +72,7 @@ public class Basepenetration : BaseBullet
         }
         else
         {
-            bulletParent.position = GameManager.instance.player.transform.position;
+            bulletParent.position = GameManager.Instance.player.transform.position;
         }
     }
 

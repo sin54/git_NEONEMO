@@ -6,6 +6,7 @@ using System;
 using TMPro;
 using InventorySystem;
 using Random=UnityEngine.Random;
+using Core;
 public class Spawner : MonoBehaviour
 {
     public static event Action OnMassEnemyDeath;
@@ -94,9 +95,9 @@ public class Spawner : MonoBehaviour
         {
             isDayFinished = false;
             OnEndDay?.Invoke();
-            yield return new WaitUntil(() => (!GameManager.instance.levelManager.isUpgrading));
+            yield return new WaitUntil(() => (!GameManager.Instance.levelManager.isUpgrading));
             yield return new WaitForSeconds(0.5f);
-            GameManager.instance.ChangeToDay();
+            GameManager.Instance.ChangeToDay();
             yield break;
         }
 
@@ -129,7 +130,7 @@ public class Spawner : MonoBehaviour
         }
 
         Vector2 spawnPos = SetRandomSpawnPos();
-        GameObject marker = GameManager.instance.poolManager.Get(35);
+        GameObject marker = GameManager.Instance.poolManager.Get(35);
         marker.transform.position = spawnPos;
         marker.transform.localScale = Vector3.one * spawnType[idx].enemySpawnData.markerSize;
 
@@ -146,20 +147,20 @@ public class Spawner : MonoBehaviour
         {
             // 80% 확률로 원의 경계: 정규화된 벡터 사용
             randPoint = UnityEngine.Random.insideUnitCircle.normalized;
-            return (GameManager.instance.borderRadius+Random.Range(-0.5f,1.75f)) * randPoint;
+            return (GameManager.Instance.borderRadius+Random.Range(-0.5f,1.75f)) * randPoint;
         }
         else
         {
             // 20% 확률로 원 내부
             randPoint = UnityEngine.Random.insideUnitCircle;
-            return GameManager.instance.borderRadius * randPoint;
+            return GameManager.Instance.borderRadius * randPoint;
         }
     }
 
     IEnumerator SpawnEnemy(Vector2 pos, int selENum, float time)
     {
         yield return new WaitForSeconds(time);
-        GameObject enemy = GameManager.instance.poolManager.Get(selENum);
+        GameObject enemy = GameManager.Instance.poolManager.Get(selENum);
         enemy.transform.position = pos;
     }
     public void EndDay() => isDayFinished = true;

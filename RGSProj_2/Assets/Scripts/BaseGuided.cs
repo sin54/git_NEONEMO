@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 using static Unity.VisualScripting.Member;
 
 public class BaseGuided : BaseBullet
@@ -13,7 +14,7 @@ public class BaseGuided : BaseBullet
     {
         base.OnEnable();
         isTargetDestroyed = false;
-        target = GameManager.instance.scanner.GetNearestEnemy();
+        target = GameManager.Instance.scanner.GetNearestEnemy();
     }
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
@@ -57,7 +58,7 @@ public class BaseGuided : BaseBullet
         }
         else
         {
-            bulletParent.position = GameManager.instance.player.transform.position;
+            bulletParent.position = GameManager.Instance.player.transform.position;
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Core;
 using UnityEngine.UIElements;
 
 public class Laser : MonoBehaviour
@@ -25,7 +26,7 @@ public class Laser : MonoBehaviour
     {
         if (sl.reinforcedNum == 3)
         {
-            transform.position = GameManager.instance.player.transform.position;
+            transform.position = GameManager.Instance.player.transform.position;
         }
 
         damage = dmg;
@@ -42,12 +43,12 @@ public class Laser : MonoBehaviour
             if (enemy != null && !damagedEnemies.Contains(enemy))
             {
                 // 데미지 1번만 적용
-                GameManager.instance.AtkEnemy(enemy, damage, AttackType.MagicAttack, AttackAttr.Light);
+                GameManager.Instance.AtkEnemy(enemy, damage, AttackType.MagicAttack, AttackAttr.Light);
                 damagedEnemies.Add(enemy);
 
                 if (SL.reinforcedNum == 2)
                 {
-                    if (GameManager.instance.playerTypeManager.NowType.Contains(1))
+                    if (GameManager.Instance.playerTypeManager.NowType.Contains(1))
                     {
                         enemy.eSS.AddFireStack(5);
                     }
@@ -59,7 +60,7 @@ public class Laser : MonoBehaviour
     {
         if (SL.reinforcedNum == 3)
         {
-            transform.position = GameManager.instance.player.transform.position;
+            transform.position = GameManager.Instance.player.transform.position;
         }
     }
     private void FixedUpdate()

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class StarFrac : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class StarFrac : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            GameManager.instance.player.IncreaseHealth(healAmt);
+            GameManager.Instance.player.IncreaseHealth(healAmt);
             gameObject.SetActive(false);
         }
     }

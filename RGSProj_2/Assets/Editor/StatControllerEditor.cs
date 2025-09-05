@@ -1,6 +1,7 @@
 #if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
+using Core;
 
 [CustomEditor(typeof(StatsManager))]
 public class StatControllerEditor : Editor

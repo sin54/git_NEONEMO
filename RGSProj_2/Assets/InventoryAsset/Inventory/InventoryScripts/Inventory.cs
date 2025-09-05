@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using UnityEngine;
+using Core;
 
 namespace InventorySystem
 {
@@ -434,7 +435,7 @@ namespace InventorySystem
 
             if (invokeEnterExit && !item.GetIsNull())
             {
-                GameManager.instance.UIM.SetItemDescription(item);
+                GameManager.Instance.UIM.SetItemDescription(item);
 
             }
 

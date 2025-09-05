@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class XPOrb : BaseItem
 {
@@ -6,7 +7,7 @@ public class XPOrb : BaseItem
     protected override void Active()
     {
         base.Active();
-        GameManager.instance.player.AddXP(xpAmount);
+        GameManager.Instance.player.AddXP(xpAmount);
 
     }
 }
