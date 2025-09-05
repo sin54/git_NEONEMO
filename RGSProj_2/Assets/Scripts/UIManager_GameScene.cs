@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using InventorySystem;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections;
 
 public class UIManager_GameScene : MonoBehaviour
 {
@@ -33,14 +34,44 @@ public class UIManager_GameScene : MonoBehaviour
     [SerializeField] private Button[] typeButton = new Button[7];
     [SerializeField] private PlayerTypeManager TM;
 
+    [Header("Inventory")]
+    public bool isItemDragging;
+    [SerializeField] private GameObject[] inventories;
+    [SerializeField] private GameObject statsPanel;
+    [SerializeField] private GameObject trashPanel;
+    [SerializeField] private RectTransform inventoryPivoter;
+    public bool isTrashOn;
+
+    [Header("Change")]
+    [SerializeField]private Vector3 pos_inventory;
+    [SerializeField]private Vector3 pos_change;
+    [SerializeField] private GameObject ChangePanel;
+    [SerializeField] private GameObject Change_StatPanel;
+    [SerializeField] private GameObject Change_InfoPanel;
+    [SerializeField] private TMP_Text changeStatTxt;
+    [SerializeField] private TMP_Text buttonTxt;
+    private Queue<InventoryItem> changeQueue = new Queue<InventoryItem>();
+    private bool isStatOpen;
     public bool isOpenUI {  get; private set; }
     public bool isOpenInven { get; private set; }
+    public bool isOpenChange { get; private set; }
 
     private int selectTypeNum;
     private void Awake()
     {
         isOpenUI = false;
         selectTypeNum = 0;
+    }
+    private void Start()
+    {
+        isOpenUI = false;
+        isOpenInven = false;
+        isOpenChange = false;
+        isStatOpen = false;
+        pausePanel.SetActive(false);
+        invenPanel.SetActive(false);
+        ChangePanel.SetActive(false);
+        SetInventoryVisibility(false);
     }
     private void Update()
     {
@@ -62,26 +93,27 @@ public class UIManager_GameScene : MonoBehaviour
                 pausePanel.SetActive(true);
             }
         }
-        if (Input.GetKeyDown(KeyCode.Tab) && !GameManager.instance.player.isPlayerDeath && !isOpenUI)
+        if (Input.GetKeyDown(KeyCode.Tab) && !GameManager.instance.player.isPlayerDeath && !isOpenUI&&!isOpenChange)
         {
             if (isOpenInven)
             {
                 isOpenInven = false;
                 TimeScaleManager.Instance.TimeStopStackMinus();
                 invenPanel.SetActive(false);
+                SetInventoryVisibility(false);
             }
             else
             {
                 isOpenInven = true;
+                inventoryPivoter.localPosition = pos_inventory;
                 TimeScaleManager.Instance.TimeStopStackPlus();
                 invenPanel.SetActive(true);
-                
+                SetInventoryVisibility(true);
                 //test
-                InventoryController.instance.AddItem("Saved", "Èò ¿¬±â", 1);
-                InventoryController.instance.AddItem("Saved", "¾È°³ º´", 1);
-                InventoryController.instance.AddItem("Saved", "¿¬¸·Åº", 1);
-                InventoryController.instance.AddItem("Saved", "½º¸ðÅ© ¸Ó½Å", 1);
-                InventoryController.instance.AddItem("Saved", "Ä«Å¸³ª", 1);
+                InventoryController.instance.AddPassiveItem("Èò ¿¬±â", 1);
+                InventoryController.instance.AddPassiveItem("Ä«Å¸³ª", 1);
+                InventoryController.instance.AddPassiveItem("ºÓÀº µ¹¸æÀÌ", 1);
+
             }
         }
         if (GameManager.instance.player.isPlayerDeath)
@@ -97,11 +129,18 @@ public class UIManager_GameScene : MonoBehaviour
                 isOpenInven = false;
                 TimeScaleManager.Instance.TimeStopStackMinus();
                 invenPanel.SetActive(false);
+                SetInventoryVisibility(false);
             }
         }
         if (isOpenInven)
         {
             statsText.text = GetStatsTxt();
+            statsPanel.SetActive(!isItemDragging);
+            trashPanel.SetActive(isItemDragging);
+        }
+        if (isOpenChange)
+        {
+            changeStatTxt.text=GetStatsTxt();
         }
     }
     public void Resume()
@@ -158,7 +197,7 @@ public class UIManager_GameScene : MonoBehaviour
 {GameManager.instance.SM.GetFinalValue("NaturalHeal")}/s
 
 {Mathf.RoundToInt(GameManager.instance.SM.GetFinalValue("defenceRate") * 100)}%
-{(1f-Mathf.RoundToInt(GameManager.instance.SM.GetFinalValue("dodgeMul"))*100)}%
+{Mathf.RoundToInt((1f-GameManager.instance.SM.GetFinalValue("dodgeMul"))*100)}%
 {Mathf.RoundToInt(GameManager.instance.SM.GetFinalValue("PlayerSpeed")*100)}
 
 {Mathf.RoundToInt(GameManager.instance.SM.GetFinalValue("CriticalPercent") * 100)}%
@@ -207,5 +246,63 @@ x{GameManager.instance.SM.GetFinalValue("xpMul"):F2}
         typePassiveLvTxt.text = "Lv " + (selectedType.typePassiveLevel+1).ToString();
         typeActiveLvTxt.text = "Lv " + selectedType.typeActiveLevel.ToString();
         typeNameTxt.text = "["+selectedType.typeData.typeName+"]";
+    }
+    private void SetInventoryVisibility(bool active)
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            inventories[i].SetActive(active);
+        }
+    }
+
+    public void ShowChangePanel(InventoryItem ChangeItem)
+    {
+        if (isOpenChange)
+        {
+            changeQueue.Enqueue(ChangeItem);
+            return;
+        }
+
+        TimeScaleManager.Instance.TimeStopStackPlus();
+        isOpenChange = true;
+        isStatOpen = false;
+        Change_StatPanel.SetActive(isStatOpen);
+        Change_InfoPanel.SetActive(!isStatOpen);
+        buttonTxt.text = "½ºÅÈ ÄÑ±â";
+
+        InventoryController.instance.AddItem("Change", ChangeItem.GetItemType());
+
+        inventories[0].SetActive(false);
+        inventoryPivoter.localPosition = pos_change;
+        ChangePanel.SetActive(true);
+    }
+    public void ChangeBetweenStats()
+    {
+        isStatOpen = !isStatOpen;
+        Change_StatPanel.SetActive(isStatOpen);
+        Change_InfoPanel.SetActive(!isStatOpen);
+        if (isStatOpen)
+        {
+            buttonTxt.text = "½ºÅÈ ²ô±â";
+        }
+        else{
+            buttonTxt.text = "½ºÅÈ ÄÑ±â";
+        }
+    }
+    public void EndChange()
+    {
+        isOpenChange = false;
+        inventories[0].SetActive(true);
+        inventoryPivoter.localPosition = pos_inventory;
+        InventoryController.instance.InventoryClear("Change");
+        ChangePanel.SetActive(false);
+        TimeScaleManager.Instance.TimeStopStackMinus();
+
+        if (changeQueue.Count > 0)
+        {
+            var nextItem = changeQueue.Dequeue();
+            ShowChangePanel(nextItem);
+
+        }
     }
 }

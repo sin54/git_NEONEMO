@@ -277,12 +277,41 @@ namespace InventorySystem
             {
                 return;
             }
+            if (InventoryFull(inventoryName, itemType))
+            {
+                return;
+            }
             Inventory inventory = inventoryManager[inventoryName];
             InventoryItem item = new InventoryItem(itemManager[itemType], amount);
             item.SetGUID();
             inventory.AddItemAuto(item, amount);
         }
+        public void AddPassiveItem(string itemType, int amount = 1)
+        {
+            // 아이템 유효성 체크
+            if (!TestItemDict(itemType))
+            {
+                Debug.LogError($"아이템 '{itemType}' 은(는) 존재하지 않습니다.");
+                return;
+            }
 
+            InventoryItem item = new InventoryItem(itemManager[itemType], amount);
+            item.SetGUID();
+
+            if (!InventoryFull("Saved", itemType))
+            {
+                inventoryManager["Saved"].AddItemAuto(item, amount);
+                return;
+            }
+
+            if (!InventoryFull("Active", itemType))
+            {
+                inventoryManager["Active"].AddItemAuto(item, amount);
+                return;
+            }
+
+            GameManager.instance.UIM.ShowChangePanel(item);
+        }
         /// <summary>
         /// Removes items from a specific index of <see cref="Inventory.inventoryList"/>
         /// </summary>

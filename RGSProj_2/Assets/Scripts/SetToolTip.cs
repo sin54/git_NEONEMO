@@ -10,12 +10,11 @@ public class SetToolTip : MonoBehaviour
     [SerializeField] private TMP_Text itemTagTxt;
     [SerializeField] private TMP_Text itemRarityTxt;
     [SerializeField] private GameObject dojingObj;
-    private RectTransform rectTransform;
+    [SerializeField] private RectTransform rectTransform;
     private Canvas canvas;
 
     private void Awake()
     {
-        rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
     }
 
@@ -44,12 +43,22 @@ public class SetToolTip : MonoBehaviour
         Vector2 canvasSize = (canvas.transform as RectTransform).sizeDelta;
 
         float halfH = canvasSize.y / 2;
+        float halfW = canvasSize.x / 2;
 
-        Debug.Log(localPoint.y + tooltipSize.y + " " + halfH);
         // y 클램프
-        if (localPoint.y + tooltipSize.y > halfH)
+        if (localPoint.y - tooltipSize.y < -halfH)
         {
-            localPoint.y = halfH - tooltipSize.y;
+            localPoint.y = -(halfH - tooltipSize.y);
+        }
+
+        // x 클램프
+        if (localPoint.x < -halfW)
+        {
+            localPoint.x = -halfW;
+        }
+        else if (localPoint.x + tooltipSize.x > halfW)
+        {
+            localPoint.x = halfW - tooltipSize.x;
         }
 
         // 최종 적용
@@ -57,6 +66,7 @@ public class SetToolTip : MonoBehaviour
 
         dojingObj.SetActive(true);
     }
+
 
 
 
