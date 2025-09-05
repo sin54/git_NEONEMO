@@ -215,6 +215,7 @@ namespace InventorySystem
                 // Á¤¸®
                 targetSlot.GetInventoryUI().UnHighlight(result.gameObject);
                 if (prevslot != null) prevslot.GetComponent<Slot>().GetInventoryUI().ResetHighlight();
+                GameManager.instance.UIM.SetItemDescription(item);
                 Destroy(gameObject);
             }
             else

@@ -20662,6 +20662,18 @@ MonoBehaviour:
   Change_InfoPanel: {fileID: 1844851684}
   changeStatTxt: {fileID: 753099715}
   buttonTxt: {fileID: 1789910012}
+  L_itemNameTxt: {fileID: 1703708077}
+  L_itemDescriptionTxt: {fileID: 2063420033}
+  L_itemRarityTxt: {fileID: 307863083}
+  L_itemAbilityTxt: {fileID: 465713705}
+  L_itemSynergeTxt: {fileID: 1361230253}
+  L_itemTagTxt: {fileID: 1600733058}
+  R_itemNameTxt: {fileID: 1008974045}
+  R_itemDescriptionTxt: {fileID: 68749620}
+  R_itemRarityTxt: {fileID: 458436772}
+  R_itemAbilityTxt: {fileID: 1532493391}
+  R_itemSynergeTxt: {fileID: 92288871}
+  R_itemTagTxt: {fileID: 1600700892}
 --- !u!1 &742069025
 GameObject:
   m_ObjectHideFlags: 0

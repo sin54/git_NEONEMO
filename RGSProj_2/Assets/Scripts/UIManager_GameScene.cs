@@ -50,6 +50,20 @@ public class UIManager_GameScene : MonoBehaviour
     [SerializeField] private GameObject Change_InfoPanel;
     [SerializeField] private TMP_Text changeStatTxt;
     [SerializeField] private TMP_Text buttonTxt;
+
+    [SerializeField] private TMP_Text L_itemNameTxt;
+    [SerializeField] private TMP_Text L_itemDescriptionTxt;
+    [SerializeField] private TMP_Text L_itemRarityTxt;
+    [SerializeField] private TMP_Text L_itemAbilityTxt;
+    [SerializeField] private TMP_Text L_itemSynergeTxt;
+    [SerializeField] private TMP_Text L_itemTagTxt;
+
+    [SerializeField] private TMP_Text R_itemNameTxt;
+    [SerializeField] private TMP_Text R_itemDescriptionTxt;
+    [SerializeField] private TMP_Text R_itemRarityTxt;
+    [SerializeField] private TMP_Text R_itemAbilityTxt;
+    [SerializeField] private TMP_Text R_itemSynergeTxt;
+    [SerializeField] private TMP_Text R_itemTagTxt;
     private Queue<InventoryItem> changeQueue = new Queue<InventoryItem>();
     private bool isStatOpen;
     public bool isOpenUI {  get; private set; }
@@ -141,6 +155,7 @@ public class UIManager_GameScene : MonoBehaviour
         if (isOpenChange)
         {
             changeStatTxt.text=GetStatsTxt();
+            SetChangeItemDescription(InventoryController.instance.GetItem("Change", 0));
         }
     }
     public void Resume()
@@ -187,9 +202,28 @@ public class UIManager_GameScene : MonoBehaviour
         itemAbilityTxt.text = item.GetSkillEvent().itemAbility;
         itemRarityTxt.text = UtilClass.ToLocalizedString(item.GetRarity());
         itemSynergeTxt.text = item.GetSkillEvent().synergeString;
-        itemTagTxt.text = UtilClass.ToLocalizedString(item.GetTags());  
-    }
+        itemTagTxt.text = UtilClass.ToLocalizedString(item.GetTags());
 
+        R_itemNameTxt.text = "[" + item.GetSkillEvent().itemName + "]";
+        R_itemDescriptionTxt.text = item.GetSkillEvent().itemDescription;
+        R_itemAbilityTxt.text = item.GetSkillEvent().itemAbility;
+        R_itemRarityTxt.text = UtilClass.ToLocalizedString(item.GetRarity());
+        R_itemSynergeTxt.text = item.GetSkillEvent().synergeString;
+        R_itemTagTxt.text = UtilClass.ToLocalizedString(item.GetTags());
+    }
+    public void SetChangeItemDescription(InventoryItem item)
+    {
+        if (item == null || item.GetSkillEvent() == null)
+        {
+            return;
+        }
+        L_itemNameTxt.text = "[" + item.GetSkillEvent().itemName + "]";
+        L_itemDescriptionTxt.text = item.GetSkillEvent().itemDescription;
+        L_itemAbilityTxt.text = item.GetSkillEvent().itemAbility;
+        L_itemRarityTxt.text = UtilClass.ToLocalizedString(item.GetRarity());
+        L_itemSynergeTxt.text = item.GetSkillEvent().synergeString;
+        L_itemTagTxt.text = UtilClass.ToLocalizedString(item.GetTags());
+    }
     private string GetStatsTxt()
     {
         string returnstring = 
@@ -262,7 +296,8 @@ x{GameManager.instance.SM.GetFinalValue("xpMul"):F2}
             changeQueue.Enqueue(ChangeItem);
             return;
         }
-
+        SetItemDescription(ChangeItem);
+        SetChangeItemDescription(ChangeItem);
         TimeScaleManager.Instance.TimeStopStackPlus();
         isOpenChange = true;
         isStatOpen = false;
