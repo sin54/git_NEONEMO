@@ -156,6 +156,7 @@ namespace UI
             invenPanel.SetActive(false);
             ChangePanel.SetActive(false);
             SetInventoryVisibility(false);
+            StartCoroutine(InitInven());
         }
         private void Update()
         {
@@ -197,10 +198,7 @@ namespace UI
                     invenPanel.SetActive(true);
                     SetInventoryVisibility(true);
                     //test
-                    //InventoryController.instance.AddPassiveItem("Èò ¿¬±â", 1);
-                    //InventoryController.instance.AddPassiveItem("Ä«Å¸³ª", 1);
-                    //InventoryController.instance.AddPassiveItem("ºÓÀº µ¹¸æÀÌ", 1);
-                    InventoryController.instance.AddPassiveItem("불타는 땅의 왕홀", 1);
+                    //InventoryController.instance.AddPassiveItem("불타는 땅의 왕홀", 1);
                 }
             }
 
@@ -234,7 +232,7 @@ namespace UI
             if (isOpenChange)
             {
                 changeStatTxt.text=GetStatsTxt();
-                SetChangeItemDescription(InventoryController.instance.GetItem("CHange", 0));
+                SetChangeItemDescription(InventoryController.instance.GetItem("Change", 0));
             }
         }
 
@@ -315,11 +313,13 @@ namespace UI
             isStatOpen = false;
             Change_StatPanel.SetActive(isStatOpen);
             Change_InfoPanel.SetActive(!isStatOpen);
-            buttonTxt.text = "½ºÅÈ ÄÑ±â";
+            buttonTxt.text = "스탯 열기";
 
             InventoryController.instance.AddItem("Change", ChangeItem.GetItemType());
 
+            SetInventoryVisibility(true);
             inventories[0].SetActive(false);
+           
             inventoryPivoter.localPosition = pos_change;
             ChangePanel.SetActive(true);
         }
@@ -334,10 +334,10 @@ namespace UI
             Change_InfoPanel.SetActive(!isStatOpen);
             if (isStatOpen)
             {
-                buttonTxt.text = "½ºÅÈ ²ô±â";
+                buttonTxt.text = "스탯 끄기";
             }
             else{
-                buttonTxt.text = "½ºÅÈ ÄÑ±â";
+                buttonTxt.text = "스탯 켜기";
             }
         }
         
@@ -351,6 +351,7 @@ namespace UI
             inventoryPivoter.localPosition = pos_inventory;
             InventoryController.instance.InventoryClear("Change");
             ChangePanel.SetActive(false);
+            SetInventoryVisibility(isOpenInven);
             TimeScaleManager.Instance.TimeStopStackMinus();
 
             if (changeQueue.Count > 0)
@@ -477,7 +478,14 @@ namespace UI
             L_itemSynergeTxt.text = item.GetSkillEvent().synergeString;
             L_itemTagTxt.text = UtilClass.ToLocalizedString(item.GetTags());
         }
-
+        IEnumerator InitInven()
+        {
+            SetInventoryVisibility(false);
+            
+            SetInventoryVisibility(true);
+            yield return new WaitForEndOfFrame();
+            SetInventoryVisibility(false);
+        }
         #endregion
     }
 }

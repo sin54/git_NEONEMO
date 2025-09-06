@@ -87,7 +87,8 @@ public class Spawner : MonoBehaviour
     {
         OnMassEnemyDeath?.Invoke();
         TM.ShowText();
-        yield return new WaitForSecondsRealtime(TM.fullText.Length * TM.delay + 1f);
+        OnEndDay?.Invoke();
+        yield return new WaitForSeconds(TM.fullText.Length * TM.delay + 1f);
         TM.DeleteText();
 
         currentWave++;
@@ -96,7 +97,7 @@ public class Spawner : MonoBehaviour
         if (currentWave >= dayData.waveCount)
         {
             isDayFinished = false;
-            OnEndDay?.Invoke();
+
             yield return new WaitUntil(() => (!GameManager.Instance.levelManager.isUpgrading));
             yield return new WaitForSeconds(0.5f);
             GameManager.Instance.ChangeToDay();

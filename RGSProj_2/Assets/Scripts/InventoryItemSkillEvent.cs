@@ -18,6 +18,7 @@ namespace InventorySystem
         protected bool isInit;
         public virtual void OnEnter(InventoryItem item, string ID)
         {
+            Debug.Log("ENTER");
             activeInv=InventoryController.instance.GetInventory("Active");
             activeInv.AddTagsFromItem(item);
 

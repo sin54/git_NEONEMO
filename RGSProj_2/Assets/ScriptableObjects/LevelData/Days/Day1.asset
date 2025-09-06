@@ -16,5 +16,5 @@ MonoBehaviour:
   - enemyToSpawn:
     - enemySpawnData: {fileID: 11400000, guid: 16ac0ae461abf1a478800911c3746dab, type: 2}
       percent: 1
-    waveLength: 2
+    waveLength: 30
     timeBetweenSpawn: 1

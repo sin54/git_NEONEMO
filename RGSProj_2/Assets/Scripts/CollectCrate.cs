@@ -1,12 +1,13 @@
 using UnityEngine;
 using System.Collections;
 using NUnit.Framework.Internal.Commands;
-using Scene;
+using Scenes;
 
 public class CollectCrate : MonoBehaviour
 {
     [SerializeField] private CollectSceneManager CSM;
     [SerializeField] private GameObject crateClickParticle;
+    [SerializeField] private GameObject EndBtn;
 
     private Vector3 originalScale;
     private Vector3 targetScale;
@@ -20,6 +21,7 @@ public class CollectCrate : MonoBehaviour
 
     private void Start()
     {
+        EndBtn.SetActive(false);
         crateClick = CSM.maxClickNum;
         originalScale = transform.localScale;
         targetScale = originalScale;
@@ -67,7 +69,13 @@ public class CollectCrate : MonoBehaviour
             if (spawnPercent >= 1f) spawnPercent = 1f;
         }
 
-        if (crateClick <= 0) gameObject.SetActive(false);
+        if (crateClick <= 0)
+        {
+            gameObject.SetActive(false);
+
+            CSM.isBoxBreak = true;
+            EndBtn.SetActive(true);
+        }
         
     }
 

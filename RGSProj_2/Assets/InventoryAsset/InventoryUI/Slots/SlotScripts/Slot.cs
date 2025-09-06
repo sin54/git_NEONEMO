@@ -78,12 +78,15 @@ namespace InventorySystem
             isActionSlot = sIM != null;
             isWeaponSlot = wIM != null;
         }
+        public void InitSlot()
+        {
+
+        }
         /// <summary>
         /// Updates the slot to display the item in the slots associated position
         /// </summary>
         public void UpdateSlot()
         {
-            
             InventoryItem prevItem = item; // 이전 아이템 저장
             item = inventoryUIManager.GetInventoryItem(position);
 

@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Scene
+namespace Scenes
 {
     /// <summary>
     /// 메인 메뉴 씬에서 메뉴 네비게이션 및 씬 전환을 관리합니다.

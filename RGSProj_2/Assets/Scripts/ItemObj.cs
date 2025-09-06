@@ -1,4 +1,5 @@
 using InventorySystem;
+using Scenes;
 using UnityEngine;
 
 public class ItemObj : MonoBehaviour
@@ -8,10 +9,19 @@ public class ItemObj : MonoBehaviour
     [SerializeField] private GameObject selectedGO;
     [SerializeField] private SetToolTip STT;
     private InventoryItem II;
+    private CollectSceneManager SCM;
     private bool isSelected;
     private void Awake()
     {
-        STT=GameObject.Find("Canvas").transform.GetChild(0).GetComponent<SetToolTip>();
+        STT=GameObject.Find("Canvas").transform.GetChild(1).GetComponent<SetToolTip>();
+        SCM=GameObject.Find("CollectSceneManager").GetComponent<CollectSceneManager>();
+    }
+    private void Start()
+    {
+    }
+    private void Update()
+    {
+        
     }
     public void Init(InventoryItem IItem)
     {
@@ -49,10 +59,12 @@ public class ItemObj : MonoBehaviour
         if (isSelected)
         {
             newColor.a = 0.4f;
+            SCM.AddCollectedItem(II);
         }
         else
         {
             newColor.a = 0.1f;
+            SCM.RemoveCollectedItem(II);
         }
         backSR.color = newColor;
 
@@ -65,5 +77,8 @@ public class ItemObj : MonoBehaviour
     {
         STT.HideToolTip();
     }
-
+    private void DestroyThis()
+    {
+        Destroy(gameObject);
+    }
 }
