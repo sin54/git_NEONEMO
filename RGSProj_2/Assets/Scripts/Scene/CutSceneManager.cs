@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using Unity.Cinemachine;
 using TMPro;
 using DialogueSystem;
+using Core;
 
 namespace Scene
 {

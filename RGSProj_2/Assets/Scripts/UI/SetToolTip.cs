@@ -1,6 +1,7 @@
 using InventorySystem;
 using TMPro;
 using UnityEngine;
+using Core;
 
 public class SetToolTip : MonoBehaviour
 {

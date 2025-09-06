@@ -1,4 +1,5 @@
 using UnityEngine;
+using Core;
 
 public class Skill_MagicBall : BaseSkill
 {

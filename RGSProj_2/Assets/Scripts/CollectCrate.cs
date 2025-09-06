@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using NUnit.Framework.Internal.Commands;
 using Scene;
+using Core;
 
 public class CollectCrate : MonoBehaviour
 {

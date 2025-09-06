@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Core;
 public class LoadingBar : MonoBehaviour
 {
     private Image image;
