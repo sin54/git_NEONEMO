@@ -310,6 +310,7 @@ namespace InventorySystem
                 inventoryManager["Active"].AddItemAuto(item, amount);
                 return;
             }
+            
             GameManager.Instance.UIM.ShowChangePanel(item);
         }
         /// <summary>
