@@ -36035,7 +36035,7 @@ MonoBehaviour:
   - {fileID: 1373320429}
   selectedNum: 0
   maxSkillSelectedNum: 0
-  abilityPercent: 0
+  abilityPercent: 0.2
 --- !u!4 &1044421381
 Transform:
   m_ObjectHideFlags: 0
@@ -39610,7 +39610,7 @@ MonoBehaviour:
   bulletPrefabNum: 2
   numofArrow: 5
   addDamageAmount: 10
-  arrowCoolDown: 0.5
+  arrowCoolDown: 1
 --- !u!1 &1228315208
 GameObject:
   m_ObjectHideFlags: 0
@@ -64393,9 +64393,12 @@ MonoBehaviour:
   skillData: {fileID: 11400000, guid: c490d448c5185a247844f2ce9a635742, type: 2}
   bulletPrefabNum: 1
   splitAngle: 10
-  boomRadius: 3.5
-  boomDamage: 12
-  addDamageAmount: 0.5
+  splitAtkInfo:
+    damage: 8
+    knockbackPower: 3
+  boomRadius: 3
+  boomDamage: 10
+  addDamageAmount: 0.7
 --- !u!1 &1753503650
 GameObject:
   m_ObjectHideFlags: 0

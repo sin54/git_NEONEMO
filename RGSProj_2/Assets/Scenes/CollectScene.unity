@@ -1455,7 +1455,7 @@ MonoBehaviour:
   - {fileID: 6424610921691602212, guid: 9bc64e89722ace9469d6c79f3a873eae, type: 3}
   - {fileID: 5997616421095569965, guid: fba5a913034fe7f4f9c850e1b0a12f62, type: 3}
   savePos: []
-  maxClickNum: 50
+  maxClickNum: 30
   increasePercent: 0.1
   decreasePercent: 0.3
   percentages:

@@ -131,10 +131,6 @@ namespace Core
             if (Instance == null)
             {
                 Instance = this;
-                if (transform.parent != null)
-                    transform.SetParent(null);
-
-                DontDestroyOnLoad(gameObject);
             }
             else
             {
@@ -173,7 +169,7 @@ namespace Core
         /// </summary>
         private void OnDrawGizmos()
         {
-            Gizmos.DrawWireCube(player.transform.position, scanRange);
+            //Gizmos.DrawWireCube(player.transform.position, scanRange);
         }
 
         #endregion

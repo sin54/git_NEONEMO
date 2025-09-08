@@ -6720,7 +6720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1415069324
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6998,19 +6998,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9dde9c19729bf4aa3224394df358a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStartPanel: {fileID: 1415069323}
   ReadyTxt: {fileID: 1329089813}
+  gameStartPanel: {fileID: 1415069323}
+  readyText: {fileID: 1329089813}
   target: {fileID: 7675935189048692158, guid: 576d6934bb7213d44814956382ce18d6, type: 3}
   gameTime: 10
   numOfTarget: 3
   explodeParticle: {fileID: 5599972152824336762, guid: bb29c487aa2b42c4386f9169dc6feddc, type: 3}
   healParticle: {fileID: 8917516181625697311, guid: c0c038b67f21ea546addb3c86a84ddc7, type: 3}
-  leftTime: {fileID: 1483257933}
-  leftTimeTxt: {fileID: 1835642290}
-  healAmount: 3
-  maxHealAmount: 1
-  leftHealthImg: {fileID: 1715536246}
-  spawnFloatingPos: {fileID: 1634136123}
   explodeGradient:
   - serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 1}
@@ -7099,6 +7094,12 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
+  leftTime: {fileID: 1483257933}
+  leftTimeTxt: {fileID: 1835642290}
+  leftHealthImg: {fileID: 1715536246}
+  spawnFloatingPos: {fileID: 1634136123}
+  healAmount: 3
+  maxHealAmount: 1
   resultPanel: {fileID: 1320578835}
   resultHitTxt: {fileID: 565327304}
   resultRepairTxt: {fileID: 1485739233}

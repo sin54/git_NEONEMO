@@ -85,17 +85,24 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator GoToNextWave()
     {
+        var dayData = allDayData[nowDay];
+        if (currentWave+1 >= dayData.waveCount)
+        {
+
+            OnEndDay?.Invoke();
+        }
         OnMassEnemyDeath?.Invoke();
         TM.ShowText();
-        OnEndDay?.Invoke();
+
         yield return new WaitForSeconds(TM.fullText.Length * TM.delay + 1f);
         TM.DeleteText();
 
         currentWave++;
-        var dayData = allDayData[nowDay];
+
 
         if (currentWave >= dayData.waveCount)
         {
+
             isDayFinished = false;
 
             yield return new WaitUntil(() => (!GameManager.Instance.levelManager.isUpgrading));

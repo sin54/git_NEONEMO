@@ -25,29 +25,34 @@ public class ItemObj : MonoBehaviour
     }
     public void Init(InventoryItem IItem)
     {
-        selectedGO.SetActive(false);
-        isSelected = false;
+        selectedGO.SetActive(true);
+        isSelected = true;
+        Color newColor = backSR.color;
+        newColor.a = 0.4f;
+
+        backSR.color = newColor;
         ItemRarity IR=IItem.GetRarity();
         II = IItem;
+        SCM.AddCollectedItem(II);
         if (IR == ItemRarity.E || IR == ItemRarity.D || IR == ItemRarity.C)
         {
-            backSR.color=new Color(1,1,1,0.1f);
+            backSR.color=new Color(1,1,1,0.4f);
         }
         else if (IR == ItemRarity.B || IR == ItemRarity.Bp)
         {
-            backSR.color = new Color(0, 0.9f, 1, 0.1f);
+            backSR.color = new Color(0, 0.9f, 1, 0.4f);
         }
         else if (IR == ItemRarity.A || IR == ItemRarity.Ap)
         {
-            backSR.color = new Color(0, 1, 0, 0.1f);
+            backSR.color = new Color(0, 1, 0, 0.4f);
         }
         else if (IR == ItemRarity.S || IR == ItemRarity.Sp || IR == ItemRarity.X)
         {
-            backSR.color = new Color(1, 1, 0, 0.1f);
+            backSR.color = new Color(1, 1, 0, 0.4f);
         }
         else
         {
-            backSR.color = new Color(1, 0, 0, 0.1f);
+            backSR.color = new Color(1, 0, 0, 0.4f);
         }
         itemSR.sprite=IItem.GetItemImage();
     }
