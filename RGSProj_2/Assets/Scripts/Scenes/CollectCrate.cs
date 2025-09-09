@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using NUnit.Framework.Internal.Commands;
-using Scenes;
+using Scene;
+using Core;
 
 public class CollectCrate : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class CollectCrate : MonoBehaviour
 
     private Vector3 originalScale;
     private Vector3 targetScale;
-    private float scaleSpeed = 5f; // Ä¿Áö´Â/ÁÙ¾îµå´Â ¼Óµµ
+    private float scaleSpeed = 5f; // Ä¿ï¿½ï¿½ï¿½ï¿½/ï¿½Ù¾ï¿½ï¿½ï¿½ ï¿½Óµï¿½
     private float maxScaleMultiplier = 1.3f;
 
     private bool isShaking = false;
@@ -45,16 +46,16 @@ public class CollectCrate : MonoBehaviour
     private void OnMouseDown()
     {
         if (crateClick <= 0) return;
-        // ÆÄÆ¼Å¬ »ý¼º
+        // ï¿½ï¿½Æ¼Å¬ ï¿½ï¿½ï¿½ï¿½
         if (crateClickParticle != null)
         {
             Instantiate(crateClickParticle, transform.position, Quaternion.identity);
         }
-        // Èçµé¸² È¿°ú ½ÃÀÛ
+        // ï¿½ï¿½é¸² È¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (!isShaking)
         {
             StartCoroutine(ShakeObject(0.3f, 0.1f));
-            // 0.3f : Èçµé¸² Áö¼Ó½Ã°£, 0.1f : Èçµé¸² °­µµ
+            // 0.3f : ï¿½ï¿½é¸² ï¿½ï¿½ï¿½Ó½Ã°ï¿½, 0.1f : ï¿½ï¿½é¸² ï¿½ï¿½ï¿½ï¿½
         }
         crateClick--;
         if (UtilClass.GetPercent(spawnPercent))
@@ -87,9 +88,9 @@ public class CollectCrate : MonoBehaviour
         float elapsed = 0f;
         while (elapsed < duration)
         {
-            // ÁÂ¿ì Èçµé¸² (sin ÆÄµ¿)
+            // ï¿½Â¿ï¿½ ï¿½ï¿½é¸² (sin ï¿½Äµï¿½)
             float x = Mathf.Sin(elapsed * 50f) * magnitude;
-            // »óÇÏµµ ¾à°£ Èçµé¸² Ãß°¡
+            // ï¿½ï¿½ï¿½Ïµï¿½ ï¿½à°£ ï¿½ï¿½é¸² ï¿½ß°ï¿½
             float y = Mathf.Sin(elapsed * 70f) * (magnitude * 0.5f);
 
             transform.localPosition = originalPos + new Vector3(x, y, 0);
