@@ -82972,6 +82972,7 @@ MonoBehaviour:
   playerTrail: {fileID: 2068778415}
   runningParticle: {fileID: 812651717}
   HPimg: {fileID: 1284328538}
+  ghostCollider: {fileID: 2055981216}
   damageOfSword: 5
   rotationSpeedOfSword: 350
   firstSword: {fileID: 2136899730}

@@ -12,6 +12,7 @@ public class Skill_Ghost : BaseSkill
     [SerializeField] private GameObject playerTrail;
     [SerializeField] private ParticleSystem runningParticle;
     [SerializeField] private GameObject HPimg;
+    [SerializeField] private CircleCollider2D ghostCollider;
     private List<Collider2D> enemiesInRange = new List<Collider2D>();
     private float currentDuration;
     [Header("¹Ù¶÷ Ä®³¯")]
@@ -41,6 +42,7 @@ public class Skill_Ghost : BaseSkill
         runningParticle.Stop();
         firstSword.SetActive(false);
         lastSword.SetActive(false); 
+        ghostCollider.enabled = false;
     }
     private void Update()
     {
@@ -55,6 +57,7 @@ public class Skill_Ghost : BaseSkill
             GameManager.Instance.player.canDash = false;
             playerTrail.SetActive(false);
             HPimg.SetActive(false);
+            ghostCollider.enabled = true;
         }
         if (Time.time > lastAttackTime + currentDuration&&isSkilling)
         {
@@ -63,6 +66,7 @@ public class Skill_Ghost : BaseSkill
             ghostObj.SetActive(false);
             playerTrail.SetActive(true);
             HPimg.SetActive(true);
+            ghostCollider.enabled = false;
             if (reinforcedNum == 1)
             {
                 firstSword.SetActive(false);
