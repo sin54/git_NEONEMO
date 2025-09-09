@@ -25,36 +25,21 @@ public enum ItemTag
 }
 public enum ItemRarity
 {
-    [InspectorName("E")]
-    E = 0,
+    [InspectorName("Alpha")]
+    Alpha = 0,
 
-    [InspectorName("D")]
-    D = 1,
+    [InspectorName("Beta")]
+    Beta = 1,
 
-    [InspectorName("C")]
-    C = 2,
+    [InspectorName("Gamma")]
+    Gamma = 2,
 
-    [InspectorName("B")]
-    B = 3,
+    [InspectorName("Delta")]
+    Delta = 3,
 
-    [InspectorName("B+")]
-    Bp = 4,
+    [InspectorName("Epsilon")]
+    Epsilon = 4,
 
-    [InspectorName("A")]
-    A = 5,
-
-    [InspectorName("A+")]
-    Ap = 6,
-
-    [InspectorName("S")]
-    S = 7,
-
-    [InspectorName("S+")]
-    Sp = 8,
-
-    [InspectorName("X")]
-    X = 9,
-
-    [InspectorName("Æ¯¼ö")]
-    Uni = 10,
+    [InspectorName("Unique")]
+    Uni = 5,
 }

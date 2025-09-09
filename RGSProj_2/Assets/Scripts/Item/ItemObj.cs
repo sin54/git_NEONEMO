@@ -34,19 +34,19 @@ public class ItemObj : MonoBehaviour
         ItemRarity IR=IItem.GetRarity();
         II = IItem;
         SCM.AddCollectedItem(II);
-        if (IR == ItemRarity.E || IR == ItemRarity.D || IR == ItemRarity.C)
+        if (IR == ItemRarity.Alpha)
         {
             backSR.color=new Color(1,1,1,0.4f);
         }
-        else if (IR == ItemRarity.B || IR == ItemRarity.Bp)
+        else if (IR == ItemRarity.Beta)
         {
             backSR.color = new Color(0, 0.9f, 1, 0.4f);
         }
-        else if (IR == ItemRarity.A || IR == ItemRarity.Ap)
+        else if (IR == ItemRarity.Gamma)
         {
             backSR.color = new Color(0, 1, 0, 0.4f);
         }
-        else if (IR == ItemRarity.S || IR == ItemRarity.Sp || IR == ItemRarity.X)
+        else if (IR == ItemRarity.Delta)
         {
             backSR.color = new Color(1, 1, 0, 0.4f);
         }
