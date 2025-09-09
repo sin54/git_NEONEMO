@@ -63,7 +63,7 @@ namespace Type
             foreach (char letter in fullText)
             {
                 textUI.text += letter;
-                yield return new WaitForSecondsRealtime(delay);
+                yield return new WaitForSeconds(delay);
             }
         }
 

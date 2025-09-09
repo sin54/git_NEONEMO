@@ -2,7 +2,7 @@ using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 
-namespace Scene
+namespace Scenes
 {
 
     /// <summary>

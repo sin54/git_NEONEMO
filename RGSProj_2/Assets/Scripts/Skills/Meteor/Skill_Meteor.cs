@@ -74,7 +74,7 @@ public class Skill_Meteor : BaseSkill
             GO.transform.parent = warningSaver;
             GO.SetActive(true);
             StartCoroutine(ActiveFalse(GO));
-            Vector3 randTransform = new Vector3(Random.Range(-4f, 4f), Random.Range(-3.5f, 3.5f))+GameManager.Instance.player.transform.position;
+            Vector3 randTransform = new Vector3(Random.Range(-4f, 4f), Random.Range(-3f, 3f))+GameManager.Instance.player.transform.position;
             GO.transform.position = randTransform;
             float scale = skillData.explosionRadiusByLevel[itemLevel] * GameManager.Instance.SM.GetFinalValue("explosionRad");
             GO.transform.localScale = new Vector3(scale,scale,scale);

@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using InventorySystem;
 using Core;
-using Scene;
+using Scenes;
 using Item;
 using UI;
 using Type;
@@ -131,10 +131,6 @@ namespace Core
             if (Instance == null)
             {
                 Instance = this;
-                if (transform.parent != null)
-                    transform.SetParent(null);
-
-                DontDestroyOnLoad(gameObject);
             }
             else
             {
@@ -173,7 +169,7 @@ namespace Core
         /// </summary>
         private void OnDrawGizmos()
         {
-            Gizmos.DrawWireCube(player.transform.position, scanRange);
+            //Gizmos.DrawWireCube(player.transform.position, scanRange);
         }
 
         #endregion
@@ -547,11 +543,19 @@ namespace Core
 
         /// <summary>
         /// 수집 미니게임을 종료합니다.
-        /// (미구현: 필요 시 로직 추가)
         /// </summary>
-        public void EndCollect()
+        public void EndCollect(List<InventoryItem> collectedItems)
         {
-            // TODO: 수집 종료 후 로직 구현
+            GameObject.Find("MiniGameCamera").GetComponent<Camera>().enabled = false;
+            mainCam.enabled = true;
+
+            SceneManager.UnloadSceneAsync("CollectScene");
+            UpdateButton(false);
+            dayPanel.SetActive(true);
+            foreach (InventoryItem item in collectedItems)
+            {
+                InventoryController.instance.AddPassiveItem(item.GetItemType());
+            }
         }
 
         /// <summary>

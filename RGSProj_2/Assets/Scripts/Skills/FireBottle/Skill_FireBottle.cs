@@ -82,7 +82,7 @@ public class Skill_FireBottle : BaseSkill
         List<Vector2> points = new List<Vector2>();
         for(int i = 0; i < number; i++)
         {
-            points.Add(new Vector2(Random.Range(-7f, 7f), Random.Range(-3.5f, 3.5f))+(Vector2)transform.position);
+            points.Add(new Vector2(Random.Range(-4f, 4f), Random.Range(-3.5f, 3.5f))+(Vector2)transform.position);
         }
         return points;
     }

@@ -1,5 +1,6 @@
 using UnityEngine;
-using Scene;
+using Scenes;
+using UnityEngine.SceneManagement;
 
 public class CellBox : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class CellBox : MonoBehaviour
     {
         isArrived = false;
         CCM=GameObject.Find("CollectSceneManager").GetComponent<CollectSceneManager>();
+    }
+    private void Start()
+    {
     }
     public void Init(Transform pos,ItemRarity itemR)
     {
@@ -54,10 +58,26 @@ public class CellBox : MonoBehaviour
     public void SpawnItem()
     {
         if (!isArrived) return;
+
+        // CollectScene 가져오기
+        Scene collectScene = SceneManager.GetSceneByName("CollectScene");
+        if (!collectScene.isLoaded)
+        {
+            Debug.LogError("CollectScene이 아직 로드되지 않았습니다!");
+            return;
+        }
+
         GameObject GO = Instantiate(itemObject, transform.position, Quaternion.identity);
+        SceneManager.MoveGameObjectToScene(GO, collectScene); // 씬 이동
+
         Instantiate(destroyParticle, transform.position, Quaternion.identity);
+
         GO.GetComponent<ItemObj>().Init(CCM.GetRandomItem(itemRarity));
         CCM.RemoveFromList(this);
+        Destroy(gameObject);
+    }
+    private void DestroyThis()
+    {
         Destroy(gameObject);
     }
 }

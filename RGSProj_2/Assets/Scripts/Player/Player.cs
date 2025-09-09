@@ -112,7 +112,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void AddXP(int amount)
+    public void AddXP(float amount)
     {
         xp +=amount*GameManager.Instance.SM.GetFinalValue("xpMul");
         if (xp >= needXP)

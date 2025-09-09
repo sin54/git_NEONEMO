@@ -19,12 +19,12 @@ public class BaseItem : MonoBehaviour
     {
         spawnTime=Time.time;
         isSpawnCollectedBanned = true;
-        Spawner.OnEndDay += DisableThis;
+        Spawner.OnEndDay += EndDay;
     }
 
     protected virtual void OnDisable()
     {
-        Spawner.OnEndDay -= DisableThis;
+        Spawner.OnEndDay -= EndDay;
     }
     protected virtual void Update()
     {
@@ -67,8 +67,7 @@ public class BaseItem : MonoBehaviour
         }
     }
 
-    private void DisableThis()
+    protected virtual void EndDay()
     {
-        gameObject.SetActive(false);
     }
 }

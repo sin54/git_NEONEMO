@@ -7,8 +7,10 @@ using InventorySystem;
 using System;
 
 using Random = UnityEngine.Random;
+using Core;
+using UnityEngine.SceneManagement;
 
-namespace Scene
+namespace Scenes
 {
     /// <summary>
     /// 수집 씬에서 상자 및 아이템 스폰, 폭발 처리, 수집 리스트 관리를 담당합니다.
@@ -60,6 +62,10 @@ namespace Scene
         /// <summary>폭발 애니메이션 진행 중 플래그</summary>
         private bool isExploding;
 
+        public List<InventoryItem> collectedItems=new List<InventoryItem>();
+
+        public bool isBoxBreak;
+
         #endregion
 
         #region Unity Callbacks
@@ -82,6 +88,7 @@ namespace Scene
         /// </summary>
         private void Start()
         {
+            isBoxBreak = false;
             List<ItemInitializer> itemL = InventoryController.instance.items;
             for (int i = 0; i < itemL.Count; i++) {
                 if (!itemL[i].GetIsWeapon())
@@ -89,7 +96,7 @@ namespace Scene
                     EItems[(int)itemL[i].GetRarity()].Add(itemL[i].GetInventoryItem());
                 }
             }
-
+            /*
             for (int i = 0; i < EItems.Count; i++)
             {
                 string contents = $"Rarity {i}: ";
@@ -99,6 +106,7 @@ namespace Scene
                 }
                 Debug.Log(contents);
             }
+            */
 
             isExploding = false;
         }
@@ -230,6 +238,18 @@ namespace Scene
             itemList.Remove(CB);
         }
 
+        public void AddCollectedItem(InventoryItem II)
+        {
+            collectedItems.Add(II);
+        }
+        public void RemoveCollectedItem(InventoryItem II)
+        {
+            collectedItems.Remove(II);
+        }
+        public void FinishCollect()
+        {
+            GameManager.Instance.EndCollect(collectedItems);
+        }
         #endregion
 
         #region Private Methods
@@ -280,35 +300,34 @@ namespace Scene
         /// <param name="rarity">박스 레어도</param>
         private void SpawnBox(ItemRarity IR)
         {
-            Debug.Log(IR);
+
+            // Additive로 불러온 CollectScene 가져오기
+            Scene collectScene = SceneManager.GetSceneByName("CollectScene");
+            if (!collectScene.isLoaded)
+            {
+                Debug.LogError("CollectScene이 아직 로드되지 않았습니다!");
+                return;
+            }
+
+            GameObject prefab = null;
             if (IR == ItemRarity.E || IR == ItemRarity.D || IR == ItemRarity.C)
-            {
-                GameObject GO=Instantiate(boxes[0], transform.position, Quaternion.Euler(0,0,Random.Range(0,360f)));
-                GO.GetComponent<CellBox>().Init(SetRandomPos(), IR);
-                itemList.Add(GO.GetComponent<CellBox>());
-            }
-            else if (IR == ItemRarity.B || IR == ItemRarity.Bp) {
-                GameObject GO=Instantiate(boxes[1], transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360f)));
-                GO.GetComponent<CellBox>().Init(SetRandomPos(),IR);
-                itemList.Add(GO.GetComponent<CellBox>());
-            }
+                prefab = boxes[0];
+            else if (IR == ItemRarity.B || IR == ItemRarity.Bp)
+                prefab = boxes[1];
             else if (IR == ItemRarity.A || IR == ItemRarity.Ap)
-            {
-                GameObject GO = Instantiate(boxes[2], transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360f)));
-                GO.GetComponent<CellBox>().Init(SetRandomPos(),IR);
-                itemList.Add(GO.GetComponent<CellBox>());
-            }
-            else if (IR == ItemRarity.S || IR == ItemRarity.Sp || IR == ItemRarity.X) {
-                GameObject GO = Instantiate(boxes[3], transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360f)));
-                GO.GetComponent<CellBox>().Init(SetRandomPos(),IR);
-                itemList.Add(GO.GetComponent<CellBox>());
-            }
+                prefab = boxes[2];
+            else if (IR == ItemRarity.S || IR == ItemRarity.Sp || IR == ItemRarity.X)
+                prefab = boxes[3];
             else
-            {
-                GameObject GO = Instantiate(boxes[4], transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360f)));
-                GO.GetComponent<CellBox>().Init(SetRandomPos(),IR);
-                itemList.Add(GO.GetComponent<CellBox>());
-            }
+                prefab = boxes[4];
+
+            GameObject GO = Instantiate(prefab, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360f)));
+
+            // 생성된 오브젝트를 CollectScene으로 이동
+            SceneManager.MoveGameObjectToScene(GO, collectScene);
+
+            GO.GetComponent<CellBox>().Init(SetRandomPos(), IR);
+            itemList.Add(GO.GetComponent<CellBox>());
 
         }
         

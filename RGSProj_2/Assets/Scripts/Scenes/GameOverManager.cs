@@ -1,7 +1,7 @@
 using UnityEngine;
 using Core;
 
-namespace Scene
+namespace Scenes
 {
     /// <summary>
     /// 게임오버 화면에서 스페이스 키 입력을 감지하여

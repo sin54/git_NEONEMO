@@ -10,6 +10,7 @@ public class Skill_MagicBullet : BaseSkill
     private float lastAttackTime;
     [Header("ºÐ¿­")]
     public int splitAngle;
+    public AttackInfo splitAtkInfo;
     [Header("Æø¹ßÅº")]
     public float boomRadius;
     public float boomDamage;
@@ -57,9 +58,9 @@ public class Skill_MagicBullet : BaseSkill
         Vector2 leftVector = new Vector2(Mathf.Cos(angleLeft), Mathf.Sin(angleLeft)).normalized;
         Vector2 rightVector = new Vector2(Mathf.Cos(angleRight), Mathf.Sin(angleRight)).normalized;
         GameObject GO1 = GameManager.Instance.poolManager.Get(13);
-        GO1.GetComponentInChildren<RandomArrowBullet>().SetBullet(skillData.arrowSpeedByLevel[itemLevel], skillData.arrowLifeTime,skillData.attackInfoByLevel[itemLevel],leftVector,0,this);
+        GO1.GetComponentInChildren<RandomArrowBullet>().SetBullet(skillData.arrowSpeedByLevel[itemLevel], skillData.arrowLifeTime,splitAtkInfo,leftVector,0,this);
         GameObject GO2 = GameManager.Instance.poolManager.Get(13);
-        GO2.GetComponentInChildren<RandomArrowBullet>().SetBullet(skillData.arrowSpeedByLevel[itemLevel], skillData.arrowLifeTime, skillData.attackInfoByLevel[itemLevel], rightVector, 0,this);
+        GO2.GetComponentInChildren<RandomArrowBullet>().SetBullet(skillData.arrowSpeedByLevel[itemLevel], skillData.arrowLifeTime, splitAtkInfo, rightVector, 0,this);
     }
     private void Update()
     {

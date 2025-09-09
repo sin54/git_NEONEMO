@@ -289,10 +289,10 @@ namespace InventorySystem
         }
         public void AddPassiveItem(string itemType, int amount = 1)
         {
-            // ¾ÆÀÌÅÛ À¯È¿¼º Ã¼Å©
+            // ì•„ì´í…œ ìœ íš¨ì„± ì²´í¬
             if (!TestItemDict(itemType))
             {
-                Debug.LogError($"¾ÆÀÌÅÛ '{itemType}' Àº(´Â) Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+                Debug.LogError($"ì•„ì´í…œ '{itemType}' ì€(ëŠ”) ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
                 return;
             }
 

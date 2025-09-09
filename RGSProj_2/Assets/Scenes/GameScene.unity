@@ -20616,8 +20616,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1653195882}
   invenPanel: {fileID: 30574880}
-  skillPF: {fileID: 2886524492661320666, guid: b484f5c32cab7794bb6bb01b40a9c08b, type: 3}
   content: {fileID: 1371005337}
+  inventories:
+  - {fileID: 673854322}
+  - {fileID: 1281489579}
+  - {fileID: 746168508}
+  - {fileID: 1277779054}
+  statsPanel: {fileID: 550505258}
+  trashPanel: {fileID: 954978673}
+  inventoryPivoter: {fileID: 1919328210}
+  skillPF: {fileID: 2886524492661320666, guid: b484f5c32cab7794bb6bb01b40a9c08b, type: 3}
   activeSkills: []
   itemNameTxt: {fileID: 1567238665}
   itemDescriptionTxt: {fileID: 1380335279}
@@ -20645,16 +20653,6 @@ MonoBehaviour:
   - {fileID: 78009863}
   - {fileID: 1878639569}
   TM: {fileID: 1132567062}
-  isItemDragging: 0
-  inventories:
-  - {fileID: 673854322}
-  - {fileID: 1281489579}
-  - {fileID: 746168508}
-  - {fileID: 1277779054}
-  statsPanel: {fileID: 550505258}
-  trashPanel: {fileID: 954978673}
-  inventoryPivoter: {fileID: 1919328210}
-  isTrashOn: 0
   pos_inventory: {x: 238.3989, y: 0, z: 0}
   pos_change: {x: 25, y: 125, z: 0}
   ChangePanel: {fileID: 1670455712}
@@ -20674,6 +20672,8 @@ MonoBehaviour:
   R_itemAbilityTxt: {fileID: 1532493391}
   R_itemSynergeTxt: {fileID: 92288871}
   R_itemTagTxt: {fileID: 1600700892}
+  isItemDragging: 0
+  isTrashOn: 0
 --- !u!1 &742069025
 GameObject:
   m_ObjectHideFlags: 0
@@ -36035,7 +36035,7 @@ MonoBehaviour:
   - {fileID: 1373320429}
   selectedNum: 0
   maxSkillSelectedNum: 0
-  abillityPercent: 0.2
+  abilityPercent: 0.2
 --- !u!4 &1044421381
 Transform:
   m_ObjectHideFlags: 0
@@ -39610,7 +39610,7 @@ MonoBehaviour:
   bulletPrefabNum: 2
   numofArrow: 5
   addDamageAmount: 10
-  arrowCoolDown: 0.5
+  arrowCoolDown: 1
 --- !u!1 &1228315208
 GameObject:
   m_ObjectHideFlags: 0
@@ -64393,9 +64393,12 @@ MonoBehaviour:
   skillData: {fileID: 11400000, guid: c490d448c5185a247844f2ce9a635742, type: 2}
   bulletPrefabNum: 1
   splitAngle: 10
-  boomRadius: 3.5
-  boomDamage: 12
-  addDamageAmount: 0.5
+  splitAtkInfo:
+    damage: 8
+    knockbackPower: 3
+  boomRadius: 3
+  boomDamage: 10
+  addDamageAmount: 0.7
 --- !u!1 &1753503650
 GameObject:
   m_ObjectHideFlags: 0
@@ -66676,7 +66679,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25, y: 125}
+  m_AnchoredPosition: {x: 10000, y: 125}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1924324056
@@ -82854,6 +82857,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1312301377}
   - {fileID: 1478956306}
   - {fileID: 1627323407}
   - {fileID: 2098310916}
@@ -82861,7 +82865,6 @@ RectTransform:
   - {fileID: 1515933448}
   - {fileID: 2055571722}
   - {fileID: 1413240496}
-  - {fileID: 1312301377}
   - {fileID: 1899239398}
   - {fileID: 1999352419}
   - {fileID: 1337813968}

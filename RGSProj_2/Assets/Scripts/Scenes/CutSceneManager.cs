@@ -6,7 +6,7 @@ using TMPro;
 using DialogueSystem;
 using Core;
 
-namespace Scene
+namespace Scenes
 {
     /// <summary>
     /// 컷신 씬의 여러 연출(랜딩 프로토콜, 연결 상태, 경고, 충돌 등)을 관리합니다.
