@@ -41,7 +41,7 @@ namespace Scenes
         [SerializeField] public float decreasePercent;
 
         /// <summary>0~10 인덱스로 레어도 확률을 지정하는 배열</summary>
-        [SerializeField] public float[] percentages = new float[11];
+        [SerializeField] public float[] percentages = new float[5];
 
         #endregion
 
@@ -186,34 +186,16 @@ namespace Scenes
             float cumulative = 0f;
 
             cumulative += percentages[0];
-            if (random < cumulative) { SpawnBox(ItemRarity.E); return; }
+            if (random < cumulative) { SpawnBox(ItemRarity.Alpha); return; }
 
             cumulative += percentages[1];
-            if (random < cumulative) { SpawnBox(ItemRarity.D); return; }
+            if (random < cumulative) { SpawnBox(ItemRarity.Beta); return; }
 
             cumulative += percentages[2];
-            if (random < cumulative) { SpawnBox(ItemRarity.C); return; }
+            if (random < cumulative) { SpawnBox(ItemRarity.Gamma); return; }
 
             cumulative += percentages[3];
-            if (random < cumulative) { SpawnBox(ItemRarity.B); return; }
-
-            cumulative += percentages[4];
-            if (random < cumulative) { SpawnBox(ItemRarity.Bp); return; }
-
-            cumulative += percentages[5];
-            if (random < cumulative) { SpawnBox(ItemRarity.A); return; }
-
-            cumulative += percentages[6];
-            if (random < cumulative) { SpawnBox(ItemRarity.Ap); return; }
-
-            cumulative += percentages[7];
-            if (random < cumulative) { SpawnBox(ItemRarity.S); return; }
-
-            cumulative += percentages[8];
-            if (random < cumulative) { SpawnBox(ItemRarity.Sp); return; }
-
-            cumulative += percentages[9];
-            if (random < cumulative) { SpawnBox(ItemRarity.X); return; }
+            if (random < cumulative) { SpawnBox(ItemRarity.Delta); return; }
 
             // 마지막은 Unique
             SpawnBox(ItemRarity.Uni);
@@ -310,13 +292,13 @@ namespace Scenes
             }
 
             GameObject prefab = null;
-            if (IR == ItemRarity.E || IR == ItemRarity.D || IR == ItemRarity.C)
+            if (IR == ItemRarity.Alpha)
                 prefab = boxes[0];
-            else if (IR == ItemRarity.B || IR == ItemRarity.Bp)
+            else if (IR == ItemRarity.Beta)
                 prefab = boxes[1];
-            else if (IR == ItemRarity.A || IR == ItemRarity.Ap)
+            else if (IR == ItemRarity.Gamma)
                 prefab = boxes[2];
-            else if (IR == ItemRarity.S || IR == ItemRarity.Sp || IR == ItemRarity.X)
+            else if (IR == ItemRarity.Delta)
                 prefab = boxes[3];
             else
                 prefab = boxes[4];

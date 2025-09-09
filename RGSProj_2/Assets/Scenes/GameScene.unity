@@ -94456,7 +94456,7 @@ MonoBehaviour:
         m_Calls: []
     isWeapon: 0
     tags: 1
-    rarity: 2
+    rarity: 0
     itemSkillEvent: {fileID: 11400000, guid: 1f7db052e777265409552e08c58c9389, type: 2}
     isNull: 0
   - itemType: "\uD654\uC5FC\uB9C8\uBC95\uC0AC\uC758 \uC9C0\uD321\uC774"
@@ -94471,7 +94471,7 @@ MonoBehaviour:
         m_Calls: []
     isWeapon: 0
     tags: 3
-    rarity: 4
+    rarity: 1
     itemSkillEvent: {fileID: 11400000, guid: 08878ebebed14e94bbb29048df610ca3, type: 2}
     isNull: 0
   - itemType: "\uD654\uC5FC\uC815\uB839\uC758 \uC228\uACB0"
@@ -94486,7 +94486,7 @@ MonoBehaviour:
         m_Calls: []
     isWeapon: 0
     tags: 3
-    rarity: 6
+    rarity: 2
     itemSkillEvent: {fileID: 11400000, guid: b8ed1d6bed7865a4cb3b1b59c43afa14, type: 2}
     isNull: 0
   - itemType: "\uBD88\uD0C0\uB294 \uB545\uC758 \uC655\uD640"
@@ -94501,7 +94501,7 @@ MonoBehaviour:
         m_Calls: []
     isWeapon: 0
     tags: 3
-    rarity: 8
+    rarity: 3
     itemSkillEvent: {fileID: 11400000, guid: 724551ad892001e4ebff9671726a4ade, type: 2}
     isNull: 0
   - itemType: "\uBD89\uC740 \uB3CC\uBA69\uC774"
@@ -94531,7 +94531,7 @@ MonoBehaviour:
         m_Calls: []
     isWeapon: 0
     tags: 2
-    rarity: 2
+    rarity: 0
     itemSkillEvent: {fileID: 11400000, guid: b480df1e3ea008b4db4bebcd7e150655, type: 2}
     isNull: 0
   - itemType: "\uBD89\uC740 \uBE5B\uC744 \uB0B4\uBFDC\uB294 \uB3CC"
@@ -94546,7 +94546,7 @@ MonoBehaviour:
         m_Calls: []
     isWeapon: 0
     tags: 10
-    rarity: 4
+    rarity: 1
     itemSkillEvent: {fileID: 11400000, guid: 9fd2f87a9bd9fb64cbde715677f311c4, type: 2}
     isNull: 0
   - itemType: "\uC8FD\uB3C4"
@@ -94576,7 +94576,7 @@ MonoBehaviour:
         m_Calls: []
     isWeapon: 0
     tags: 16
-    rarity: 2
+    rarity: 1
     itemSkillEvent: {fileID: 11400000, guid: 2e43b3b19336e6f4da784c371e0737af, type: 2}
     isNull: 0
   - itemType: "\uC30D\uB0A0\uAC80"
@@ -94591,7 +94591,7 @@ MonoBehaviour:
         m_Calls: []
     isWeapon: 0
     tags: 16
-    rarity: 4
+    rarity: 2
     itemSkillEvent: {fileID: 11400000, guid: 2f714a315bf3de04da194907a11334fb, type: 2}
     isNull: 0
   - itemType: "\uCE74\uD0C0\uB098"
@@ -94606,7 +94606,7 @@ MonoBehaviour:
         m_Calls: []
     isWeapon: 0
     tags: 16
-    rarity: 7
+    rarity: 3
     itemSkillEvent: {fileID: 11400000, guid: 58715faf3b5339b49856a944b0e576ff, type: 2}
     isNull: 0
   - itemType: "\uC5D1\uC2A4\uCE7C\uB9AC\uBC84"
@@ -94621,7 +94621,7 @@ MonoBehaviour:
         m_Calls: []
     isWeapon: 0
     tags: 48
-    rarity: 9
+    rarity: 4
     itemSkillEvent: {fileID: 11400000, guid: 6ddf5f0d4789dd446a32cedb7d526165, type: 2}
     isNull: 0
   - itemType: "\uD6FC\uC190\uB41C \uC591\uD53C\uC9C0"
@@ -94651,7 +94651,7 @@ MonoBehaviour:
         m_Calls: []
     isWeapon: 0
     tags: 64
-    rarity: 2
+    rarity: 0
     itemSkillEvent: {fileID: 11400000, guid: a709823e940bd15449289185817f2001, type: 2}
     isNull: 0
   - itemType: "\uB9C8\uB3C4 \uC11C\uB860"
@@ -94666,7 +94666,7 @@ MonoBehaviour:
         m_Calls: []
     isWeapon: 0
     tags: 64
-    rarity: 3
+    rarity: 1
     itemSkillEvent: {fileID: 11400000, guid: 9d794cba43e844e4e815b9f89ec0faba, type: 2}
     isNull: 0
   - itemType: "\uB9C8\uB3C4 \uD559\uAC1C\uB860"
@@ -94681,7 +94681,7 @@ MonoBehaviour:
         m_Calls: []
     isWeapon: 0
     tags: 64
-    rarity: 5
+    rarity: 2
     itemSkillEvent: {fileID: 11400000, guid: 2205166a36c7a414da44b1f2d99311b1, type: 2}
     isNull: 0
   - itemType: "\uB124\uCF54\uB178\uBBF8\uD06C\uB860"
@@ -94696,7 +94696,7 @@ MonoBehaviour:
         m_Calls: []
     isWeapon: 0
     tags: 64
-    rarity: 7
+    rarity: 3
     itemSkillEvent: {fileID: 11400000, guid: 197528d2e75cfad4a8d87b927508ad0e, type: 2}
     isNull: 0
   - itemType: "\uD770 \uC5F0\uAE30"
@@ -94711,7 +94711,7 @@ MonoBehaviour:
         m_Calls: []
     isWeapon: 0
     tags: 256
-    rarity: 1
+    rarity: 0
     itemSkillEvent: {fileID: 11400000, guid: 98441743fad692647807d7824c1566ad, type: 2}
     isNull: 0
   - itemType: "\uC548\uAC1C \uBCD1"
@@ -94726,7 +94726,7 @@ MonoBehaviour:
         m_Calls: []
     isWeapon: 0
     tags: 256
-    rarity: 3
+    rarity: 0
     itemSkillEvent: {fileID: 11400000, guid: 43c9a68c2e4378746829054dfe131bdf, type: 2}
     isNull: 0
   - itemType: "\uC5F0\uB9C9\uD0C4"
@@ -94741,7 +94741,7 @@ MonoBehaviour:
         m_Calls: []
     isWeapon: 0
     tags: 256
-    rarity: 5
+    rarity: 1
     itemSkillEvent: {fileID: 11400000, guid: 45cdc00ce58112844af7c3eedfd7bc0e, type: 2}
     isNull: 0
   - itemType: "\uC2A4\uBAA8\uD06C \uBA38\uC2E0"
@@ -94756,7 +94756,7 @@ MonoBehaviour:
         m_Calls: []
     isWeapon: 0
     tags: 384
-    rarity: 6
+    rarity: 1
     itemSkillEvent: {fileID: 11400000, guid: b7f0fdff210c0af44954402dee3b38fa, type: 2}
     isNull: 0
   initializeInventory:
